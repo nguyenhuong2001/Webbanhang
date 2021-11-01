@@ -1,0 +1,90 @@
+/* Phần css của video youtobe */
+.video{
+    width: 80%;
+    margin: 10px auto;
+}
+.video__layout{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+.video-item{
+    margin: 10px 15px;
+    height: 230px;
+    border-radius: 10px;
+    position: relative;
+}
+.video img{
+    box-shadow: 5px 5px 5px rgba(105, 103, 99, 0.836);
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.col{
+    width: calc(33.33% - 60px);
+}
+.overlay{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: rgba(209, 209, 209, 0.521);
+  opacity: 0;
+}
+.overlay i{
+  font-size: 60px;
+    width: fit-content;
+    margin: 0 auto;
+    color: #ffffffd7;
+
+}
+
+.video-item:hover .overlay{
+  opacity: 1;
+
+}
+
+/* Phần css của các bài viết */
+
+.item {
+    width: 80%;
+    margin: 30px auto ;
+    height: 250px;
+    display: flex;
+    padding: 40px ;
+    
+  }
+  .des_date{
+      opacity: 0.6;
+  }
+ 
+  .item__description div + div {
+    margin-top: 5px;
+  }
+  .item__description {
+    flex: 2;
+    margin-top: 10px;
+    padding : 0 200px 0 25px  ;
+  }
+  .item__img img {
+    height: 250px;
+    padding: 10px;
+    box-shadow: 5px 5px 20px rgb(219, 216, 212);
+    border-radius: 30px;
+  }
+  .des_btn {
+ 
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 3px;
+
+    text-align: center;
+    color: white;
+    background-color: rgb(85, 85, 85);
+  }
