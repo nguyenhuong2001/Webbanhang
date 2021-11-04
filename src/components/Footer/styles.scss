@@ -1,4 +1,4 @@
-
+@import "../../variable.css";
 
 /* Style footer nằm ở cuối trang web*/
 .footer {
@@ -6,7 +6,7 @@
     width: 100%;
     height: 500px;
     padding: 50px 100px;
-    background: #f8d2c7;                 /* CHỖ MÀY ĐỔI MÀU NỀN CHO FOOTER NÈ*/
+    background: var(--background-global);              
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;

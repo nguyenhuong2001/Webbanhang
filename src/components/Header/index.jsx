@@ -27,13 +27,19 @@ function Header() {
           <li>
             <NavLink to="/login"exact ><i className="far fa-user"></i> <span>Login</span> </NavLink> 
           </li>
-       
-         
-   
-         
-   
+          <li htmlFor="nav_mobile" className="mobile">
+            <div className="burger mobile">
+              <div className="line"></div>
+              <div className="line"></div>
+              <div className="line"></div>
+              <label htmlFor="nav_mobile"> <i class="fas fa-hamburger mobile"></i></label>
+            </div> 
+          
+          </li>
         </div>
       </div>
+
+
       <div className="Header_Nav">
         <div className="Nav_left">
           <NavLink to="/"exact >home</NavLink >
@@ -48,9 +54,10 @@ function Header() {
         </div>
       </div>
       <input type="checkbox" id="nav_mobile" name="nav_mobile"/>
+
       <div className="Header_Nav nav_Mobile">
-      <div className="Nav_left">
-            <label htmlFor="nav_mobile" style={{padding:"10px"}}>&#x2715;</label>
+        <div className="Nav_left">
+          <label htmlFor="nav_mobile" style={{padding:"10px"}}>&#x2715;</label>
           <NavLink to="/"exact >home</NavLink >
           <NavLink to="/skincare" exact>Skin care</NavLink >
           <NavLink to="/haircare" exact>hair care</NavLink >
@@ -62,7 +69,7 @@ function Header() {
           <NavLink to="/contact" exact>contact</NavLink >
         </div>
       </div>
-      <label htmlFor="nav_mobile"> <i class="fas fa-hamburger mobile"></i></label>
+      {/* <label htmlFor="nav_mobile"> <i class="fas fa-hamburger mobile"></i></label> */}
     </div>
   );
 }

@@ -1,11 +1,13 @@
 @import "../../variable.css";
 .Header {
 
-  background-color: var(--background-header);
-  height: var(--height-header);
+  background-color: var(--background-global);
+  // height: var(--height-header);
+  padding: 20px 0;
   width: 100%;
   position: fixed;
   z-index: 999;
+  
   & .Header_Nav.nav_Mobile{
     position: absolute;
     display: block;
@@ -15,10 +17,12 @@
     width: 200px;
     top:calc(40px + var(--height-header));
     height: calc(100vh - var(--height-header));
-   
-    background-color: #f0fcee;
+    border-left: 1.5px rgba(51, 51, 51, 0.255) solid;
+    border-top: 1.5px rgba(51, 51, 51, 0.255) solid;
+    background-color: var(--background-global);
     transition: all ease 1s;
     border-radius: 10px 0 0 10px;
+    box-shadow:-5px 10px 15px #00000062;
 
     & a{
       display: block;
@@ -29,55 +33,75 @@
     {
       display: block;
     }
+    & .active{
+      position: relative;
+      color: rgb(200, 162, 136);
+      &:after {
+        display: none;
+      }
+    }
   }
-  & .mobile{
-    visibility: hidden;
-    font-size: 30px;
-    position: absolute;
-    top:50%;
-    right: 5%;
-    transform: translateY(-50%);
+  & .mobile{  //btn hamburger
+    display: none;
+    
+    // font-size: 30px;
+    // position: absolute;
+    // top:50%;
+    // right: 5%;
+    // transform: translateY(-50%);
   }
   & #nav_mobile{
     display: none;
   }
 
   & .Header_Nav {
-    padding: 10px 10%;
+    padding: 0px 10%;
     text-transform: uppercase;
     display: flex;
     list-style: none;
     justify-content: space-between;
-     margin-top: -40px;
-   
+    margin-top: 20px;
    
     & .active{
-      color: #c2ada9;
-      background-color: white;
-      padding: 0 5px 10px 5px;
-      border-radius:5px 5px 0 0 ;
+      position: relative;
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        color: #c2ada9;
+        background-color: #eb4d4b;
+        height: 3px;
+        width: 100%;
+        border-radius: 5px;
+      }
+      
     }
     & a{
       color: black;
       text-decoration: none;
-    }
-    & a:hover{
-        color: #adc2a9;
+      &:hover {
+        color: rgb(200, 162, 136);
+        transition: all 0.3s;
         cursor: pointer;
+      }
     }
+    
     & .Nav_left,
     .Nav_right {
       display: flex;
       gap: 40px;
     }
   }
+  
   & .Header_top {
     display: flex;
-    padding: 0 10%;
+    padding: 0px 10%;
+    // margin-bottom: 20px;
     justify-content: space-between;
     & .Header_logo {
-      width: 120px;
-      height: 35px;
+      width: 150px;
+      height: 30px;
       margin: auto 0;
     }
     & .Header_search {
@@ -92,41 +116,94 @@
         right: 10px;
         top: 50%;
         transform: translateY(-50%);
-        color: #adc2a9;
+        color: rgb(200, 162, 136);
         &:hover {
-          color: rgb(93, 145, 132);
+          color: rgba(200, 162, 136, 0.488);
+          cursor:pointer;
+          transition: all 0.3s;
         }
       }
       & input {
         width: 100%;
         height: 100%;
+        background-color: #f4e1d1;
         padding: 5px 30px;
-
         border-radius: 30px;
         outline: none;
         border: none;
         line-height: 40px;
+       
         &:focus {
-          border: 2px solid #f0fcee;
+          border: 2px solid rgb(200, 162, 136);
           box-shadow: 1px 1px 10px #c1c1c191;
         }
       }
     }
     & .Header_icon {
+      // width: 25%;
       display: flex;
+      // text-align: end;
+      align-items: center;
       gap: 20px;
-
-      color: rgba(66, 66, 66, 0.671);
+      color: #333;
       list-style: none;
-
-      line-height: var(--height-header);
-      cursor: pointer;
-      & li:hover {
-        color: rgb(66, 66, 66);
+     
+      li {
+        cursor: pointer;
+        &:hover {
+          color: rgb(200, 162, 136);
+          transition: all 0.3s;
+        }
+        //hamburger icon
+        .burger {
+         
+          // visibility: hidden;
+          cursor: pointer;
+          width: 30px;
+          height: 30px;
+          
+          &:hover {
+            transition: all 0.5s;
+            label {
+              display: block;
+              transition: all 0.5s;
+            }
+            .line {
+              display: none;
+              transition: all 0.5s;
+            }
+          }
+          .line {
+            display: block;
+            width: 30px;
+            height: 5px;
+            background-color: black;
+            margin: 5px;
+            border-radius: 2px;
+          }
+          label {
+            display: none;
+            margin-left: 5px;
+            
+            cursor: pointer;
+            font-size: 25px;
+            .fa-hamburger {
+              
+              color: #333;
+   
+            }
+          }
+        }
+        
       }
+      
       & a{
-        color: rgba(66, 66, 66, 0.671);
+        color: #333;
         text-decoration: none;
+        &:hover {
+          color: rgb(200, 162, 136);
+          transition: all 0.3s;
+        }
       }
     }
   }
