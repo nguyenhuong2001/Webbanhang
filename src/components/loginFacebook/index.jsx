@@ -3,20 +3,13 @@ import FacebookLogin from 'react-facebook-login';
 import {useState}  from 'react'
 
 function LoginFB() {
-    
-   
-        const [state, setState] = useState({
-            isLoggedIn: false,
-            userID :'',
-            name :'',
-            email :'',
-            picture :'',
-        })
         
-       // const responseFacebook = (response) => {
-            //console.table(response);
-         // }
-    const componentClicked = () =>{
+       const responseFacebook = (response) => {
+            console.table(response);
+       }
+        const componentClicked = (data) =>{
+            console.log("data",data)
+
         /*setState ({
             isLoggedIn: true,
             userID :'vvv',
@@ -24,11 +17,7 @@ function LoginFB() {
             email :'vv',
             picture :'vvv',
         })*/
-    }
-    console.table (state)
-    if (state.isLoggedIn){
-        console.log("null")
-    }else {
+        }   
         return (
             <div className = "LoginFB">
             
@@ -36,13 +25,13 @@ function LoginFB() {
                     appId="457294225975768"
                     autoLoad={true}
                     fields="name,email,picture"
-                   // onClick={componentClicked}
-                    //callback={responseFacebook} 
+                    onClick={componentClicked}
+                    callback={responseFacebook} 
                    
                 />,
             </div>
         ) 
-    } 
+     
 }
 
 export default LoginFB
