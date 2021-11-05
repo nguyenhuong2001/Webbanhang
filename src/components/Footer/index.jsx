@@ -6,7 +6,7 @@ function Footer() {
         <div className ="footer">
                 <div class="container">
                 <form class="form">
-                    <input type="email" class="form__field" placeholder="Đăng Ký Subscribe Email" />
+                    <input type="email" class="form__field" placeholder="Đăng kí Subscribe Email" />
                     <button type="button" class="btn btn--primary  uppercase">Gửi</button>
                 </form>
                 <div class="noidung">

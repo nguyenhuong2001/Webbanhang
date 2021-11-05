@@ -12,7 +12,7 @@ function Contact() {
       <div className="body_Page">
       <h2 className="title_pro">{`TÂM SỰ MỎNG <3`}</h2>
       <div className="desc" >
-         <p >Liên hệ Bùi Quốc Huy để làm đẹp nhé</p>
+         <p >Liên hệ ENVY để làm đẹp nhé</p>
          <p>Hầu hết những bạn bắt đầu làm blog và theo đuổi con đường blogging của mình sẽ nhận ra rằng ĐÂY LÀ LÚC ĐỂ THAY ĐỔI.
 
 Bởi vì bạn nhận ra rằng quá nhiều điều thú vị mà mình chưa biết, quá nhiều câu hỏi bản thân còn chưa trả lời được và quá nhiều thử thách đang chờ ở phía trước.
