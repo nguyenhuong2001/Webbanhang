@@ -13,9 +13,9 @@ function LoginFB() {
             picture :'',
         })
         
-        const responseFacebook = (response) => {
-            console.table(response);
-          }
+       // const responseFacebook = (response) => {
+            //console.table(response);
+         // }
     const componentClicked = () =>{
         /*setState ({
             isLoggedIn: true,
@@ -36,8 +36,8 @@ function LoginFB() {
                     appId="457294225975768"
                     autoLoad={true}
                     fields="name,email,picture"
-                   
-                    callback={responseFacebook} 
+                   // onClick={componentClicked}
+                    //callback={responseFacebook} 
                    
                 />,
             </div>
