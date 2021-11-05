@@ -3,7 +3,7 @@
 .Slider{ 
     // margin-top: -50px;
     width: 100%;
-    height: calc(120vh - var(--height-header)*7 );
+    height: calc(120vh - var(--height-header)*7 ); 
     overflow-x: hidden;
     position: sticky;
     & .sliders{

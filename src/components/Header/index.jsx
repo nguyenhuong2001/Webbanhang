@@ -27,7 +27,7 @@ function Header() {
           <li>
             <NavLink to="/login"exact ><i className="far fa-user"></i> <span>Login</span> </NavLink> 
           </li>
-          <li htmlFor="nav_mobile" className="mobile">
+          <li htmlFor="nav_mobile" className="mobile">  
             <div className="burger mobile">
               <div className="line"></div>
               <div className="line"></div>
