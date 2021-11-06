@@ -1,4 +1,5 @@
 @import "../../variable.css";
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=Pragati+Narrow&family=Sacramento&display=swap');
 .Header {
 
   background-color: var(--background-global);
@@ -7,6 +8,7 @@
   width: 100%;
   position: fixed;
   z-index: 999;
+  font-family: 'Karla', sans-serif;
   
   & .Header_Nav.nav_Mobile{
     position: absolute;
@@ -61,7 +63,8 @@
     list-style: none;
     justify-content: space-between;
     margin-top: 20px;
-   
+   letter-spacing: 1.5px;
+   font-size: 16px;
     & .active{
       position: relative;
       &:after {
@@ -72,7 +75,7 @@
         color: #c2ada9;
         background-color: #eb4d4b;
         height: 3px;
-        width: 100%;
+        width: 98%;
         border-radius: 5px;
       }
       
@@ -147,8 +150,11 @@
       gap: 20px;
       color: #333;
       list-style: none;
+      font-size: 14px;
+      letter-spacing: 1px;
      
       li {
+        text-transform: uppercase;
         cursor: pointer;
         &:hover {
           color: rgb(200, 162, 136);

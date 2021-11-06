@@ -5,6 +5,7 @@ import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import ProductSlider from '../../components/ProductSlider'
 import Slider from '../../components/Slider'
+import Viewport from '../../components/Viewport'
 const bestSeller = [
     
     { link_img:"https://imagizer.imageshack.com/img922/1010/kl2FCt.jpg",
@@ -36,7 +37,11 @@ const bestSeller = [
         { img: "https://imagizer.imageshack.com/img922/2549/B2zMSB.jpg" },
         { img: "https://imagizer.imageshack.com/img923/9061/9ZFZH7.jpg" },
         { img: "https://imagizer.imageshack.com/img924/6814/H2oqYZ.jpg" },
-      ];
+        
+    ];
+    const Img_Viewport = "https://imagizer.imageshack.com/img922/3648/9js3Jx.jpg"; //img viewport
+    
+
 function Home() {
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -50,6 +55,8 @@ function Home() {
                      <h2 className="title_pro ">LATEST PRODUCT</h2>
                         <ProductSlider />
                  </div>
+
+                 <Viewport Img_Viewport={Img_Viewport}/>
                  
                  <h2 className="title_pro">BEST SELLER</h2>
                  <BestSeller Listproduct={bestSeller}/>
