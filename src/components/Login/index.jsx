@@ -2,6 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './styles.scss';
 function Login() {
+  //Xử lý sumit form
+  /*
+  const [email,setEmail] = useState('')
+  const [name,setName] = useState('')
+  const handleSubmit = () => {
+    //Call API 
+    console.log({name,email})
+  }
+  */
   return (
     <div className="Login">    
       <div className="login-form">
