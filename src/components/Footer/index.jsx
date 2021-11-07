@@ -1,6 +1,6 @@
-import React from 'react'
-import "./styles.scss"
-
+import React from 'react';
+import "./styles.scss";
+import { Link } from 'react-router-dom';
 function Footer() {
     return (
         <div className ="footer">
@@ -13,9 +13,9 @@ function Footer() {
                     <div class="noi-dung about">
                         <h2>ABOUT US</h2>
                         <ul class="link">
-                            <li><a href="#">Introduce about the company</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Blog</a></li>
+                            <li><a href="#"><Link className = "Contract" to="../../Contact">Introduce about the company</Link></a></li>
+                            <li><a href="#"><Link className = "Contract" to="../../Contact">Contact</Link></a></li>
+                            <li><a href="#"><Link className = "Blogger" to="../../Blog">Blog</Link></a></li>
                         </ul>
                     
                         <ul class="social-icon">
@@ -29,10 +29,10 @@ function Footer() {
                     <div class="noi-dung links">
                         <h2>PRODUCT</h2>
                         <ul>
-                            <li><a href="#">Home page</a></li>
-                            <li><a href="#">Best Seller</a></li>
-                            <li><a href="#">Latest Product</a></li>
-                            <li><a href="#">Reduce Product</a></li>
+                            <li><a href="#"><Link className = "Home" to="../../">Home page</Link></a></li>
+                            <li><a href="#"><Link className = "Home" to="../../">Best Seller</Link></a></li>
+                            <li><a href="#"><Link className = "Home" to="../../">Latest Product</Link></a></li>
+                            <li><a href="#"><Link className = "Home" to="../../">Reduce Product</Link></a></li>
                         </ul>
                     </div>
                    

@@ -14,7 +14,9 @@ function Blog() {
       <div className="body_Page">
         <Blogger/>
       </div>
-      <Footer/>
+      <div className = "footer_Page">
+        <Footer/>
+      </div>
     </div>
   );
 }

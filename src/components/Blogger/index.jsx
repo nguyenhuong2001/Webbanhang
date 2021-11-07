@@ -64,7 +64,7 @@ function Blogger() {
     return (
         <div className="Blogger">
             <div class = "intro">
-                  <img src="https://imageshack.com/i/po6UIvcip" alt="Introduction blog" />
+                  <img src="https://imageshack.com/i/poCuetrij" alt="Introduction blog" />
                   <div class = "intro-text">
                       <div class = "intro-content">
                           <h1>Beauty blog </h1>

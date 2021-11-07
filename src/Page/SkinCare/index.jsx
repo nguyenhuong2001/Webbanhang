@@ -3,6 +3,7 @@ import BestSeller from "../../components/BestSeller";
 import Header from "./../../components/Header/index";
 import Slider from "./../../components/Slider/index";
 import Anhdep from "./../../components/AnhDep/index";
+import Footer from "./../../components/Footer/index";
 const skinCare = [
   {
     link_img:
@@ -65,6 +66,7 @@ function SkinCare() {
         <BestSeller Listproduct={skinCare} />
         <Anhdep />
       </div>
+      <Footer />
     </div>
   );
 }

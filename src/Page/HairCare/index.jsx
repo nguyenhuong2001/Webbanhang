@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
-import Header from "./../../components/Header/index";
 import Anhdep from "./../../components/AnhDep/index";
-import Slider from "./../../components/Slider/index";
 import BestSeller from "./../../components/BestSeller/index";
+import Header from "./../../components/Header/index";
+import Slider from "./../../components/Slider/index";
+import Footer from "./../../components/Footer/index";
+
 const hairCare = [
   {
     link_img:
@@ -63,6 +65,7 @@ function HairCare() {
         <BestSeller Listproduct={hairCare} />
         <Anhdep />
       </div>
+      <Footer />
     </div>
   );
 }
