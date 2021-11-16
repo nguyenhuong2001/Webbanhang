@@ -90,10 +90,14 @@
       }
     }
     
-    & .Nav_left,
-    .Nav_right {
+    & .Nav_right {
       display: flex;
+      padding : 0 30px;
+      gap: 60px;
+    }
+    & .Nav_left{
       gap: 40px;
+      display: flex;
     }
   }
   
@@ -147,12 +151,75 @@
       display: flex;
       // text-align: end;
       align-items: center;
-      gap: 20px;
+      gap: 60px;
       color: #333;
       list-style: none;
-      font-size: 14px;
+      font-size: 20px;
       letter-spacing: 1px;
-     
+      
+        /*
+       // & :hover{
+          display: block;  
+        }*/
+        & .Header_icon-cart{
+          & .css-jcn4dz-MuiBadge-badge{
+            margin-top: 10.5px;
+            margin-right: 7px;
+            
+          }
+
+          position: relative;
+          &:hover .Header_icon-empty {
+            display: block;  
+          }
+          
+
+          & .Header_icon-notice{
+            position: absolute;
+          }
+          
+          & .Header_icon-empty{
+            
+            position: absolute;
+            top: 110%;
+            right: -130px;
+            background-color: #fff;
+            width:350px;
+            height:180px;
+            border-radius: 2px;
+            box-shadow: 0 1px 3.125rem 1px rgba(0, 0, 0, 0.2);
+            display: none;
+            cursor: default;
+            
+          
+            //Mũi tên
+            & ::after{
+              content:"";
+              position: absolute;
+              right: 140px;
+              top: -20px;
+              border-width: 10px 18px;
+              border-style: solid;
+              border-color: transparent transparent #FFF transparent;
+              cursor: pointer;
+            }
+            & .Header_icon-no_cart{
+              width: 55%;
+              display: block;
+              margin: auto;
+              padding: 24px 0;
+            }
+            span {
+              display: block;
+              text-align: center;
+              
+            }
+            
+          }
+        
+        
+      }
+      
       li {
         text-transform: uppercase;
         cursor: pointer;
@@ -160,6 +227,7 @@
           color: rgb(200, 162, 136);
           transition: all 0.3s;
         }
+        
         //hamburger icon
         .burger {
          

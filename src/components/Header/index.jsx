@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import Badge from "@mui/material/Badge";
 import { NavLink } from "react-router-dom";
 import "./styles.scss";
 
 function Header() {
-  
+  const [check, setCheck] = useState(false);
+
   return (
     <div className="Header">
-    
       <div className="Header_top">
         <img
           src="https://imagizer.imageshack.com/img923/8343/Z1aWM9.png"
@@ -18,55 +19,135 @@ function Header() {
           <i className="fas fa-search Search_icon"></i>
         </div>
         <div className="Header_icon">
-          <li>
-            <i className="fas fa-shopping-cart"></i> <span>Cart</span>
+          <li className="Header_icon-cart">
+            <Badge
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              color="secondary"
+              badgeContent={1}
+            >
+              <lord-icon
+                src="https://cdn.lordicon.com/dnoiydox.json"
+                trigger="hover"
+                colors="primary:#242424,secondary:#e88c30"
+                stroke="100"
+                scale="44"
+                axis-x="51"
+                axis-y="49"
+                style={{width:'50px', height:'50px'}}>
+            </lord-icon>
+              
+            </Badge>
+            
+
+            {check ? (
+              <div className="Header_icon-empty">
+                <img
+                  src="https://imageshack.com/i/poyiw2qep"
+                  alt=""
+                  class="Header_icon-no_cart"
+                />
+                <span>Yes Product</span>
+              </div>
+            ) : (
+              <div className="Header_icon-empty">
+                <img
+                  src="https://imageshack.com/i/poyiw2qep"
+                  alt=""
+                  class="Header_icon-no_cart"
+                />
+                <span>No Product</span>
+              </div>
+            )}
           </li>
           <li>
-            <i className="far fa-heart"></i> <span>Favorite</span>
+          <lord-icon
+          src="https://cdn.lordicon.com/hrqwmuhr.json"
+          trigger="hover"
+          colors="primary:#121331,secondary:#e88c30"
+          style={{width:'50px', height:'50px', transform: 'rotate(180deg)'}}>
+          </lord-icon>
           </li>
           <li>
-            <NavLink to="/login"exact ><i className="far fa-user"></i> <span>Login</span> </NavLink> 
+            <NavLink to="/login" exact>
+            <lord-icon
+                src="https://cdn.lordicon.com/bwnhdkha.json"
+                trigger="hover"
+                colors="primary:#121331,secondary:#e88c30"
+                stroke="68"
+                scale="49"
+                style={{width:'50px', height:'50px'}}>
+            </lord-icon>
+            </NavLink>
           </li>
-          <li htmlFor="nav_mobile" className="mobile">  
-            <div className="burger mobile">
-              <div className="line"></div>
-              <div className="line"></div>
-              <div className="line"></div>
-              <label htmlFor="nav_mobile"> <i class="fas fa-hamburger mobile"></i></label>
-            </div> 
-          
+          <li htmlFor="nav_mobile" className="mobile">
+              <label htmlFor="nav_mobile">
+                {" "}
+                <i className="fad fa-bars" style = {{fontSize: '34px'}}></i>
+              </label>
           </li>
         </div>
       </div>
-
 
       <div className="Header_Nav">
         <div className="Nav_left">
-          <NavLink to="/"exact >home</NavLink >
-          <NavLink to="/skincare" exact>Skin care</NavLink >
-          <NavLink to="/haircare" exact>hair care</NavLink >
-          <NavLink to="/bodycare" exact>body care</NavLink >
-          <NavLink to="/makeup" exact>make up</NavLink >
+          <NavLink to="/" exact>
+            home
+          </NavLink>
+          <NavLink to="/skincare" exact>
+            Skin care
+          </NavLink>
+          <NavLink to="/haircare" exact>
+            hair care
+          </NavLink>
+          <NavLink to="/bodycare" exact>
+            body care
+          </NavLink>
+          <NavLink to="/makeup" exact>
+            make up
+          </NavLink>
         </div>
         <div className="Nav_right">
-          <NavLink to="/blog" exact>blog</NavLink >
-          <NavLink to="/contact" exact>contact</NavLink >
+          <NavLink to="/blog" exact>
+            blog
+          </NavLink>
+          <NavLink to="/contact" exact>
+            contact
+          </NavLink>
         </div>
       </div>
-      <input type="checkbox" id="nav_mobile" name="nav_mobile"/>
+      <input type="checkbox" id="nav_mobile" name="nav_mobile" />
 
       <div className="Header_Nav nav_Mobile">
         <div className="Nav_left">
-          <label htmlFor="nav_mobile" style={{padding:"10px"}}>&#x2715;</label>
-          <NavLink to="/"exact >home</NavLink >
-          <NavLink to="/skincare" exact>Skin care</NavLink >
-          <NavLink to="/haircare" exact>hair care</NavLink >
-          <NavLink to="/bodycare" exact>body care</NavLink >
-          <NavLink to="/makeup" exact>make up</NavLink >
+          <label htmlFor="nav_mobile" style={{ padding: "10px" }}>
+            &#x2715;
+          </label>
+          <NavLink to="/" exact>
+            home
+          </NavLink>
+          <NavLink to="/skincare" exact>
+            Skin care
+          </NavLink>
+          <NavLink to="/haircare" exact>
+            hair care
+          </NavLink>
+          <NavLink to="/bodycare" exact>
+            body care
+          </NavLink>
+          <NavLink to="/makeup" exact>
+            make up
+          </NavLink>
         </div>
         <div className="Nav_right">
-          <NavLink to="/blog" exact>blog</NavLink >
-          <NavLink to="/contact" exact>contact</NavLink >
+          <NavLink to="/blog" exact>
+            blog
+          </NavLink>
+          <NavLink to="/contact" exact>
+            contact
+          </NavLink>
         </div>
       </div>
       {/* <label htmlFor="nav_mobile"> <i class="fas fa-hamburger mobile"></i></label> */}

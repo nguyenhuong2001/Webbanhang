@@ -16,6 +16,8 @@ import SkinCare from './Page/SkinCare/index';
 import NotFound from './Page/404/index';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+import DetailProduct from './Page/DetailProduct'
+//import Detail from './components/Detail'
 
 
 
@@ -37,7 +39,9 @@ function App() {
         <Route path="/skincare" component={SkinCare} exact/>
         <Route path="/login" component={Login} exact/>
         <Route path="/signup" component={SignUp} exact/>
+        <Route path="/detail" component={DetailProduct} exact/>
         <Route path="/:id" component={NotFound} />
+        
         
       </Switch>
       <MessengerCustomerChat
