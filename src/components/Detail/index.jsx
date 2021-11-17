@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles.scss'
 import { Link } from 'react-router-dom'
+import Evaluation from '../Evaluation'
 const sanpham = 
     {
         SpID : 'sp1',
@@ -98,7 +99,8 @@ function Detail() {
                         </div>
                     </div>
                 </div>
-            </div>      
+            </div> 
+            <Evaluation />     
         </div>
     )
 }

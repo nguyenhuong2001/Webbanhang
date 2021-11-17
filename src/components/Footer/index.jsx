@@ -19,10 +19,10 @@ function Footer() {
                         </ul>
                     
                         <ul class="social-icon">
-                                <li><a href=""><i class="fab fa-facebook"></i></a></li>
-                                <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                                <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                                <li><a href=""><i class="fab fa-youtube"></i></a></li>
+                                <li class = "social-icon-fb"><a href="https://www.facebook.com/ENVY-UIT-100244785808927"><i class="fab fa-facebook"></i></a></li>
+                                <li class = "social-icon-ins"><a href="https://www.instagram.com/thecosmeticsofficial/"><i class="fab fa-instagram"></i></a></li>
+                                <li class = "social-icon-tw"><a href="https://twitter.com/cb_beautynews"><i class="fab fa-twitter"></i></a></li>
+                                <li class = "social-icon-ytb"><a href="https://www.youtube.com/user/lisaeldridgedotcom"><i class="fab fa-youtube"></i></a></li>
                         </ul>
                     </div>
                     
@@ -40,19 +40,41 @@ function Footer() {
                         <h2>CONTACT INFO</h2>
                         <ul class="info">
                             <li>
-                                <span><i class="fa fa-map-marker"></i></span>
+                                <span>
+                                <lord-icon
+                                    src="https://cdn.lordicon.com/zzcjjxew.json"
+                                    trigger="loop"
+                                    colors="primary:#121331,secondary:#c76f16"
+                                    style={{width:'50px', height:'50px'}}>
+                                </lord-icon>
+                                </span>
                                 <span>Street 6<br />
                                     Linh Trung Ward, Thu Duc City<br />
                                     Viet Nam</span>
                             </li>
                             <li>
-                                <span><i class="fa fa-phone"></i></span>
+                                <span>
+                                <lord-icon
+                                    src="https://cdn.lordicon.com/hciqteio.json"
+                                    trigger="loop"
+                                    colors="primary:#121331,secondary:#c76f16"
+                                    style={{width:'50px', height:'50px'}}>
+                                </lord-icon>
+                                </span>
                                 <p><a href="#">+84 918 743 787</a>
                                     <br />
                                     <a href="#">+84 961 710 409</a></p>
                             </li>
                             <li>
-                                <span><i class="fa fa-envelope"></i></span>
+                                <span>
+                                <lord-icon
+                                    src="https://cdn.lordicon.com/rhvddzym.json"
+                                    trigger="loop"
+                                    colors="primary:#c76f16,secondary:#08a88a"
+                                    axis-y="30"
+                                    style={{width:'50px', height:'50px'}}>
+                                </lord-icon>
+                                </span>
                                 <a href="#">nguyenhuong04032001@gmail.com</a>
                             </li>
                         </ul>
