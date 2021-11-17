@@ -1,9 +1,10 @@
 import React from 'react'
 import './styles.scss'
+import { Link } from 'react-router-dom'
 const sanpham = 
     {
         SpID : 'sp1',
-        TenSP : 'Dewy Glow Jelly Cream',
+        TenSP : 'Dewy  Glow  Jelly  Cream',
         Photo : [
              'https://imageshack.com/i/pobSYDAvp',
              'https://imageshack.com/i/pmhgVVmFj',
@@ -24,7 +25,10 @@ function Detail() {
         <div className = "Detail">
             <div class = "product">
                 <div class = "product-top">
-                    <p>Home</p> <span> &rarr; </span> <p>Skin Care</p> <span> &rarr; </span><p>{sanpham.TenSP}</p>
+                    <p><Link className="Home" to="../../"style={{textDecoration:'none',color:'#8e8686'}}> Home </Link></p> 
+                    <span> &rarr; </span>
+                    <p><Link className="SkinCare" to="../../skincare"style={{textDecoration:'none',color:'#8e8686'}}> SkinCare </Link></p> 
+                    <span> &rarr; </span><p style={{color:'#8e8686'}}>{sanpham.TenSP}</p>
                 </div>
 
                 <div class = "product-content">
@@ -38,46 +42,63 @@ function Detail() {
                             )}
                         </div>  
                     </div>
-
                     <div class = "product-content-right">
-                        <div class = "product-brand"></div>
-                            <p>{sanpham.Brand}</p>
+                        <div class = "product-brand">
+                            <p><b>Brand: {sanpham.Brand}</b></p>
+                        </div>   
                         <div class = "product-name">
-                            <p>{sanpham.TenSP}</p>
+                            <h3>{sanpham.TenSP}</h3>
                         </div>
-
                         <div class = "product-evaluation">
-                        </div>
 
+
+
+                        </div>
                         <div class = "product-des"> 
                             <p>{sanpham.MoTa}</p>
                         </div>
-
-                        <div class = "product-price">
-                            <p>{sanpham.GiaSP}</p>
-                        </div>
-
-                        <div class = "product-state"></div>
-
-                        <div class = "product-number">
-                            <label htmlFor="spnumber">Number: </label>
-                            <input type="number" value="1" id = "spnumber"  min="0" max="10"/>
+                        <div class = "product-rest">
+                            <div class = "product-price">
+                                <h1>{sanpham.GiaSP}</h1>
+                                <p>Free shipping with $50+</p>
+                            </div>
+                            <div class = "product-number">
+                                <label for="spnumber">Number: </label>
+                                <select name="spnumber" id = "spnumber">
+                                    <option value= "1" >1</option>
+                                    <option value= "2" >2</option>
+                                    <option value= "3" >3</option>
+                                    <option value= "4" >4</option>
+                                    <option value= "5" >5</option>
+                                    <option value= "6" >6</option>
+                                    <option value= "7" >7</option>
+                                    <option value= "8" >8</option>
+                                    <option value= "9" >9</option>
+                                    <option value= "10">10</option>
+                                </select>
+                            </div>
+                            <div class = "product-state">
+                                <p>Stocking</p>
+                            </div>
                         </div>
 
                         <div class = "btn-addtocart">
-                                <button><i class="fas fa-shopping-cart"></i><p>ADD TO CART</p></button>
+                            <button><i class="fad fa-money-bill-alt"></i><span> BUY </span></button>
+                            <button><i class="fas fa-shopping-cart"></i><span>ADD TO CART</span></button>
+                        </div>
+                        <div class ="hr-point">
+                            <hr /><br /><p>BUY THIS AND EARN 75 POINTS</p><br /><hr />
+                        </div>
+                        <div class = "product-hotline">
+                            <h4>Hotline: </h4>
+                            <span><i class="fas fa-phone-volume"></i>
+                                <Link className="Home" to="../../contact"style={{textDecoration:'none'}}> 0961. 710. 409 </Link>
+                            </span>
+                            
                         </div>
                     </div>
-
                 </div>
-            </div>   
-            
-            <div class = "hotline">
-                <span><i class="fas fa-phone-volume"></i></span>
-                <p><a href="">0961.710.409</a></p>
-            </div>
-
-            
+            </div>      
         </div>
     )
 }

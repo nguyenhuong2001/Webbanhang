@@ -171,6 +171,8 @@
           position: relative;
           &:hover .Header_icon-empty {
             display: block;  
+            z-index: 9999999;
+            
           }
           
 
