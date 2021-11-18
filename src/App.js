@@ -1,31 +1,33 @@
 
-import MessengerCustomerChat from 'react-messenger-customer-chat';
-import './App.css';
 import React from "react";
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 import { Route, Switch } from 'react-router';
-// import AOS from 'aos';
-// import "aos/dist/aos.css";
-import Home from './Page/Home/index';
+import './App.css';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
+import NotFound from './Page/404/index';
 import Blog from './Page/Blog';
 import BodyCare from './Page/BodyCare';
 import Cart from './Page/Cart/index';
 import Contact from './Page/Contact';
+import DetailProduct from './Page/DetailProduct';
 import HairCare from './Page/HairCare/index';
+// import AOS from 'aos';
+// import "aos/dist/aos.css";
+import Home from './Page/Home/index';
 import Makeup from './Page/MakeUp/index';
 import SkinCare from './Page/SkinCare/index';
-import NotFound from './Page/404/index';
-import Login from './components/Login';
-import SignUp from './components/SignUp';
-import DetailProduct from './Page/DetailProduct'
 //import Detail from './components/Detail'
 
 
 
 function App() {
+  
   // useEffect(() => {
   //   AOS.init();
   //   AOS.refresh();
   // }, []);
+  
   return (
     <div className="App" >
       <Switch>

@@ -7,40 +7,24 @@ import Footer from "./../../components/Footer/index";
 const skinCare = [
   {
     link_img:
-      "https://assets.vogue.com/photos/60e44ea0cd2d1c05db4c9d80/master/w_1280,c_limit/slide_9.jpg",
-    title: "Augustinus Bader the Rich Cream",
-    price: 170,
-  },
-  {
-    link_img:
-      "https://assets.vogue.com/photos/5ff5d1d667b8c1050b8ab3cd/master/w_1280,c_limit/slide.jpg",
-    title: "Joanna Vargas Super Nova Serum",
-    price: 307,
-  },
-  {
-    link_img:
-      "https://assets.vogue.com/photos/5ea9ee2804839000081fcf98/master/w_1280,c_limit/03.jpg",
-    title: "NuFace Trinity Facial Toning Device",
-    price: 339,
-  },
-  {
-    link_img:
-      "https://assets.vogue.com/photos/5ea9ed9dbd7f01000884abbb/master/w_1280,c_limit/02.jpg",
-    title: "Lumity Skin Nutrients Facial Oil",
-    price: 80,
-  },
-  {
-    link_img:
-      "https://assets.vogue.com/photos/5ea9ef3bdf30db0008ae88ae/master/w_1280,c_limit/07.jpg",
-    title: "Dr. Barbara Sturm Brightening Serum",
-    price: 310,
-  },
-  {
-    link_img:
-      "https://assets.vogue.com/photos/5ff3981a439cffbebd9a6dd7/master/w_1280,c_limit/1.jpg",
-    title: "SK-II Facial Treatment Essence",
+      "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1566854276-71kbb2hyo3l-sl1500-1566854261.jpg?crop=0.886xw:1xh;center,top&resize=768:*",
+    title: "Keratin Smooth Color Shampoo and Conditioner",
     price: 99,
-  },
+    SpID : 'sp1',
+    TenSP : 'Dewy  Glow  Jelly  Cream',
+    Photo : [
+         'https://imageshack.com/i/pobSYDAvp',
+         'https://imageshack.com/i/pmhgVVmFj',
+         'https://imageshack.com/i/pop7krFyj',
+         'https://imageshack.com/i/pohj5JTpj',
+        
+    ] ,
+    MoTa : 'Jeju Cherry Blossom helps boost skin radiance. Infused with Betaine, a moisturizing ingredient derived from sugar beets that creates a protective layer to prevent hydration loss. Jelly texture absorbs instantly into skin without any sticky residue ',
+    GiaSP : '$25',
+    SL : 11 ,
+    Brand : 'innisfree',
+    ThanhPhan : 'Animal-Originated Ingredients. mineral oil, polyacrylamides, imidazolidinyl urea, triethanolamine, silicone oil, artificial fragrances, synthetic Colorants.'
+  }
 ];
 const List_Img = [
   {

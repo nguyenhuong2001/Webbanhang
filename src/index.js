@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import CouterContext from './Context/counter';
 
 ReactDOM.render(
   <React.StrictMode>
+    <CouterContext>
     <BrowserRouter>
       <App />
     </BrowserRouter>
+    </CouterContext>
 
   </React.StrictMode>,
   document.getElementById('root')

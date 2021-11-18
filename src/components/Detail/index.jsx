@@ -1,27 +1,45 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './styles.scss'
 import { Link } from 'react-router-dom'
 import Evaluation from '../Evaluation'
-const sanpham = 
-    {
-        SpID : 'sp1',
-        TenSP : 'Dewy  Glow  Jelly  Cream',
-        Photo : [
-             'https://imageshack.com/i/pobSYDAvp',
-             'https://imageshack.com/i/pmhgVVmFj',
-             'https://imageshack.com/i/pop7krFyj',
-             'https://imageshack.com/i/pohj5JTpj',
-            
-        ] ,
-        MoTa : 'Jeju Cherry Blossom helps boost skin radiance. Infused with Betaine, a moisturizing ingredient derived from sugar beets that creates a protective layer to prevent hydration loss. Jelly texture absorbs instantly into skin without any sticky residue ',
-        GiaSP : '$25',
-        SL : '11' ,
-        Brand : 'innisfree',
-    }
+import { Couter } from '../../Context/counter'
 
 
 
 function Detail() {
+    const {setCountPro,productDetail} =useContext(Couter);
+    console.log(productDetail)
+    const addToCart = () => {
+        const Product ={...productDetail,SL: document.getElementById('spnumber').value*1}
+        if (JSON.parse(localStorage.getItem('ListProduct'))){
+            var product = JSON.parse(localStorage.getItem('ListProduct'))
+            var flag = false
+
+           product= product.map(function(item){
+              if (item.SpID=== Product.SpID) {
+                  item = {...item, SL : item.SL*1 +Product.SL}
+                  flag = true;
+                  return item;
+
+              } 
+              return item
+            })
+            console.log(flag);
+            if (!flag){
+                localStorage.setItem('ListProduct', JSON.stringify([...product,Product]))
+                setCountPro(JSON.parse(localStorage.getItem('ListProduct')).length)
+            }
+            else{
+                localStorage.setItem('ListProduct', JSON.stringify([...product]))
+            }
+            
+        }
+        else{
+            
+            localStorage.setItem('ListProduct', JSON.stringify([Product]))
+            setCountPro(JSON.parse(localStorage.getItem('ListProduct')).length)
+        }
+    }
     return (
         <div className = "Detail">
             <div class = "product">
@@ -29,26 +47,28 @@ function Detail() {
                     <p><Link className="Home" to="../../"style={{textDecoration:'none',color:'#8e8686'}}> Home </Link></p> 
                     <span> &rarr; </span>
                     <p><Link className="SkinCare" to="../../skincare"style={{textDecoration:'none',color:'#8e8686'}}> SkinCare </Link></p> 
-                    <span> &rarr; </span><p style={{color:'#8e8686'}}>{sanpham.TenSP}</p>
+                    <span> &rarr; </span><p style={{color:'#8e8686'}}>{productDetail.TenSP}</p>
                 </div>
 
                 <div class = "product-content">
                     <div class = "product-content-left">
                         <div class = "image-main">
-                            <img src={`${sanpham.Photo[0]}`} alt="" />
+                            <img src={productDetail.link_img} alt="" />
                         </div>
                         <div class = "image-sub">
-                            {sanpham.Photo.map(item => 
+                            &lt;
+                            {productDetail.Photo.map(item => 
                                 <img src={`${item}`} alt="" />
                             )}
+                            &gt;
                         </div>  
                     </div>
                     <div class = "product-content-right">
                         <div class = "product-brand">
-                            <p><b>Brand: {sanpham.Brand}</b></p>
+                            <p><b>Brand: {productDetail.Brand}</b></p>
                         </div>   
                         <div class = "product-name">
-                            <h3>{sanpham.TenSP}</h3>
+                            <h3>{productDetail.TenSP}</h3>
                         </div>
                         <div class = "product-evaluation">
 
@@ -56,11 +76,11 @@ function Detail() {
 
                         </div>
                         <div class = "product-des"> 
-                            <p>{sanpham.MoTa}</p>
+                            <p>{productDetail.MoTa}</p>
                         </div>
                         <div class = "product-rest">
                             <div class = "product-price">
-                                <h1>{sanpham.GiaSP}</h1>
+                                <h1>{productDetail.GiaSP}</h1>
                                 <p>Free shipping with $50+</p>
                             </div>
                             <div class = "product-number">
@@ -85,7 +105,7 @@ function Detail() {
 
                         <div class = "btn-addtocart">
                             <button><i class="fad fa-money-bill-alt"></i><span> BUY </span></button>
-                            <button><i class="fas fa-shopping-cart"></i><span>ADD TO CART</span></button>
+                            <button onClick = {addToCart}><i class="fas fa-shopping-cart"></i><span>ADD TO CART</span></button>
                         </div>
                         <div class ="hr-point">
                             <hr /><br /><p>BUY THIS AND EARN 75 POINTS</p><br /><hr />

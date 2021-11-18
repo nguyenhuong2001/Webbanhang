@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+
+import React, { useContext, useEffect, useState } from "react";
 import Badge from "@mui/material/Badge";
 import { NavLink } from "react-router-dom";
 import "./styles.scss";
+import { Couter } from "../../Context/counter";
+import Payment from "../Payment";
 
 function Header() {
-  const [check, setCheck] = useState(false);
+  const [check, setCheck] = useState();
+  const {countPro} =useContext(Couter);
+  useEffect(() => {
+    setCheck(countPro);
+
+  }, [])
+  
 
   return (
     <div className="Header">
@@ -20,13 +29,14 @@ function Header() {
         </div>
         <div className="Header_icon">
           <li className="Header_icon-cart">
+            <NavLink to="/cart" exact>
             <Badge
               anchorOrigin={{
                 vertical: "top",
                 horizontal: "right",
               }}
               color="secondary"
-              badgeContent={1}
+              badgeContent={countPro}
             >
               <lord-icon
                 src="https://cdn.lordicon.com/dnoiydox.json"
@@ -40,16 +50,11 @@ function Header() {
             </lord-icon>
               
             </Badge>
-            
+            </NavLink>
 
             {check ? (
               <div className="Header_icon-empty">
-                <img
-                  src="https://imageshack.com/i/poyiw2qep"
-                  alt=""
-                  class="Header_icon-no_cart"
-                />
-                <span>Yes Product</span>
+               <Payment />
               </div>
             ) : (
               <div className="Header_icon-empty">
