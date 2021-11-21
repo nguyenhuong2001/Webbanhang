@@ -59,6 +59,19 @@
                     color:black;
                 }
             }
-        }  
+        } 
+        & .product-bottom-use{
+            margin-top: 50px;
+            padding-bottom: 20px;
+            text-align: center;
+            border: 2px solid #f6eee6;
+            background:#f6eee6;
+            & .use-title{
+                font-size: 1.5rem; 
+            }
+            & .use-content{
+                margin-top: 20px;
+            }
+        } 
     }
 }

@@ -5,7 +5,6 @@ import Evaluation from '../Evaluation'
 import { Couter } from '../../Context/counter'
 
 
-
 function Detail() {
     const {setCountPro,productDetail} =useContext(Couter);
     console.log(productDetail)
@@ -104,7 +103,11 @@ function Detail() {
                         </div>
 
                         <div class = "btn-addtocart">
-                            <button><i class="fad fa-money-bill-alt"></i><span> BUY </span></button>
+                            <Link className="Cart" to="../../Cart"style={{textDecoration:'none',color:'#ffff'}}>
+                                <button><i class="fad fa-money-bill-alt"></i>
+                                    <span>BUY</span>
+                                </button>
+                            </Link>
                             <button onClick = {addToCart}><i class="fas fa-shopping-cart"></i><span>ADD TO CART</span></button>
                         </div>
                         <div class ="hr-point">

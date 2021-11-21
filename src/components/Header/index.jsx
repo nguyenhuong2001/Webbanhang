@@ -4,7 +4,7 @@ import Badge from "@mui/material/Badge";
 import { NavLink } from "react-router-dom";
 import "./styles.scss";
 import { Couter } from "../../Context/counter";
-import Payment from "../Payment";
+import Viewcart from "../Viewcart";
 
 function Header() {
   const [check, setCheck] = useState();
@@ -54,7 +54,15 @@ function Header() {
 
             {check ? (
               <div className="Header_icon-empty">
-               <Payment />
+                <div className="Header_icon-list">
+                  <div className = "Header_icon-title">New products added</div>
+                  <div className = "Header_icon-content">
+                      <Viewcart />
+                  </div>
+                  <div className="Header_icon-btn">
+                        <button><NavLink to = "/cart" exact>View cart</NavLink></button>
+                  </div>
+                </div>
               </div>
             ) : (
               <div className="Header_icon-empty">

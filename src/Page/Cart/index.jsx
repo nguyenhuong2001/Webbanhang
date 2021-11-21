@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Header from "./../../components/Header/index";
-import Anhdep from "./../../components/AnhDep/index";
 import Footer from "./../../components/Footer/index";
+import Payment from "./../../components/Payment/index";
 
 function Cart() {
   useEffect(() => {
@@ -11,7 +11,7 @@ function Cart() {
     <div className="Cart">
       <Header />
       <div className="body_Page">
-        <Anhdep />
+        <Payment />
       </div>
       <Footer />
     </div>

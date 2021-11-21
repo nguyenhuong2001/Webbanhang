@@ -1,0 +1,21 @@
+.Viewcart-item{
+    display: flex;
+    
+    & .Viewcart-img img{
+        width: 50px;
+        margin-top: 15px;
+    }
+    & .Viewcart-name{
+        margin-top: 12px;
+        margin-left: 10px;
+        color: black;
+
+    }
+    & .Viewcart-price{
+        margin-top: 12px;
+        color: rgb(243, 149, 62);
+
+    }
+
+
+}

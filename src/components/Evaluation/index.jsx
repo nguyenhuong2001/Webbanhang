@@ -10,7 +10,6 @@ const danhgia = [
     }
 ]
 
-
 function Evaluation() {
     const {productDetail} =useContext(Couter);
     return (
@@ -46,9 +45,21 @@ function Evaluation() {
                     </div>
                 </div>
                 <div class = "product-bottom-use">
-
+                    <div class ="use-title" ><h1>How to use</h1></div>
+                    <div class = "use-content">{productDetail.MoTa}
+                        <a href=""></a>    
+                    </div>
+                    
                 </div>
-                <div class = "product-bottom-feedback"></div>
+                <div class = "product-bottom-feedback">
+                    <div class = "feedback-title" ><h1>Feedback</h1></div>
+                    <div class = "feedback-content">
+                        <div class = "feedback-content-view"></div>
+                        <div class = "feedback-content-button">
+                            <button>Write a feedback</button>
+                        </div>
+                    </div>
+                </div>
             </div>
             
         </div>
