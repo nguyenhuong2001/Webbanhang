@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import { Couter } from '../../Context/counter';
-import './styles.scss'
+import './styles.scss';
 
 const danhgia = [
     {
@@ -28,25 +28,25 @@ function Evaluation() {
                 <div class = "product-bottom-detail">
                     <div class = "detail-title"> 
                         <h1>Product details</h1>
-                        <div class = "detail-title-sub"><b>Ingredients Of {productDetail.TenSP}</b></div>
-                        <p>{productDetail.ThanhPhan} </p>
+                        <div class = "detail-title-sub"><b>Ingredients Of {productDetail?.TenSP}</b></div>
+                        <p>{productDetail?.ThanhPhan} </p>
                     </div>
     
-                    <div class = "detail-image"> <img src={`${productDetail.Photo[3]}`} alt="image" /></div>
+                    <div class = "detail-image"> <img src={`${productDetail?.Photo[3]}`} alt="image" /></div>
                 </div>
                 <div class = "product-bottom-benefits">
                     <div class = "benefits-left">
-                        <img src={`${productDetail.Photo[2]}`} alt="image" />
+                        <img src={`${productDetail?.Photo[2]}`} alt="image" />
                     </div>
                     <div class = "benefits-right">
                         <div class ="benefits-title" ><h1>Benefits</h1></div>
-                        <div class ="benefits-content">{productDetail.MoTa}</div>
+                        <div class ="benefits-content">{productDetail?.MoTa}</div>
                         <div class ="benefits-show"><a href="">Show all benefits</a></div>
                     </div>
                 </div>
                 <div class = "product-bottom-use">
                     <div class ="use-title" ><h1>How to use</h1></div>
-                    <div class = "use-content">{productDetail.MoTa}
+                    <div class = "use-content">{productDetail?.MoTa}
                         <a href=""></a>    
                     </div>
                     

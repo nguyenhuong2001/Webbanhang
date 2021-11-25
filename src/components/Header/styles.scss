@@ -162,30 +162,24 @@
           display: block;  
         }*/
         & .Header_icon-cart{
+          position: relative;
           & .css-jcn4dz-MuiBadge-badge{
             margin-top: 10.5px;
             margin-right: 7px;
-            
           }
-
-          position: relative;
           &:hover .Header_icon-empty {
             display: block;  
             z-index: 9999999;
-            
           }
-          
-
           & .Header_icon-notice{
             position: absolute;
           }
           // Phần giỏ hàng nhỏ ở chỗ icon giỏ hàng lúc hover vào
           & .Header_icon-empty{
             text-transform: none;
-            
             position: absolute;
             top: 110%;
-            right: -130px;
+            right: -170px;
             background-color: #fff;
             width:400px;
             height:350px;
@@ -221,9 +215,9 @@
             & ::after{
               content:"";
               position: absolute;
-              right: 140px;
-              top: -20px;
-              border-width: 10px 18px;
+              right: 165px;
+              top: -25px;
+              border-width: 15px 30px;
               border-style: solid;
               border-color: transparent transparent #FFF transparent;
               cursor: pointer;
@@ -237,14 +231,10 @@
             }
             span {
               display: block;
-              text-align: center;
-              
-            }
-            
-          }
-        
-        
-      }
+              text-align: center; 
+            } 
+          } 
+        }
       
       li {
         text-transform: uppercase;

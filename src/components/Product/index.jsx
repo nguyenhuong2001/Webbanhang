@@ -5,14 +5,14 @@ import './styles.scss'
 
 function Product(props) {
     const {Product}=props;
-    const {setProductDetail} = useContext(Couter)
     let History = useHistory ();
+    const {setProductDetail} =useContext(Couter);
     const handleClick =()=> {
-        setProductDetail (Product)
+        setProductDetail(Product)
         
         History.push('/detail')
-    }
 
+    }
     return (
         <div className="Product">
             <div className="pro_img">

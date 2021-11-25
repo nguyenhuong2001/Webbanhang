@@ -1,13 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext} from 'react'
 import './styles.scss'
 import { Link } from 'react-router-dom'
 import Evaluation from '../Evaluation'
 import { Couter } from '../../Context/counter'
 
 
-function Detail() {
+function Detail() { 
     const {setCountPro,productDetail} =useContext(Couter);
-    console.log(productDetail)
     const addToCart = () => {
         const Product ={...productDetail,SL: document.getElementById('spnumber').value*1}
         if (JSON.parse(localStorage.getItem('ListProduct'))){
@@ -46,17 +45,17 @@ function Detail() {
                     <p><Link className="Home" to="../../"style={{textDecoration:'none',color:'#8e8686'}}> Home </Link></p> 
                     <span> &rarr; </span>
                     <p><Link className="SkinCare" to="../../skincare"style={{textDecoration:'none',color:'#8e8686'}}> SkinCare </Link></p> 
-                    <span> &rarr; </span><p style={{color:'#8e8686'}}>{productDetail.TenSP}</p>
+                    <span> &rarr; </span><p style={{color:'#8e8686'}}>{productDetail?.TenSP}</p>
                 </div>
 
                 <div class = "product-content">
                     <div class = "product-content-left">
                         <div class = "image-main">
-                            <img src={productDetail.link_img} alt="" />
+                            <img src={productDetail?.link_img} alt="" />
                         </div>
                         <div class = "image-sub">
                             &lt;
-                            {productDetail.Photo.map(item => 
+                            {productDetail?.Photo.map(item => 
                                 <img src={`${item}`} alt="" />
                             )}
                             &gt;
@@ -64,10 +63,10 @@ function Detail() {
                     </div>
                     <div class = "product-content-right">
                         <div class = "product-brand">
-                            <p><b>Brand: {productDetail.Brand}</b></p>
+                            <p><b>Brand: {productDetail?.Brand}</b></p>
                         </div>   
                         <div class = "product-name">
-                            <h3>{productDetail.TenSP}</h3>
+                            <h3>{productDetail?.TenSP}</h3>
                         </div>
                         <div class = "product-evaluation">
 
@@ -75,11 +74,11 @@ function Detail() {
 
                         </div>
                         <div class = "product-des"> 
-                            <p>{productDetail.MoTa}</p>
+                            <p>{productDetail?.MoTa}</p>
                         </div>
                         <div class = "product-rest">
                             <div class = "product-price">
-                                <h1>{productDetail.GiaSP}</h1>
+                                <h1>{productDetail?.GiaSP}</h1>
                                 <p>Free shipping with $50+</p>
                             </div>
                             <div class = "product-number">

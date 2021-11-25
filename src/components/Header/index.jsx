@@ -7,14 +7,13 @@ import { Couter } from "../../Context/counter";
 import Viewcart from "../Viewcart";
 
 function Header() {
+  
   const [check, setCheck] = useState();
   const {countPro} =useContext(Couter);
   useEffect(() => {
     setCheck(countPro);
 
   }, [])
-  
-
   return (
     <div className="Header">
       <div className="Header_top">
