@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './styles.scss';
 import GoogleLogin from 'react-google-login';
-
+import FacebookLogin from 'react-facebook-login';
 function Login() {
   //Xử lý sumit form
   /*
@@ -17,7 +17,9 @@ function Login() {
     console.log(response);
   }
   
-
+  const responseFacebook = (response) => {
+    console.log(response);
+  }
   return (
     <div className="Login">    
       <div className="login-form">
@@ -62,17 +64,21 @@ function Login() {
               </div>
         
             </form>
-            <button className="btn btn-fb">
-                
-                </button>
-                <button className="btn btn-gg">
+           
+              <FacebookLogin
+                appId="404801124635752"
+                autoLoad={true}
+                fields="name,email,picture"
+                callback={responseFacebook}
+                render={renderProps => (
+                  <button onClick={renderProps.onClick}>This is my custom FB button</button>
+                )}/>
                 <GoogleLogin
                   clientId="472545936062-074brscdde3hk8v2u4jjs2r474302qkg.apps.googleusercontent.com"
                   buttonText="Login"
                   onSuccess={responseGoogle}
                   cookiePolicy={'single_host_origin'}
                 />
-                </button>
           </div>
         </div>
       </div>

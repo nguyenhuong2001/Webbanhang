@@ -6,7 +6,7 @@ import Header from '../../components/Header'
 import ProductSlider from '../../components/ProductSlider'
 import Slider from '../../components/Slider'
 import Viewport from '../../components/Viewport'
-import FacebookLogin from 'react-facebook-login';
+
 const bestSeller = [
     
     {
@@ -154,9 +154,7 @@ const bestSeller = [
     
 
 function Home() {
-  const responseFacebook = (response) => {
-    console.log(response);
-  }
+  
     useEffect(() => {
         window.scrollTo(0, 0);
       }, []);
@@ -176,14 +174,7 @@ function Home() {
                  <BestSeller Listproduct={bestSeller}/>
                  <Anhdep/>
             </div>
-            <FacebookLogin
-              appId="404801124635752"
-              autoLoad={true}
-              fields="name,email,picture"
-              callback={responseFacebook}
-              render={renderProps => (
-                <button onClick={renderProps.onClick}>This is my custom FB button</button>
-              )}/>
+            
            <Footer/>
         </div>
     )
