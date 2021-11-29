@@ -8,30 +8,34 @@ function Payment() {
         <div className="Payment">
             <div className="Payment-title">
                 <img src="https://minio.thecoffeehouse.com/images/tch-web-order/Delivery2.png" alt="image shipper" />
-                <p>Order Confirmation</p>
+                <span>Order Confirmation</span>
             </div>
             <div className="Payment-content">
                 <div div className="Payment-content-left">
-                    <form action="" method="">
+                    <form action="">
                         <div className="left-form">
                             <h3>Please choose a shipping address</h3>
                             <div className="row">
                                 <div className="column">
-                                    <p>Full Name <span>*</span></p>
-                                    <input type="text" placeholder value="" name = "customer_name"/>
+                                    <label for="customer_name">Full Name <span>*</span></label><br />
+                                    <input type="text" id = "customer_name"  name = "customer_name"placeholder="Your name.."/>
                                 </div>
                                 <div className="column">
-                                    <p>Phone <span>*</span></p>
-                                    <input type="text" placeholder value="" name = "customer_phone"/>
+                                    <label for="customer_phone"id ="customer_phone">Phone<span>*</span></label><br />
+                                    <input type="text" id ="customer_phone"name = "customer_phone"placeholder="Your phone.."/>
                                 </div>
                             </div>
                             <div className="row">
-                                <p>Address <span>*</span></p>
-                                <input type="text" placeholder value="" name = "customer_address"/>  
+                                <div className="column">
+                                    <label for="customer_address">Address <span>*</span></label><br />
+                                    <input type="text" id = "customer_address" name = "customer_address"placeholder="Your address.."/>  
+                                </div>
                             </div>
                             <div className="row">
-                                <p>Note </p>
-                                <input type="text" placeholder value="" name = "customer_note"/>
+                                <div className="column">
+                                    <label for="customer_note">Note </label><br />
+                                    <input type="text" id = "customer_note" name = "customer_note"/>
+                                </div>
                             </div>
                         </div>
                         <div className="left-pay">
@@ -40,30 +44,30 @@ function Payment() {
                                 <input type="radio" name="pay" id="cash"/>
                                 <label for="cash">
                                     <img src="https://minio.thecoffeehouse.com/image/tchmobileapp/1000_photo_2021-04-06_11-17-08.jpg" alt=""/>
-                                    <span>Cash</span>
+                                    <span>  Cash</span>
                                 </label>
-                            </div>
+                            </div><hr />
                             <div className="checkpay">
                                 <input type="radio" name="pay" id="momo"/>
                                 <label for="momo">
                                     <img src="https://minio.thecoffeehouse.com/image/tchmobileapp/386_ic_momo@3x.png" alt=""/>
-                                    <span>MoMo</span>
+                                    <span>  MoMo</span>
                                 </label>
-                            </div>
+                            </div><hr />
                             <div className="checkpay">
                                 <input type="radio" name="pay" id="zalopay"/>
                                 <label for="zalopay">
                                     <img src="https://minio.thecoffeehouse.com/image/tchmobileapp/388_ic_zalo@3x.png" alt=""/>
-                                    <span>ZaloPay</span>
+                                    <span>  ZaloPay</span>
                                 </label>
-                            </div>
+                            </div><hr />
                             <div className="checkpay">
                                 <input type="radio" name="pay" id="shopeepay"/>
                                 <label for="shopeepay">
                                     <img src="https://minio.thecoffeehouse.com/image/tchmobileapp/1120_1119_ShopeePay-Horizontal2_O.png" alt=""/>
-                                    <span>ShopeePay</span>
+                                    <span>  ShopeePay</span>
                                 </label>
-                            </div>
+                            </div><hr />
                         </div>
                         <div className="left-argee">
                             <input type="checkbox" name="" id=""/>

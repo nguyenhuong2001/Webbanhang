@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './styles.scss';
+import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 function Login() {
   //Xử lý sumit form
   /*
@@ -11,6 +13,13 @@ function Login() {
     console.log({name,email})
   }
   */
+  const responseGoogle = (response) => {
+    console.log(response);
+  }
+  const responseFacebook = (response) => {
+    console.log(response);
+  }
+
   return (
     <div className="Login">    
       <div className="login-form">
@@ -51,8 +60,22 @@ function Login() {
               <button class="form-submit btn">Login</button>
               <p className="sign-up">Don't have an Account? <Link className="signup" to="/signup">Sign up</Link></p>
               <div className="signin-fb-gg">
-                <button className="btn btn-fb">Login with Facebook</button>
-                <button className="btn btn-gg">Login with Google</button>
+                <button className="btn btn-fb">
+                <FacebookLogin
+                  appId="404801124635752"
+                  autoLoad={true}
+                  fields="name,email,picture"
+                  onClick={<FacebookLogin></FacebookLogin>}
+                  callback={responseFacebook} />
+                </button>
+                <button className="btn btn-gg">
+                <GoogleLogin
+                  clientId="472545936062-074brscdde3hk8v2u4jjs2r474302qkg.apps.googleusercontent.com"
+                  buttonText="Login"
+                  onSuccess={responseGoogle}
+                  cookiePolicy={'single_host_origin'}
+                />
+                </button>
               </div>
         
             </form>
