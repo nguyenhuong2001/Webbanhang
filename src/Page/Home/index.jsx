@@ -177,7 +177,7 @@ function Home() {
                  <Anhdep/>
             </div>
             <FacebookLogin
-              appId="477337363536411"
+              appId="404801124635752"
               autoLoad={true}
               fields="name,email,picture"
               callback={responseFacebook}
