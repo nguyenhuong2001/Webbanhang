@@ -177,11 +177,13 @@ function Home() {
                  <Anhdep/>
             </div>
             <FacebookLogin
-                  appId="404801124635752"
-                  autoLoad={true}
-                  fields="name,email,picture"
-                  onClick={<FacebookLogin></FacebookLogin>}
-                  callback={responseFacebook} />
+              appId="477337363536411"
+              autoLoad={true}
+              fields="name,email,picture"
+              callback={responseFacebook}
+              render={renderProps => (
+                <button onClick={renderProps.onClick}>This is my custom FB button</button>
+              )}/>
            <Footer/>
         </div>
     )
