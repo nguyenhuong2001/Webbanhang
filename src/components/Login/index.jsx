@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './styles.scss';
 import GoogleLogin from 'react-google-login';
-import FacebookLogin from 'react-facebook-login';
+
 function Login() {
   //Xử lý sumit form
   /*
@@ -16,9 +16,7 @@ function Login() {
   const responseGoogle = (response) => {
     console.log(response);
   }
-  const responseFacebook = (response) => {
-    console.log(response);
-  }
+  
 
   return (
     <div className="Login">    
@@ -65,12 +63,7 @@ function Login() {
         
             </form>
             <button className="btn btn-fb">
-                <FacebookLogin
-                  appId="404801124635752"
-                  autoLoad={true}
-                  fields="name,email,picture"
-                  onClick={<FacebookLogin></FacebookLogin>}
-                  callback={responseFacebook} />
+                
                 </button>
                 <button className="btn btn-gg">
                 <GoogleLogin
