@@ -41,7 +41,7 @@ function Login() {
             <p className="hellothere">Hello there</p>
             
             
-            <form action="" method="POST" class="login_form" id="form-1">
+            <form class="login_form" id="form-1">
 
               <div class="form-group">
                 
@@ -60,7 +60,11 @@ function Login() {
               <button class="form-submit btn">Login</button>
               <p className="sign-up">Don't have an Account? <Link className="signup" to="/signup">Sign up</Link></p>
               <div className="signin-fb-gg">
-                <button className="btn btn-fb">
+               
+              </div>
+        
+            </form>
+            <button className="btn btn-fb">
                 <FacebookLogin
                   appId="404801124635752"
                   autoLoad={true}
@@ -76,9 +80,6 @@ function Login() {
                   cookiePolicy={'single_host_origin'}
                 />
                 </button>
-              </div>
-        
-            </form>
           </div>
         </div>
       </div>
