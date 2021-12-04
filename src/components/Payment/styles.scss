@@ -20,8 +20,9 @@
     & .Payment-content{
         margin-top: 70px;
         display: flex;
+        justify-content:space-between;
         & .Payment-content-left{
-            margin-left: 50px;
+            margin-left: 30px;
             & .left-form{
                 
                 h3 {
@@ -37,7 +38,7 @@
                         }
                         input[type=text] {
                             width: 100%;
-                            padding: 10px 30px;
+                            padding: 10px 25px;
                             margin: 8px 0;
                             display: inline-block;
                             border: 1px solid #ccc;
@@ -46,7 +47,7 @@
                             font-size:1.0rem;
                         }
                         #customer_phone{
-                            margin-left: 20px;
+                            margin-left: 18px;
                         }
                         #customer_address , #customer_note {
                             width: 215%;
@@ -63,26 +64,122 @@
                     display: flex;
                     img {
                         width: 30px;
-                        margin: 0 20px;
+                        margin:  0 20px;
                     }
                     input{
                         margin-top: 10px;
                     }
-                    span {
-                        margin-top:10px;
-                    } 
-                }
-                hr {
-                    color: rgb(143, 139, 139);
                 }
             }
-            & .left-agree{
-
+            & .left-argee{
+                margin-top: 30px;
+                a{
+                    color: #ec944b;
+                }
             }
-
         }
         & .Payment-content-right{
-            margin-left: 150px;
+            box-shadow: 2px 0 15px 5px #cecccc;
+            border-radius: 20px;
+            & .Payment_right-title{
+                display: flex;
+                justify-content: space-between;
+                margin: 20px 10px;
+                & .title-text{
+                    font-size:1.6rem;
+                    color: rgb(252, 176, 34);
+                }
+                & .title-btn{
+                   margin-left: 300px;
+                    p    {
+                        margin: 0;
+                        padding: 6px;
+                        border: 2px solid #000;
+                        border-radius: 50px;
+                    }
+                    & :hover{
+                        color: white;
+                        background-color: #ec944b;
+                    }
+                } 
+            }
+            & .Payment_right-list{
+                & .list-bill-item{
+                    display: flex;
+                    margin: 20px 15px;
+                    & .item-img{
+                        flex: 1;
+                       img {
+                           width:100px;
+                       }
+
+                    }
+                    & .item-text{
+                        flex:4;
+                        margin-left: 30px;
+                        margin-top: 10px;
+                        cursor: pointer;
+                        & .btn-delete{
+                            width: fit-content;
+                            color: orange;
+                            & :hover{
+                                color: orangered;
+                            }
+                        }
+                        
+                        
+                    }
+                    & .item-price{
+                        flex:1;
+                        margin-left: 100px;
+                        margin-top:30px;
+                        color: rgb(252, 176, 34);  
+                    }
+                }
+            }
+            & .Payment_right-total{
+                display: flex;
+                margin: 20px 15px;
+                & .total-money{
+                    b{
+                        font-size: 1.4rem;
+                       
+                    }
+                    p{
+                        margin-top: 15px;
+                        color:rgb(255, 153, 0);
+                        font-size: 1.3rem;
+                    }
+
+                }
+                & .btn-total{
+                    margin-left: 340px;
+                    margin-top:20px;
+                    button    {
+                        margin: 0;
+                        padding: 10px 20px;
+                        border: 2px solid #000;
+                        border-radius: 50px;
+                        font-size: 1.0rem;
+                    }
+                    & :hover{
+                        color: white;
+                        background-color: #ec944b;
+                    }
+
+                }
+            }
+            & .Remove-all{
+                text-align: center;
+                font-size: 1.2rem;
+                cursor: pointer;
+                margin-bottom: 20px;
+                color: #ec944b;
+                & :hover{
+                    color: orangered;
+                }
+            }
+
         }
     }
 }

@@ -73,12 +73,12 @@ function Login() {
                 render={renderProps => (
                   <button onClick={renderProps.onClick}>This is my custom FB button</button>
                 )}/>
-                <GoogleLogin
+              <GoogleLogin
                   clientId="472545936062-074brscdde3hk8v2u4jjs2r474302qkg.apps.googleusercontent.com"
                   buttonText="Login"
                   onSuccess={responseGoogle}
                   cookiePolicy={'single_host_origin'}
-                />
+              />
           </div>
         </div>
       </div>

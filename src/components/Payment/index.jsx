@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import './styles.scss'
 
 function Payment() {
@@ -44,29 +45,29 @@ function Payment() {
                                 <input type="radio" name="pay" id="cash"/>
                                 <label for="cash">
                                     <img src="https://minio.thecoffeehouse.com/image/tchmobileapp/1000_photo_2021-04-06_11-17-08.jpg" alt=""/>
-                                    <span>  Cash</span>
                                 </label>
+                                <span>  Cash</span>
                             </div><hr />
                             <div className="checkpay">
                                 <input type="radio" name="pay" id="momo"/>
                                 <label for="momo">
                                     <img src="https://minio.thecoffeehouse.com/image/tchmobileapp/386_ic_momo@3x.png" alt=""/>
-                                    <span>  MoMo</span>
                                 </label>
+                                <span>  MoMo</span>
                             </div><hr />
                             <div className="checkpay">
                                 <input type="radio" name="pay" id="zalopay"/>
                                 <label for="zalopay">
                                     <img src="https://minio.thecoffeehouse.com/image/tchmobileapp/388_ic_zalo@3x.png" alt=""/>
-                                    <span>  ZaloPay</span>
                                 </label>
+                                <span>  ZaloPay</span>
                             </div><hr />
                             <div className="checkpay">
                                 <input type="radio" name="pay" id="shopeepay"/>
                                 <label for="shopeepay">
                                     <img src="https://minio.thecoffeehouse.com/image/tchmobileapp/1120_1119_ShopeePay-Horizontal2_O.png" alt=""/>
-                                    <span>  ShopeePay</span>
                                 </label>
+                                <span>  ShopeePay</span>
                             </div><hr />
                         </div>
                         <div className="left-argee">
@@ -79,21 +80,34 @@ function Payment() {
                 <div className="Payment-content-right">
                     <div className="Payment_right-title">
                         <div className="title-text">
-                            <p>Selected products</p>
+                            <h5>Selected products</h5>
                         </div>
                         <div className="title-btn">
-                            <button>Back to buy</button>
+                            <Link className="Detail" to ="../../detail" style={{textDecoration:'none',color:'black'}}><p>Back to buy</p> </Link>
                         </div>
                         
                     </div><hr />
-                    <div className="Payment_right-list">
+                    <ul className ="Payment_right-list">
                     {
-                        Listproduct.map(item=><p>{item.SpID}</p>)
-                    }   
-                    </div><hr />
+                        Listproduct.map(item=>
+                        <li className = "list-bill-item">
+                            <div className="item-img">
+                                <img src={`${item.Photo[0]}`} alt="" />
+                            </div>
+                            <div className="item-text">
+                                <b className="title-item">{item.TenSP}</b>
+                                <p className="size-item">  x {item.SL}</p>
+                                <div className="btn-delete"><p>Delete</p> </div>
+                            </div>
+                            <div className="item-price">
+                                <p>$ {item.price}</p>
+                            </div>  
+                        </li> 
+                    )}   
+                    </ul><hr />
                     <div className = "Payment_right-total">
                         <div className="total-money">
-                            <p> Total money</p>
+                            <b> Total money</b>
                             <p>100$</p>
                         </div>
                         <div className="btn-total"><button>To Order</button></div>
