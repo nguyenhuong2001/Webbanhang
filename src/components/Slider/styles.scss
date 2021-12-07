@@ -75,3 +75,28 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .Slider {
+        height: 60vh;
+        transition: all 0.3s;
+    }
+}
+@media screen and (max-width: 414px) {
+    .Slider {
+        height: 50vh;
+        transition: all 0.3s;
+    }
+    .content_slider {
+        li {
+            & .title{
+                font-size: 14px;
+                
+            }
+            .description {
+                font-size: 10px;
+            }
+        }
+        
+    }
+}

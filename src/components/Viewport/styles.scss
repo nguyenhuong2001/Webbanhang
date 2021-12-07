@@ -36,8 +36,65 @@
         font-size: 14px;
 
       }
-    }
-    
+    }  
+}
 
+@media screen and (max-width: 768px) {
+    .Viewport {
+      height: 30vh;
+      .content {
+        span {
+          letter-spacing: 2px;
+          font-size: 12px;
+          font-weight: 100 !important;
+          
+        }
+        h3 {
+          margin: 15px 0;
+          font-size: 20px;
+          font-weight: 300 !important;
+        }
+        p {
+          margin-bottom: 10px;
+          font-size: 12px;
+        }
+        a {
+          text-decoration: underline;
+          color: #000;
+          letter-spacing: 2px;
+          font-size: 12px;
   
+        }
+      }
+    }
+}
+
+@media screen and (max-width: 414px) {
+  .Viewport {
+    height: 20vh;
+    .content {
+      span {
+        letter-spacing: 2px;
+        font-size: 8px;
+        font-weight: 100 !important;
+        
+      }
+      h3 {
+        margin: 15px 0;
+        font-size: 16px;
+        font-weight: 300 !important;
+      }
+      p {
+        display: none;
+
+      }
+      a {
+        text-decoration: underline;
+        color: #000;
+        letter-spacing: 2px;
+        font-size: 8px;
+
+      }
+    }
+  }
 }

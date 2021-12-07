@@ -303,3 +303,32 @@
   transition: all ease 0.5s;
   right: 0;
 }
+
+@media screen and (max-width: 768px) {
+  .Header {
+    .Header_top {
+      .Header_logo {
+        width: 100px;
+        height: 20px;
+      }
+      .Header_search {
+        width: 600px;
+      }
+      .Header_icon {
+        font-size: 14px;
+        .Header_icon-cart {
+          .css-jcn4dz-MuiBadge-badge {
+            margin-right: 3px;
+
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .Header_search {
+    width: 50%;
+  }
+}

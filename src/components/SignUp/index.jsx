@@ -1,10 +1,17 @@
 import React from 'react'
+import { useState, useEffect } from 'react';
 import './styles.scss'
 import { Link } from 'react-router-dom'
-const mangSign = [
 
-]
+
+const handleAdd = async e => {
+
+}
+const handleSubmit = e => {
+  
+}
 function SignUp() {
+  
     return (
         <div className="Signup" >
             
@@ -16,9 +23,9 @@ function SignUp() {
                     <p className="welcome">Welcome to Envy</p>
                     <p className="text-introduce">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac nisl tristique, lacinia ipsum tempor, gravida nibh. Mauris odio nulla, efficitur tempor velit sed, aliquam dapibus libero.</p>
                     <div className="icon">
-                    <i class="fab fa-facebook"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-twitter"></i>
+                    <i className="fab fa-facebook"></i>
+                    <i className="fab fa-instagram"></i>
+                    <i className="fab fa-twitter"></i>
                     </div>
                   </div>
                 </div>    
@@ -28,35 +35,47 @@ function SignUp() {
                     <p className="hellothere">Sign up</p>
                     
                     
-                    <form action="" method="POST" class="login_form" id="form-1">
-
-                      <div class="form-group">
-                        
-                        <input id="email" name="email" type="text" placeholder="Username/Email" class="form-control"/>
-                        <span class="form-message"></span>
+                    <form action="" method="POST" className="login_form" id="form-1">
+                      <div className="form-group">
+                        <input id="email" name="email" type="text" placeholder="Username/Email" className="form-control"/>
+                        <span className="form-message"></span>
                       </div>
                     
-                      <div class="form-group">
-                        
-                        <input id="password" name="password" type="password" placeholder="Password" class="form-control"/>
-                        <span class="form-message"></span>
+                      <div className="form-group">
+                        <input id="password" name="password" type="password" placeholder="Password" className="form-control"/>
+                        <span className="form-message"></span>
                       </div>
 
-                      <div class="form-group">
-                        
-                        <input id="confirm-password" name="confirm-password" type="password" placeholder="Confirm your password" class="form-control"/>
-                        <span class="form-message"></span>
+                      <div className="form-group">
+                        <input id="email" name="email" type="text" placeholder="Full name" className="form-control"/>
+                        <span className="form-message"></span>
                       </div>
 
-                      <div class="wthree-text">
-                        <label class="anim">
-                            <input type="checkbox" class="checkbox" required=""/>
+                      <div className="form-group">
+                        <input id="email" name="email" type="text" placeholder="Phone number" className="form-control"/>
+                        <span className="form-message"></span>
+                      </div>
+
+                      <div className="form-group">
+                        <input id="email" name="email" type="text" placeholder="Address" className="form-control"/>
+                        <span className="form-message"></span>
+                      </div>
+
+                      <div className="form-group">
+                        <input id="email" name="email" type="text" placeholder="Email" className="form-control"/>
+                        <span className="form-message"></span>
+                      </div>
+                      
+
+                      <div className="wthree-text">
+                        <label className="anim">
+                            <input type="checkbox" className="checkbox" required=""/>
                             <span>I Agree to the terms and conditions</span>
                         </label>
-                        <div class="clear"></div>
+                        <div className="clear"></div>
                     </div>
 
-                      <button class="form-submit btn">Create account</button>
+                      <button className="form-submit btn">Create account</button>
                       
                       <p className="loginnow">You have an Account? <Link className="login-now" to="/Login">Login now!</Link></p>
                       

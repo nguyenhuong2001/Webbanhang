@@ -17,10 +17,7 @@ body {
   text-align: center;
 }
 @media screen and (max-width: 992px) {
-  
-  
   .App .Header{
-    
     align-items: center;
   }
   .App .Product .pro_img {
@@ -44,8 +41,7 @@ body {
   .App .Header .Header_Nav.nav_Mobile{
     display: block;
   }
-  .App .Header .Header_Nav,
-  .App .Header_icon span {
+  .App .Header .Header_Nav {
     display: none;
   }
   .App .Product {
