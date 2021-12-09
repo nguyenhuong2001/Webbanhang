@@ -45,7 +45,7 @@ function Header() {
                 scale="44"
                 axis-x="51"
                 axis-y="49"
-                style={{width:'50px', height:'50px'}}>
+               >
             </lord-icon>
               
             </Badge>
@@ -74,15 +74,15 @@ function Header() {
               </div>
             )}
           </li>
-          <li>
+          <li  className="lord-icon-like">
           <lord-icon
           src="https://cdn.lordicon.com/hrqwmuhr.json"
           trigger="hover"
           colors="primary:#121331,secondary:#e88c30"
-          style={{width:'50px', height:'50px', transform: 'rotate(180deg)'}}>
+          style={{ transform: 'rotate(180deg)'}}>
           </lord-icon>
           </li>
-          <li>
+          <li className="lord_icon_login">
             <NavLink to="/login" exact>
             <lord-icon
                 src="https://cdn.lordicon.com/bwnhdkha.json"
@@ -90,7 +90,7 @@ function Header() {
                 colors="primary:#121331,secondary:#e88c30"
                 stroke="68"
                 scale="49"
-                style={{width:'50px', height:'50px'}}>
+               >
             </lord-icon>
             </NavLink>
           </li>

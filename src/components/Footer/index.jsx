@@ -39,36 +39,36 @@ function Footer() {
                     <div className="noi-dung contact">
                         <h2>CONTACT INFO</h2>
                         <ul className="info">
-                            <li>
+                            <li >
                                 <span>
                                 <lord-icon
                                     src="https://cdn.lordicon.com/zzcjjxew.json"
                                     trigger="loop"
                                     colors="primary:#121331,secondary:#c76f16"
-                                    style={{width:'50px', height:'50px'}}>
+                                    >
                                 </lord-icon>
                                 </span>
                                 <span className="address">Thu Duc, HCM City</span>
                             </li>
-                            <li>
+                            <li >
                                 <span>
                                 <lord-icon
                                     src="https://cdn.lordicon.com/hciqteio.json"
                                     trigger="loop"
                                     colors="primary:#121331,secondary:#c76f16"
-                                    style={{width:'50px', height:'50px'}}>
+                                    >
                                 </lord-icon>
                                 </span>
                                 <p><a href="#">+84 918 743 787</a></p>
                             </li>
-                            <li>
+                            <li >
                                 <span>
                                 <lord-icon
                                     src="https://cdn.lordicon.com/rhvddzym.json"
                                     trigger="loop"
                                     colors="primary:#c76f16,secondary:#08a88a"
                                     axis-y="50"
-                                    style={{width:'50px', height:'50px'}}>
+                                   >
                                 </lord-icon>
                                 </span>
                                 <a className="gmEnvy" href="#">envy@gmail.com</a>

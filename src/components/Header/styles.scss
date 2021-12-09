@@ -156,13 +156,24 @@
       list-style: none;
       font-size: 20px;
       letter-spacing: 1px;
-      
-        /*
+      & .lord-icon-like lord-icon{
+        width: 50px;
+        height: 50px;
+      }
+      & .lord_icon_login lord-icon{ 
+        width:50px;
+        height:50px;
+      }
+       /*
        // & :hover{
           display: block;  
         }*/
         & .Header_icon-cart{
           position: relative;
+          Lord-icon {
+            width:50px;
+            height:50px;
+          }
           & .css-jcn4dz-MuiBadge-badge{
             margin-top: 10.5px;
             margin-right: 7px;

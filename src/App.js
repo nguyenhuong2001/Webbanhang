@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MessengerCustomerChat from "react-messenger-customer-chat";
 import { Route, Switch } from "react-router";
-import signupApi from "./api/signupApi";
+//import signupApi from "./api/signupApi";
 import "./App.css";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
