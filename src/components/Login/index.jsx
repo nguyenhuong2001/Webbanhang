@@ -75,7 +75,7 @@ function Login() {
                 )}/>
               <GoogleLogin
                   clientId="472545936062-074brscdde3hk8v2u4jjs2r474302qkg.apps.googleusercontent.com"
-                  buttonText="Login"
+                  buttonText="Login With Google"
                   onSuccess={responseGoogle}
                   cookiePolicy={'single_host_origin'}
               />

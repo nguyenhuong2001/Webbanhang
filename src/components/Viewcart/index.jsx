@@ -7,7 +7,7 @@ function Viewcart() {
     return (
         <div className="Viewcart">
         {
-            Listproduct.map(item=>
+            Listproduct?.slice(0,4).map(item=>
                 <div className="Viewcart-item">
                     <div className="Viewcart-img"><img src={`${item.Photo[0]}`} alt="" /></div>
                     <div className="Viewcart-name">{item.title}</div>

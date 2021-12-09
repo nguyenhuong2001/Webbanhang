@@ -1,10 +1,15 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom';
 import './styles.scss'
 
 function Payment() {
+
     const Listproduct = JSON.parse(localStorage.getItem('ListProduct'))? JSON.parse(localStorage.getItem('ListProduct')) :[];
     console.log(Listproduct)
+    const handleRemoveAll = () => {
+        localStorage.removeItem('ListProduct') 
+    }
+   
     return (
         <div className="Payment">
             <div className="Payment-title">
@@ -113,7 +118,10 @@ function Payment() {
                         <div className="btn-total"><button>To Order</button></div>
                     </div>
                     <div className = "Remove-all">
-                        <p>Remove all</p>
+                        <Link className="Home" to="../../"style={{textDecoration:'none', color: '#ec944b'}}>
+                                <p onClick = {handleRemoveAll}>Remove all</p>
+                        </Link>
+                        
                     </div>
                     
                 </div>
