@@ -8,9 +8,14 @@
                margin: 15px 200px ;
                 display: flex;
                 justify-content: space-around;
-                color: brown;
+                
+                a{
+                    color: brown;
+                    text-decoration: none;
+                }
                span {
                    cursor: pointer;
+                   
                }
                & :hover{
                    color: black;

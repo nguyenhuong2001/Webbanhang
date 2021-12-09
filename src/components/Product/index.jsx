@@ -7,10 +7,11 @@ function Product(props) {
     const {Product}=props;
     let History = useHistory ();
     const {setProductDetail} =useContext(Couter);
-    const handleClick =()=> {
+    const handleClick =(id)=> {
         setProductDetail(Product)
         
-        History.push('/detail')
+        // History.push(`/detail`)
+        History.push(`/detail/${id}`)
 
     }
     return (
@@ -27,7 +28,7 @@ function Product(props) {
                 ${Product.price}
                 </p>
             </div>
-            <div className="btn_plus" onClick = {handleClick}>
+            <div className="btn_plus" onClick = {()=>handleClick(Product.SpID)}>
                  <i className="fas fa-plus-circle"></i>
             </div>
         </div>

@@ -51,6 +51,7 @@ function App() {
         <Route path="/login" component={Login} exact />
         <Route path="/signup" component={SignUp} exact />
         <Route path="/detail" component={DetailProduct} exact />
+        <Route path="/detail/:id" component={DetailProduct} exact />
         <Route path="/:id" component={NotFound} />
       </Switch>
       <MessengerCustomerChat pageId="100244785808927" appId="404801124635752" />

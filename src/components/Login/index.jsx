@@ -29,9 +29,9 @@ function Login() {
             <p className="welcome">Welcome to Envy</p>
             <p className="text-introduce">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac nisl tristique, lacinia ipsum tempor, gravida nibh. Mauris odio nulla, efficitur tempor velit sed, aliquam dapibus libero.</p>
             <div className="icon">
-            <i class="fab fa-facebook"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-twitter"></i>
+            <i className="fab fa-facebook"></i>
+            <i className="fab fa-instagram"></i>
+            <i className="fab fa-twitter"></i>
             </div>
           </div>
         </div>    
@@ -41,23 +41,23 @@ function Login() {
             <p className="hellothere">Hello there</p>
             
             
-            <form class="login_form" id="form-1">
+            <form className="login_form" id="form-1">
 
-              <div class="form-group">
+              <div className="form-group">
                 
-                <input id="email" name="email" type="text" placeholder="Username/Email" class="form-control"/>
-                <span class="form-message"></span>
+                <input id="email" name="email" type="text" placeholder="Username/Email" className="form-control"/>
+                <span className="form-message"></span>
               </div>
             
-              <div class="form-group">
+              <div className="form-group">
                 
-                <input id="password" name="password" type="password" placeholder="Password" class="form-control"/>
-                <span class="form-message"></span>
+                <input id="password" name="password" type="password" placeholder="Password" className="form-control"/>
+                <span className="form-message"></span>
               </div>
 
               <p className="forgot-password">Forgot password?</p>
 
-              <button class="form-submit btn">Login</button>
+              <button className="form-submit btn">Login</button>
               <p className="sign-up">Don't have an Account? <Link className="signup" to="/signup">Sign up</Link></p>
               <div className="signin-fb-gg">
                

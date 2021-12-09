@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { Couter } from '../../Context/counter';
 import './styles.scss';
 
@@ -14,48 +15,48 @@ function Evaluation() {
     const {productDetail} =useContext(Couter);
     return (
         <div className="Evaluation">
-            <div class = "product-bottom">
-                <div class = "product-bottom-title">
+            <div className = "product-bottom">
+                <div className = "product-bottom-title">
                     <hr />
-                        <div class ="title-item">
-                            <span><b>Product details</b></span>
-                            <span><b>Benefits</b></span>
-                            <span><b>How to use</b></span>
-                             <span><b>Feedback</b></span>
+                        <div className ="title-item">
+                            <span><a href="">Product details</a></span>
+                            <span><a href="#Benefits">Benefits</a></span>
+                            <span><a href="#Howtouse">How to use</a></span>
+                             <span><a href="#feedback">Feedback</a></span>
                         </div>  
                     <hr />
                 </div>
-                <div class = "product-bottom-detail">
-                    <div class = "detail-title"> 
+                <div className = "product-bottom-detail">
+                    <div className = "detail-title"> 
                         <h1>Product details</h1>
-                        <div class = "detail-title-sub"><b>Ingredients Of {productDetail?.TenSP}</b></div>
+                        <div className = "detail-title-sub"><b>Ingredients Of {productDetail?.TenSP}</b></div>
                         <p>{productDetail?.ThanhPhan} </p>
                     </div>
     
-                    <div class = "detail-image"> <img src={`${productDetail?.Photo[3]}`} alt="image" /></div>
+                    <div className = "detail-image"> <img src={`${productDetail?.Photo[3]}`} alt="image" /></div>
                 </div>
-                <div class = "product-bottom-benefits">
-                    <div class = "benefits-left">
+                <div className = "product-bottom-benefits">
+                    <div className = "benefits-left">
                         <img src={`${productDetail?.Photo[2]}`} alt="image" />
                     </div>
-                    <div class = "benefits-right">
-                        <div class ="benefits-title" ><h1>Benefits</h1></div>
-                        <div class ="benefits-content">{productDetail?.MoTa}</div>
-                        <div class ="benefits-show"><a href="">Show all benefits</a></div>
+                    <div className = "benefits-right" id="Benefits"> 
+                        <div className ="benefits-title"><h1>Benefits</h1></div>
+                        <div className ="benefits-content">{productDetail?.MoTa}</div>
+                        <div className ="benefits-show"><a href="">Show all benefits</a></div>
                     </div>
                 </div>
-                <div class = "product-bottom-use">
-                    <div class ="use-title" ><h1>How to use</h1></div>
-                    <div class = "use-content">{productDetail?.MoTa}
-                        <a href=""></a>    
+                <div className = "product-bottom-use" id ="Howtouse">
+                    <div className ="use-title" ><h1>How to use</h1></div>
+                    <div className = "use-content">{productDetail?.MoTa}
+                        <Link to="/"></Link>    
                     </div>
                     
                 </div>
-                <div class = "product-bottom-feedback">
-                    <div class = "feedback-title" ><h1>Feedback</h1></div>
-                    <div class = "feedback-content">
-                        <div class = "feedback-content-view"></div>
-                        <div class = "feedback-content-button">
+                <div className = "product-bottom-feedback" id ="feedback">
+                    <div className = "feedback-title" ><h1>Feedback</h1></div>
+                    <div className = "feedback-content">
+                        <div className = "feedback-content-view"></div>
+                        <div className = "feedback-content-button">
                             <button>Write a feedback</button>
                         </div>
                     </div>

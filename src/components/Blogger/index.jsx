@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import "./styles.scss"
 const mangImage = [
     { link_img: "a9dFOin3nDw" },
@@ -63,65 +64,65 @@ const dataPost= [
 function Blogger() {  
     return (
         <div className="Blogger">
-            <div class = "intro">
+            <div className = "intro">
                   <img src="https://imageshack.com/i/poCuetrij" alt="Introduction blog" />
-                  <div class = "intro-text">
-                      <div class = "intro-content">
+                  <div className = "intro-text">
+                      <div className = "intro-content">
                           <h1>Beauty blog </h1>
-                          <p class ="intro-p1">Review cosmetics</p>
-                          <p class ="intro-p2">More than 200+ articles on skincare and beauty topics will help you choose better products and care methods!</p>
+                          <p className ="intro-p1">Review cosmetics</p>
+                          <p className ="intro-p2">More than 200+ articles on skincare and beauty topics will help you choose better products and care methods!</p>
                       </div>
-                      <img src="https://imageshack.com/i/pmvM4SfRp" alt="Introduction blog image" class ="img-intro" />
+                      <img src="https://imageshack.com/i/pmvM4SfRp" alt="Introduction blog image" className ="img-intro" />
                   </div>
                   
             </div>
-            <div class = "video">
-              <ul class ="video_layout">
+            <div className = "video">
+              <ul className ="video_layout">
                 {mangImage.map (mangImage =>
-                    <li class="video-item col">
-                        <a href = {`https://www.youtube.com/embed/${mangImage.link_img}?autoplay=1`}>
-                          <div class="overlay">
-                            <i class="far fa-play-circle"></i>
+                    <li className="video-item col">
+                        <Link to = {`https://www.youtube.com/embed/${mangImage.link_img}?autoplay=1`}>
+                          <div className="overlay">
+                            <i className="far fa-play-circle"></i>
                           </div>
                           <img id ={`${mangImage.link_img}`} src= {`https://i.ytimg.com/vi/${mangImage.link_img}/hqdefault.jpg`} alt="Top 3 store" border="0"/> 
-                        </a>
+                        </Link>
                     </li>
                 )}
              </ul> 
             </div>
-          <div class = "author">
+          <div className = "author">
             <img src="https://imageshack.com/i/pm2MjR38j" alt="" />
-            <div class ="author-content">
+            <div className ="author-content">
               <h1>MY NAME IS ...</h1> 
-              <p class ="content-name"><i>Gem</i></p>
-              <p class ="content-text"> Beauty blogger at webbanhang-nine.vercel.app. Over 2 years experience in skin care, love blogging and traveling.<br />
+              <p className ="content-name"><i>Gem</i></p>
+              <p className ="content-text"> Beauty blogger at webbanhang-nine.vercel.app. Over 2 years experience in skin care, love blogging and traveling.<br />
 
                   Please visit my blog often!</p>
             </div>
           </div>
 
-          <div class = "post">
+          <div className = "post">
             {dataPost.map (dataPost => 
-              <div class="item">
-                <div class="item__img">
-                  <a href="#" target="_self"> 
+              <div className="item">
+                <div className="item__img">
+                  <Link to="#" target="_self"> 
                     <img src={`${dataPost.link}`} border="0"/> 
-                  </a>
+                  </Link>
                 </div>
-                <div class="item__description">
-                  <div class="des_title">
+                <div className="item__description">
+                  <div className="des_title">
                     <b>{dataPost.tilte}</b>
                   </div>
-                  <div class="des_date">
+                  <div className="des_date">
                     <p>{dataPost.author}</p>
                   </div>
-                  <div class="des_text">
+                  <div className="des_text">
                     <p>
                       {dataPost.content}
                     </p>
                   </div>
-                  <div class="des_btn">
-                    <a href ={`${dataPost.link_post}`} target="_blank" > Đọc tiếp </a>  
+                  <div className="des_btn">
+                    <Link to ={`${dataPost.link_post}`} target="_blank" > Đọc tiếp </Link>  
                   </div>
                 </div>
               </div>

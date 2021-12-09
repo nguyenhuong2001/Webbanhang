@@ -13,26 +13,26 @@ function Footer() {
                     <div className="noi-dung about">
                         <h2>ABOUT US</h2>
                         <ul className="link">
-                            <li><a href="#"><Link className = "Contract" to="../../Contact">Introduce Envy</Link></a></li>
-                            <li><a href="#"><Link className = "Contract" to="../../Contact">Contact</Link></a></li>
-                            <li><a href="#"><Link className = "Blogger" to="../../Blog">Blog</Link></a></li>
+                            <li><Link className = "Contract" to="../../Contact">Introduce Envy</Link></li>
+                            <li><Link className = "Contract" to="../../Contact">Contact</Link></li>
+                            <li><Link className = "Blogger" to="../../Blog">Blog</Link></li>
                         </ul>
                     
                         <ul className="social-icon">
-                                <li class = "social-icon-fb"><a href="https://www.facebook.com/ENVY-UIT-100244785808927"><i className="fab fa-facebook"></i></a></li>
-                                <li class = "social-icon-ins"><a href="https://www.instagram.com/thecosmeticsofficial/"><i className="fab fa-instagram"></i></a></li>
-                                <li class = "social-icon-tw"><a href="https://twitter.com/cb_beautynews"><i className="fab fa-twitter"></i></a></li>
-                                <li class = "social-icon-ytb"><a href="https://www.youtube.com/user/lisaeldridgedotcom"><i className="fab fa-youtube"></i></a></li>
+                                <li className = "social-icon-fb"><Link to="https://www.facebook.com/ENVY-UIT-100244785808927"><i className="fab fa-facebook"></i></Link></li>
+                                <li className = "social-icon-ins"><Link to="https://www.instagram.com/thecosmeticsofficial/"><i className="fab fa-instagram"></i></Link></li>
+                                <li className = "social-icon-tw"><Link to="https://twitter.com/cb_beautynews"><i className="fab fa-twitter"></i></Link></li>
+                                <li className = "social-icon-ytb"><Link to="https://www.youtube.com/user/lisaeldridgedotcom"><i className="fab fa-youtube"></i></Link></li>
                         </ul>
                     </div>
                     
                     <div className="noi-dung links">
                         <h2>PRODUCT</h2>
                         <ul>
-                            <li><a href="#"><Link className = "Home" to="../../">Home page</Link></a></li>
-                            <li><a href="#"><Link className = "Home" to="../../">Best Seller</Link></a></li>
-                            <li><a href="#"><Link className = "Home" to="../../">Latest Product</Link></a></li>
-                            <li><a href="#"><Link className = "Home" to="../../">Reduce Product</Link></a></li>
+                            <li><><Link className = "Home" to="../../">Home page</Link></></li>
+                            <li><><Link className = "Home" to="../../">Best Seller</Link></></li>
+                            <li><><Link className = "Home" to="../../">Latest Product</Link></></li>
+                            <li><><Link className = "Home" to="../../">Reduce Product</Link></></li>
                         </ul>
                     </div>
                    
@@ -59,7 +59,7 @@ function Footer() {
                                     >
                                 </lord-icon>
                                 </span>
-                                <p><a href="#">+84 918 743 787</a></p>
+                                <p><a>+84 918 743 787</a></p>
                             </li>
                             <li >
                                 <span>
@@ -71,7 +71,7 @@ function Footer() {
                                    >
                                 </lord-icon>
                                 </span>
-                                <a className="gmEnvy" href="#">envy@gmail.com</a>
+                                <a Name="gmEnvy" href="#">envy@gmail.com</a>
                             </li>
                         </ul>
                     </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles.scss";
 import Product from "../Product/index";
+import { Link } from "react-router-dom";
 
 function BestSeller(props) {
   const {Listproduct}=props
@@ -15,7 +16,7 @@ function BestSeller(props) {
          
             ))}
       </div>
-      <p className="View"><a href="#">View collect</a></p>
+      <p className="View"><Link to="#">View collect</Link></p>
      </>
   );
 }

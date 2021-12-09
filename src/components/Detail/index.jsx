@@ -1,11 +1,22 @@
-import React, { useContext} from 'react'
+import React, { useContext, useEffect} from 'react'
 import './styles.scss'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import Evaluation from '../Evaluation'
 import { Couter } from '../../Context/counter'
 
 
 function Detail() { 
+    // const {id}=useParams();
+    // const [productByID,setproductByID]=useState();
+    // console.log(id)
+    // useEffect(async() =>{
+
+    //   const product= await getProductId(id);//day la data tra ve
+    //   setproductByID(product)// cai dat du kieu vao productID
+    // },[])
+      
+
+    
     const {setCountPro,productDetail} =useContext(Couter);
     const addToCart = () => {
         const Product ={...productDetail,SL: document.getElementById('spnumber').value*1}
@@ -40,49 +51,49 @@ function Detail() {
     }
     return (
         <div className = "Detail">
-            <div class = "product">
-                <div class = "product-top">
+            <div className = "product">
+                <div className = "product-top">
                     <p><Link className="Home" to="../../"style={{textDecoration:'none',color:'#8e8686'}}> Home </Link></p> 
                     <span> &rarr; </span>
                     <p><Link className="SkinCare" to="../../skincare"style={{textDecoration:'none',color:'#8e8686'}}> SkinCare </Link></p> 
                     <span> &rarr; </span><p style={{color:'#8e8686'}}>{productDetail?.TenSP}</p>
                 </div>
 
-                <div class = "product-content">
-                    <div class = "product-content-left">
-                        <div class = "image-main">
+                <div className = "product-content">
+                    <div className = "product-content-left">
+                        <div className = "image-main">
                             <img src={productDetail?.link_img} alt="" />
                         </div>
-                        <div class = "image-sub">
+                        <div className = "image-sub">
                             &lt;
-                            {productDetail?.Photo.map(item => 
+                            {productDetail?.Photo?.map(item => 
                                 <img src={`${item}`} alt="" />
                             )}
                             &gt;
                         </div>  
                     </div>
-                    <div class = "product-content-right">
-                        <div class = "product-brand">
+                    <div className = "product-content-right">
+                        <div className = "product-brand">
                             <p><b>Brand: {productDetail?.Brand}</b></p>
                         </div>   
-                        <div class = "product-name">
+                        <div className = "product-name">
                             <h3>{productDetail?.TenSP}</h3>
                         </div>
-                        <div class = "product-evaluation">
+                        <div className = "product-evaluation">
 
 
 
                         </div>
-                        <div class = "product-des"> 
+                        <div className = "product-des"> 
                             <p>{productDetail?.MoTa}</p>
                         </div>
-                        <div class = "product-rest">
-                            <div class = "product-price">
+                        <div className = "product-rest">
+                            <div className = "product-price">
                                 <h1>{productDetail?.GiaSP}</h1>
                                 <p>Free shipping with $50+</p>
                             </div>
-                            <div class = "product-number">
-                                <label for="spnumber">Number: </label>
+                            <div className = "product-number">
+                                <label htmlFor="spnumber">Number: </label>
                                 <select name="spnumber" id = "spnumber">
                                     <option value= "1" >1</option>
                                     <option value= "2" >2</option>
@@ -96,25 +107,25 @@ function Detail() {
                                     <option value= "10">10</option>
                                 </select>
                             </div>
-                            <div class = "product-state">
+                            <div className = "product-state">
                                 <p>Stocking</p>
                             </div>
                         </div>
 
-                        <div class = "btn-addtocart">
+                        <div className = "btn-addtocart">
                             <Link className="Cart" to="../../Cart"style={{textDecoration:'none',color:'#ffff'}}>
-                                <button><i class="fad fa-money-bill-alt"></i>
+                                <button><i className="fad fa-money-bill-alt"></i>
                                     <span>BUY</span>
                                 </button>
                             </Link>
-                            <button onClick = {addToCart}><i class="fas fa-shopping-cart"></i><span>ADD TO CART</span></button>
+                            <button onClick = {addToCart}><i className="fas fa-shopping-cart"></i><span>ADD TO CART</span></button>
                         </div>
-                        <div class ="hr-point">
+                        <div className ="hr-point">
                             <hr /><br /><p>BUY THIS AND EARN 75 POINTS</p><br /><hr />
                         </div>
-                        <div class = "product-hotline">
+                        <div className = "product-hotline">
                             <h4>Hotline: </h4>
-                            <span><i class="fas fa-phone-volume"></i>
+                            <span><i className="fas fa-phone-volume"></i>
                                 <Link className="Home" to="../../contact"style={{textDecoration:'none'}}> 0961. 710. 409 </Link>
                             </span>
                             

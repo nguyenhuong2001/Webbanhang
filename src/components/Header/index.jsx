@@ -68,7 +68,7 @@ function Header() {
                 <img
                   src="https://imageshack.com/i/poyiw2qep"
                   alt=""
-                  class="Header_icon-no_cart"
+                  className="Header_icon-no_cart"
                 />
                 <span>No Product</span>
               </div>
@@ -162,7 +162,7 @@ function Header() {
           </NavLink>
         </div>
       </div>
-      {/* <label htmlFor="nav_mobile"> <i class="fas fa-hamburger mobile"></i></label> */}
+      {/* <label htmlFor="nav_mobile"> <i className="fas fa-hamburger mobile"></i></label> */}
     </div>
   );
 }
