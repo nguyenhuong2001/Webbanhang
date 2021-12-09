@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Couter } from '../../Context/counter';
 import './styles.scss';
+import HoverRating from '../Rating';
+import TextRating from '../TestRating'
 
 const danhgia = [
     {
@@ -55,9 +57,17 @@ function Evaluation() {
                 <div className = "product-bottom-feedback" id ="feedback">
                     <div className = "feedback-title" ><h1>Feedback</h1></div>
                     <div className = "feedback-content">
-                        <div className = "feedback-content-view"></div>
+                        <div className = "feedback-content-view">
+                            <div className="feedback-rating">
+                                <TextRating/>
+                            </div>
+                            
+                        </div>
                         <div className = "feedback-content-button">
                             <button>Write a feedback</button>
+                            <div className="button-rating">
+                                <HoverRating/>   
+                            </div>
                         </div>
                     </div>
                 </div>
