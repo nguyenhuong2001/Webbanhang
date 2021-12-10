@@ -75,12 +75,12 @@ function Header() {
             )}
           </li>
           <li  className="lord-icon-like">
-          <lord-icon
-          src="https://cdn.lordicon.com/hrqwmuhr.json"
-          trigger="hover"
-          colors="primary:#121331,secondary:#e88c30"
-          style={{ transform: 'rotate(180deg)'}}>
-          </lord-icon>
+            <lord-icon
+            src="https://cdn.lordicon.com/hrqwmuhr.json"
+            trigger="hover"
+            colors="primary:#121331,secondary:#e88c30"
+            style={{ transform: 'rotate(180deg)'}}>
+            </lord-icon>
           </li>
           <li className="lord_icon_login">
             <NavLink to="/login" exact>
@@ -97,7 +97,7 @@ function Header() {
           <li htmlFor="nav_mobile" className="mobile">
               <label htmlFor="nav_mobile">
                 {" "}
-                <i className="fad fa-bars" style = {{fontSize: '34px'}}></i>
+                <i className="fad fa-bars"></i>
               </label>
           </li>
         </div>
