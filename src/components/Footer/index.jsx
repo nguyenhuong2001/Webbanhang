@@ -19,10 +19,10 @@ function Footer() {
                         </ul>
                     
                         <ul className="social-icon">
-                                <li className = "social-icon-fb"><Link to="https://www.facebook.com/ENVY-UIT-100244785808927"><i className="fab fa-facebook"></i></Link></li>
-                                <li className = "social-icon-ins"><Link to="https://www.instagram.com/thecosmeticsofficial/"><i className="fab fa-instagram"></i></Link></li>
-                                <li className = "social-icon-tw"><Link to="https://twitter.com/cb_beautynews"><i className="fab fa-twitter"></i></Link></li>
-                                <li className = "social-icon-ytb"><Link to="https://www.youtube.com/user/lisaeldridgedotcom"><i className="fab fa-youtube"></i></Link></li>
+                                <li className = "social-icon-fb"><a href="https://www.facebook.com/ENVY-UIT-100244785808927"><i className="fab fa-facebook"></i></a></li>
+                                <li className = "social-icon-ins"><a href="https://www.instagram.com/thecosmeticsofficial/"><i className="fab fa-instagram"></i></a></li>
+                                <li className = "social-icon-tw"><a href="https://twitter.com/cb_beautynews"><i className="fab fa-twitter"></i></a></li>
+                                <li className = "social-icon-ytb"><a href="https://www.youtube.com/user/lisaeldridgedotcom"><i className="fab fa-youtube"></i></a></li>
                         </ul>
                     </div>
                     
@@ -30,9 +30,9 @@ function Footer() {
                         <h2>PRODUCT</h2>
                         <ul>
                             <li><><Link className = "Home" to="../../">Home page</Link></></li>
-                            <li><><Link className = "Home" to="../../">Best Seller</Link></></li>
-                            <li><><Link className = "Home" to="../../">Latest Product</Link></></li>
-                            <li><><Link className = "Home" to="../../">Reduce Product</Link></></li>
+                            <li><a href="#best-seller">Best Seller</a></li>
+                            <li><a href="#product-sliders">Latest Product</a></li>
+                            <li><a href="#best-seller">Reduce Product</a></li>
                         </ul>
                     </div>
                    

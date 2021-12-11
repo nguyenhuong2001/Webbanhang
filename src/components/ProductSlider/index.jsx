@@ -68,7 +68,7 @@ function ProductSlider() {
   }, [count]);
   return (
     <>
-      <div className="ProductSlider">
+      <div className="ProductSlider" id ="product-sliders">
         <div
           onClick={() => {
             SetFlag(true);
