@@ -1,8 +1,8 @@
-import axois from "axois";
+import axios from "axios";
 
-export const GetProductId=async(id)=>{ // async va await de noi chuyen voi backend va co so du lieu=> nc vs backend thi dung async await
+export const getUser=async()=>{ 
 
-const response = await axois.get(`/product/${id}`)//router API cuar backend product/2 ra sp cos id=2
+const response = await axios.get(`/user`)
 console.log(response)
 console.log(response?.data)
 console.log(response?.status)
@@ -11,4 +11,23 @@ if(response?.status===200){
 }
 return [];
 
+
 }
+export const getProductId=async(id)=>{ 
+
+    const response = await axios.get(`/product/${id}`)
+    if(response?.status===200){
+        return response?.data;
+    }
+    return null;
+    
+    
+    }
+export const getMakeUp=async()=>{ 
+
+    const response = await axios.get(`/product/makeup`)
+    if(response?.status===200){
+        return response.data;
+    }
+    return [];  
+    }

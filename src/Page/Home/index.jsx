@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { getUser } from '../../api/ApiResult'
 import Anhdep from '../../components/AnhDep'
 import BestSeller from '../../components/BestSeller'
 import Footer from '../../components/Footer'
@@ -155,7 +156,8 @@ const bestSeller = [
 
 function Home() {
   
-    useEffect(() => {
+    useEffect(async() => {
+      await getUser()
         window.scrollTo(0, 0);
       }, []);
     return (

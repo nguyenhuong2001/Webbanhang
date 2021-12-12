@@ -1,9 +1,9 @@
-import axiosClient from "./axiosClient";
+import axios from "axios";
 
-const signupApi = {
-  post: (params) => {
-    const url = "/signup/createUser.php";
-    return axiosClient.post(url, { params });
-  },
-};
-export default signupApi;
+
+export const signUpApi= async (dataForm)=>{
+
+    const res = await axios.post('/user/signup',dataForm)
+    console.log(res)
+
+}

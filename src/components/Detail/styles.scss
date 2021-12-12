@@ -11,10 +11,15 @@
         & .product-content{
             display: flex;
             & .product-content-left{
-                width:50%;
-                margin-left: 200px;
+                width:100%;
+         
                 & .image-main img {
-                    width: 100%;
+                   width: 50%;
+                   height: 500px;
+                   display: block;
+                   margin: 0 auto;
+                   object-fit:cover;
+                   border-radius: 20px;
                 }
                 & .image-sub {
                     margin: 20px 0px;

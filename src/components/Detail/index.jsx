@@ -3,21 +3,28 @@ import './styles.scss'
 import { Link, useParams } from 'react-router-dom'
 import Evaluation from '../Evaluation'
 import { Couter } from '../../Context/counter'
+import { getProductId } from '../../api/ApiResult'
+import { useState } from 'react'
 
 
 function Detail() { 
-    // const {id}=useParams();
-    // const [productByID,setproductByID]=useState();
-    // console.log(id)
-    // useEffect(async() =>{
-
-    //   const product= await getProductId(id);//day la data tra ve
-    //   setproductByID(product)// cai dat du kieu vao productID
-    // },[])
+    const photo={
+        PhotoMain:"https://tse4.mm.bing.net/th?id=OIP.ZCAZ529iPAyXEn1BJkpWqQHaJQ&pid=Api&P=0&w=300&h=300",
+        PhotoList:[
+            {photo:"https://tse4.mm.bing.net/th?id=OIP.ZCAZ529iPAyXEn1BJkpWqQHaJQ&pid=Api&P=0&w=300&h=300"},
+           {photo:"https://tse4.mm.bing.net/th?id=OIP.ZCAZ529iPAyXEn1BJkpWqQHaJQ&pid=Api&P=0&w=300&h=300"},
+        ]
+    }
+    const [productDetail , setProductDetail]=useState();
+    const {setCountPro} =useContext(Couter);
+    const {id}=useParams();
+    useEffect(async() =>{
+      const product= await getProductId(id);//day la data tra ve
       
-
+      setProductDetail({...product,Photo:JSON.parse(product.Photo)})// cai dat du kieu vao productID
+      console.log(productDetail)
+    },[])
     
-    const {setCountPro,productDetail} =useContext(Couter);
     const addToCart = () => {
         const Product ={...productDetail,SL: document.getElementById('spnumber').value*1}
         if (JSON.parse(localStorage.getItem('ListProduct'))){
@@ -62,13 +69,15 @@ function Detail() {
                 <div className = "product-content">
                     <div className = "product-content-left">
                         <div className = "image-main">
-                            <img src={productDetail?.link_img} alt="" />
+                            <img src={`${productDetail?.Photo?.PhotoMain}`} alt="" />
                         </div>
                         <div className = "image-sub">
                             &lt;
-                            {productDetail?.Photo?.map(item => 
-                                <img src={`${item}`} alt="" />
+                            {productDetail?.Photo?.PhotoList?.map(item => 
+                                <img src={`${item.photo}`} alt="" />
                             )}
+                        
+                    
                             &gt;
                         </div>  
                     </div>
