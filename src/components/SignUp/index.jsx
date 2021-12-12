@@ -1,17 +1,24 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
-import './styles.scss'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { signUpApi } from '../../api/signupApi';
+import './styles.scss';
 
 
-const handleAdd = async e => {
-
-}
-const handleSubmit = e => {
-  
-}
 function SignUp() {
-  
+  const [dataFrom,setDataForm]=useState({
+    Email:'',
+    Password:'',
+    FullName:'',
+    Phone:'',
+    Address:'',
+    Username:'',
+  });
+
+const handleOnchange=(e)=>{ setDataForm({...dataFrom,[e.target.name]:e.target.value})}
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  await signUpApi(dataFrom);
+}
     return (
         <div className="Signup" >
             
@@ -35,34 +42,34 @@ function SignUp() {
                     <p className="hellothere">Sign up</p>
                     
                     
-                    <form action="" method="POST" className="login_form" id="form-1">
+                    <form onSubmit={handleSubmit} className="login_form" id="form-1">
                       <div className="form-group">
-                        <input id="email" name="email" type="text" placeholder="Username/Email" className="form-control"/>
-                        <span className="form-message"></span>
+                        <input id="email" name="Username" value={dataFrom.Username} onChange={e=>handleOnchange(e)} type="text" placeholder="Username" className="form-control"/>
+                     
                       </div>
                     
                       <div className="form-group">
-                        <input id="password" name="password" type="password" placeholder="Password" className="form-control"/>
+                        <input id="password" name="Password" value={dataFrom.Password} onChange={e=>handleOnchange(e)} type="password" placeholder="Password" className="form-control"/>
+                       
+                      </div>
+
+                      <div className="form-group">
+                        <input id="FullName" name="FullName" type="text" value={dataFrom.FullName} onChange={e=>handleOnchange(e)} placeholder="Full name" className="form-control"/>
                         <span className="form-message"></span>
                       </div>
 
                       <div className="form-group">
-                        <input id="email" name="email" type="text" placeholder="Full name" className="form-control"/>
+                        <input id="email" name="Phone"  value={dataFrom.Phone} onChange={e=>handleOnchange(e)} type="text" placeholder="Phone number" className="form-control"/>
                         <span className="form-message"></span>
                       </div>
 
                       <div className="form-group">
-                        <input id="email" name="email" type="text" placeholder="Phone number" className="form-control"/>
+                        <input id="email" name="Address"  value={dataFrom.Address} onChange={e=>handleOnchange(e)} type="text" placeholder="Address" className="form-control"/>
                         <span className="form-message"></span>
                       </div>
 
                       <div className="form-group">
-                        <input id="email" name="email" type="text" placeholder="Address" className="form-control"/>
-                        <span className="form-message"></span>
-                      </div>
-
-                      <div className="form-group">
-                        <input id="email" name="email" type="text" placeholder="Email" className="form-control"/>
+                        <input id="email" name="Email"  value={dataFrom.Email} onChange={e=>handleOnchange(e)} type="text" placeholder="Email" className="form-control"/>
                         <span className="form-message"></span>
                       </div>
                       
@@ -75,7 +82,7 @@ function SignUp() {
                         <div className="clear"></div>
                     </div>
 
-                      <button className="form-submit btn">Create account</button>
+                      <button className="form-submit btn" type='submit'>Create account</button>
                       
                       <p className="loginnow">You have an Account? <Link className="login-now" to="/Login">Login now!</Link></p>
                       

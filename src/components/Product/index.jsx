@@ -6,26 +6,22 @@ import './styles.scss'
 function Product(props) {
     const {Product}=props;
     let History = useHistory ();
-    const {setProductDetail} =useContext(Couter);
     const handleClick =(id)=> {
-        setProductDetail(Product)
-        
-        // History.push(`/detail`)
         History.push(`/detail/${id}`)
 
     }
     return (
         <div className="Product">
             <div className="pro_img">
-              <img src={Product.link_img} alt="" className="Product_img" />
+              <img src={Product?.Photo?.PhotoMain} alt="" className="Product_img" />
             </div>
     
             <div className="Product_content">
                 <p className="Product_Title">
-               {Product.title}
+               {Product?.TenSP}
                 </p>
                 <p className="Product_price">
-                ${Product.price}
+                ${Product?.GiaSP}
                 </p>
             </div>
             <div className="btn_plus" onClick = {()=>handleClick(Product.SpID)}>

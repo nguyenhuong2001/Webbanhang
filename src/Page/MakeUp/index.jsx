@@ -4,6 +4,8 @@ import Anhdep from "./../../components/AnhDep/index";
 import Slider from './../../components/Slider/index';
 import BestSeller from './../../components/BestSeller/index';
 import Footer from "./../../components/Footer/index";
+import { useState } from "react";
+import { getMakeUp } from "../../api/ApiResult";
 const hairCare = [
   {
     link_img:
@@ -36,16 +38,21 @@ const List_Img = [
   },
 ];
 function Makeup() {
-  useEffect(() => {
+const [listMakeup,setListMakeup] =useState([])
+  useEffect(async () => {
+    const res= await getMakeUp();
+    console.log(res)
+    setListMakeup(res)
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <div className="Makeup">
       <Header />
       <div className="body_Page">
         <Slider List_Img={List_Img} />
         <h2 className="title_pro">MAKE UP </h2>
-        <BestSeller Listproduct={hairCare} />
+        <BestSeller Listproduct={listMakeup} />
         <Anhdep />
       </div>
       <Footer />
