@@ -36,7 +36,8 @@
 //Phần css của video
 .video{
     width: 80%;
-    margin: 120px auto;
+    margin: 0 auto;
+    margin-bottom: 50px;
 }
 .video_layout{
     list-style-type: none;
@@ -174,3 +175,24 @@
   .btn-next:hover {
     background-color: rgb(238, 124, 185);
   }
+
+  //responsive
+  //ipad
+  @media screen and (max-width: 768px) {
+    .intro{
+      margin: 120px 150px;
+    }
+    .video{
+      width: 80%;
+      margin: 0 auto;
+    }
+    .video-item{
+      margin: 15px 15px;
+      height: 180px;
+      border-radius: 10px;
+      position: relative;
+  }
+  }
+
+  //mobile
+  @media screen and (max-width: 414px) {}
