@@ -1,8 +1,6 @@
-import React from "react";
-import "./styles.scss";
+import React, { useEffect, useState } from "react";
 import Product from "../Product/index";
-import { useEffect } from "react";
-import { useState } from "react";
+import "./styles.scss";
 const Listproduct = [
   {
     link_img: "https://imagizer.imageshack.com/img923/7854/RmX3bd.jpg",

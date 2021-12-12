@@ -154,6 +154,7 @@
                     }
 
                 }
+                
                 span {
                     button.kep-login-facebook {
                         text-align: center;
@@ -171,6 +172,20 @@
                 //         width: 100px;
                 //     }
                 // }
+                //Này là tên class của fb nha
+                & .my-facebook-button-class{
+                    width:65%;
+                    padding: 12px 20px;
+                    background-color: #4c69ba;
+                    box-shadow: 2px 2px 2px #2954c9;
+                    color: #fff;
+                    cursor: pointer;
+                    margin-bottom: 10px;
+                }
+                //Này là tên class của google nha 
+                & .my-google-button-class{
+                    
+                }
             }
             
         }

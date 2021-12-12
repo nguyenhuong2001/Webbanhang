@@ -1,19 +1,24 @@
 
-import React, { useContext, useEffect, useState } from "react";
 import Badge from "@mui/material/Badge";
+import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import "./styles.scss";
 import { Couter } from "../../Context/counter";
 import Viewcart from "../Viewcart";
+import "./styles.scss";
 
 function Header() {
   
   const [check, setCheck] = useState();
-  const {countPro} =useContext(Couter);
+  const {countPro,  checkUser, setCheckUser} =useContext(Couter);
   useEffect(() => {
     setCheck(countPro);
+    
 
   }, [])
+  const handelLogout=()=>{
+    localStorage.removeItem("UseId");
+    setCheckUser(false);
+  }
   return (
     <div className="Header">
       <div className="Header_top">
@@ -83,16 +88,21 @@ function Header() {
             </lord-icon>
           </li>
           <li className="lord_icon_login">
-            <NavLink to="/login" exact>
+
+          {
+
+
+            checkUser ? <p onClick={handelLogout}>Da dang nhap</p> :<NavLink to="/login" exact>
             <lord-icon
                 src="https://cdn.lordicon.com/bwnhdkha.json"
                 trigger="hover"
                 colors="primary:#121331,secondary:#e88c30"
                 stroke="68"
                 scale="49"
-               >
+              >
             </lord-icon>
             </NavLink>
+          }
           </li>
           <li htmlFor="nav_mobile" className="mobile">
               <label htmlFor="nav_mobile">
