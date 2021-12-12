@@ -3,7 +3,6 @@ import { Link ,useHistory} from 'react-router-dom';
 import './styles.scss';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
-import { useState } from 'react';
 import { Couter } from '../../Context/counter';
 function Login() {
   //Xử lý sumit form
@@ -21,6 +20,8 @@ function Login() {
    let dataGoogle = {
       HoTen : response?.profileObj.name,
       Email : response.profileObj.email,
+      Username : response.profileObj.googleId,
+      Picture : response.profileObj.imageUrl
     }
     localStorage.setItem('UserId',11);
     setCheckUser(localStorage.getItem('UserId')||false)
@@ -32,14 +33,14 @@ function Login() {
 
   const responseFacebook = (response) => {
     let dataFacebook = {
-      isLoggedIn: true,
-      userID :response.userID,
-      name : response.name,
-      email : response.email,
-      picture : response.picture.data
+   
+      Username :response.userID,
+      HoTen : response.name,
+      Email : response.email,
+      Picture : response.picture.data
 
     }
-    // console.log(dataFacebook);
+    console.log(dataFacebook);
   }
   return (
     <div className="Login">    
