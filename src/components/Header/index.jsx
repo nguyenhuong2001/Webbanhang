@@ -118,6 +118,9 @@ function Header() {
           <NavLink to="/" exact>
             home
           </NavLink>
+          <NavLink to="/allproduct" exact>
+            All Product
+          </NavLink>
           <NavLink to="/skincare" exact>
             Skin care
           </NavLink>
@@ -149,6 +152,9 @@ function Header() {
           </label>
           <NavLink to="/" exact>
             home
+          </NavLink>
+          <NavLink to="/allproduct" exact>
+            All Product
           </NavLink>
           <NavLink to="/skincare" exact>
             Skin care
