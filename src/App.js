@@ -17,6 +17,7 @@ import HairCare from "./Page/HairCare/index";
 import Home from "./Page/Home/index";
 import Makeup from "./Page/MakeUp/index";
 import SkinCare from "./Page/SkinCare/index";
+import AllProduct from "./Page/AllProduct/index";
 //import Detail from './components/Detail'
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
         <Route path="/signup" component={SignUp} exact />
         <Route path="/detail" component={DetailProduct} exact />
         <Route path="/detail/:id" component={DetailProduct} exact />
+        <Route path="/allproduct" component={AllProduct} exact />
         <Route path="/:id" component={NotFound} />
       </Switch>
       <MessengerCustomerChat pageId="100244785808927" appId="404801124635752" />
