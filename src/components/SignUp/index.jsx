@@ -1,9 +1,8 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { signUpApi } from '../../api/signupApi';
 import './styles.scss';
-
-
 function SignUp() {
   const [dataFrom,setDataForm]=useState({
     Email:'',

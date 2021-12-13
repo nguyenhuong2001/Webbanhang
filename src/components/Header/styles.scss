@@ -92,8 +92,7 @@
     
     & .Nav_right {
       display: flex;
-      padding : 0 30px;
-      gap: 60px;
+      gap: 40px;
     }
     & .Nav_left{
       gap: 40px;
@@ -256,45 +255,45 @@
         }
         
         //hamburger icon
-        .burger {
+        // .burger {
          
-          // visibility: hidden;
-          cursor: pointer;
-          width: 30px;
-          height: 30px;
+        //   // visibility: hidden;
+        //   cursor: pointer;
+        //   width: 30px;
+        //   height: 30px;
           
-          &:hover {
-            transition: all 0.5s;
-            label {
-              display: block;
-              transition: all 0.5s;
-            }
-            .line {
-              display: none;
-              transition: all 0.5s;
-            }
-          }
-          .line {
-            display: block;
-            width: 30px;
-            height: 5px;
-            background-color: black;
-            margin: 5px;
-            border-radius: 2px;
-          }
-          label {
-            display: none;
-            margin-left: 5px;
+        //   &:hover {
+        //     transition: all 0.5s;
+        //     label {
+        //       display: block;
+        //       transition: all 0.5s;
+        //     }
+        //     .line {
+        //       display: none;
+        //       transition: all 0.5s;
+        //     }
+        //   }
+        //   .line {
+        //     display: block;
+        //     width: 30px;
+        //     height: 5px;
+        //     background-color: black;
+        //     margin: 5px;
+        //     border-radius: 2px;
+        //   }
+        //   label {
+        //     display: none;
+        //     margin-left: 5px;
             
-            cursor: pointer;
-            font-size: 25px;
-            .fa-hamburger {
+        //     cursor: pointer;
+        //     font-size: 25px;
+        //     .fa-hamburger {
               
-              color: #333;
+        //       color: #333;
    
-            }
-          }
-        }
+        //     }
+        //   }
+        // }
         
       }
       
@@ -326,12 +325,17 @@
         width: 600px;
       }
       .Header_icon {
-        font-size: 14px;
+        gap: 20px;
+        .lord-icon-like lord-icon, .lord_icon_login lord-icon{
+          width: 35px;
+          height: 35px;
+        }
         .Header_icon-cart {
-          .css-jcn4dz-MuiBadge-badge {
-            margin-right: 3px;
-
+          Lord-icon {
+            width: 35px;
+            height: 35px;
           }
+          
         }
       }
     }
@@ -339,7 +343,37 @@
 }
 
 @media screen and (max-width: 414px) {
-  .Header_search {
-    width: 50%;
+  .Header {
+    .Header_Nav.nav_Mobile{ 
+      width: 130px;
+      top: 51.5px;
+    }
+    .Header_top {
+      .Header_search {
+        width: 300px;
+        height: 32px;
+      }
+      .Header_icon {
+        gap: 10px;
+        .lord-icon-like lord-icon, .lord_icon_login lord-icon{
+          width: 25px;
+          height: 25px;
+        }
+        .Header_icon-cart {
+          Lord-icon {
+            width: 25px;
+            height: 25px;
+          }
+        }
+        li.mobile {
+          label {
+            i {
+              font-size: 25px;
+            }
+          }
+        } 
+        
+       }
+    }
   }
 }

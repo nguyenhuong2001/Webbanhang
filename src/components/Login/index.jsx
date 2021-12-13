@@ -1,8 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link ,useHistory} from 'react-router-dom';
 import './styles.scss';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
+import { Couter } from '../../Context/counter';
 function Login() {
   //Xử lý sumit form
   /*
@@ -13,12 +14,33 @@ function Login() {
     console.log({name,email})
   }
   */
+  const {checkUser, setCheckUser} =useContext(Couter);
+  const history=useHistory();
   const responseGoogle = (response) => {
-    console.log(response);
+   let dataGoogle = {
+      HoTen : response?.profileObj.name,
+      Email : response.profileObj.email,
+      Username : response.profileObj.googleId,
+      Picture : response.profileObj.imageUrl
+    }
+    localStorage.setItem('UserId',11);
+    setCheckUser(localStorage.getItem('UserId')||false)
+    console.log(dataGoogle);
+    if(dataGoogle)
+    history.push('')
+
   }
-  
+
   const responseFacebook = (response) => {
-    console.log(response);
+    let dataFacebook = {
+   
+      Username :response.userID,
+      HoTen : response.name,
+      Email : response.email,
+      Picture : response.picture.data
+
+    }
+    console.log(dataFacebook);
   }
   return (
     <div className="Login">    
@@ -70,6 +92,7 @@ function Login() {
                 autoLoad={true}
                 fields="name,email,picture"
                 callback={responseFacebook}
+                cssClass="my-facebook-button-class"
                 render={renderProps => (
                   <button onClick={renderProps.onClick}>This is my custom FB button</button>
                 )}/>
@@ -78,7 +101,9 @@ function Login() {
                   buttonText="Login With Google"
                   onSuccess={responseGoogle}
                   cookiePolicy={'single_host_origin'}
-              />
+                  className = "my-google-button-class"
+                  isSignedIn={false}
+                />
           </div>
         </div>
       </div>
