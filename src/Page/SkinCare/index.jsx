@@ -4,6 +4,8 @@ import Header from "./../../components/Header/index";
 import Slider from "./../../components/Slider/index";
 import Anhdep from "./../../components/AnhDep/index";
 import Footer from "./../../components/Footer/index";
+import { useState } from "react";
+import { getSkin } from "../../api/ApiResult";
 const skinCare = [
   {
     link_img:
@@ -38,7 +40,11 @@ const List_Img = [
   },
 ];
 function SkinCare() {
-  useEffect(() => {
+  const [listSkin,setListSkin] =useState([])
+  useEffect(async () => {
+    const res= await getSkin();
+    console.log(res)
+    setListSkin(res)
     window.scrollTo(0, 0);
   }, []);
   return (
@@ -47,7 +53,7 @@ function SkinCare() {
       <div className="body_Page">
         <Slider List_Img={List_Img} />
         <h2 className="title_pro">SKIN CARE</h2>
-        <BestSeller Listproduct={skinCare} />
+        <BestSeller Listproduct={listSkin} />
         <Anhdep />
       </div>
       <Footer />

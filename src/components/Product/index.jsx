@@ -1,10 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router';
-import { Couter } from '../../Context/counter';
+//import { Couter } from '../../Context/counter';
 import './styles.scss'
 
 function Product(props) {
-    const {Product}=props;
+    let {Product}=props;
+    Product={...Product,Photo:JSON.parse(Product?.Photo)}
     let History = useHistory ();
     const handleClick =(id)=> {
         History.push(`/detail/${id}`)

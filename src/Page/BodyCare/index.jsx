@@ -4,6 +4,8 @@ import Anhdep from "./../../components/AnhDep/index";
 import Slider from './../../components/Slider/index';
 import BestSeller from './../../components/BestSeller/index';
 import Footer from "./../../components/Footer/index";
+import { useState } from "react";
+import { getBody } from "../../api/ApiResult";
 const hairCare = [
   {
     link_img:
@@ -36,7 +38,11 @@ const hairCare = [
     },
   ];
 function BodyCare() {
-  useEffect(() => {
+  const [listBody,setListBody] =useState([])
+  useEffect(async () => {
+    const res= await getBody();
+    console.log(res)
+    setListBody(res)
     window.scrollTo(0, 0);
   }, []);
   return (
@@ -45,7 +51,7 @@ function BodyCare() {
       <div className="body_Page">
         <Slider List_Img={List_Img} />
         <h2 className="title_pro">BODY CARE</h2>
-        <BestSeller Listproduct={hairCare} />
+        <BestSeller Listproduct={listBody} />
         <Anhdep />
       </div>
       <Footer />

@@ -1,13 +1,15 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom';
+import { useState } from "react";
+import { getBlog} from "../../api/ApiResult";
 import "./styles.scss"
 const mangImage = [
-    { link_img: "a9dFOin3nDw" },
+    { link_img: "CXvG2CBJ3SE" },
     { link_img: "Jko6hLJ2K9o" },
-    { link_img: "hPgfI3IyJ3o" },
-    { link_img: "8EfLOKQarB0" },
-    { link_img: "AvQtLizO5_8" },
-    { link_img: "cbqeT6ihTk8" },
+    { link_img: "UZZGdknx85g" },
+    { link_img: "AuTgJ1EdLf0" },
+    { link_img: "Miu0NHPr8T4" },
+    { link_img: "Geeqrolx0bA" },
   ];
 
 const dataPost= [
@@ -61,7 +63,14 @@ const dataPost= [
     }
 ];
 
-function Blogger() {  
+function Blogger() { 
+  const [listBlog,setListBlog] =useState([])
+  useEffect(async () => {
+    const res= await getBlog();
+    console.log(res)
+    setListBlog(res)
+    window.scrollTo(0, 0);
+  }, []); 
     return (
         <div className="Blogger">
             <div className = "intro">
@@ -102,11 +111,11 @@ function Blogger() {
           </div>
 
           <div className = "post">
-            {dataPost.map (dataPost => 
+            {listBlog.map (dataPost => 
               <div className="item">
                 <div className="item__img">
                   <Link to="#" target="_self"> 
-                    <img src={`${dataPost.link}`} border="0"/> 
+                    <img src={`${dataPost.photo}`} border="0"/> 
                   </Link>
                 </div>
                 <div className="item__description">

@@ -22,7 +22,8 @@ export const getProductId=async(id)=>{
     return null;
     
     
-    }
+}
+
 export const getMakeUp=async()=>{ 
 
     const response = await axios.get(`/product/makeup`)
@@ -31,3 +32,57 @@ export const getMakeUp=async()=>{
     }
     return [];  
     }
+
+export const getHair=async()=>{ 
+
+    const response = await axios.get(`/product/hair`)
+    if(response?.status===200){
+        return response?.data;
+    }
+    return [];  
+    }
+
+export const getSkin=async()=>{ 
+
+    const response = await axios.get(`/product/skin`)
+    if(response?.status===200){
+        return response.data;
+    }
+    return [];  
+    }
+
+export const getBody=async()=>{ 
+
+    const response = await axios.get(`/product/body`)
+    if(response?.status===200){
+        return response.data;
+    }
+    return [];  
+    }
+
+export const getBestSeller=async()=>{ 
+
+    const response = await axios.get(`/product/bestseller`)
+    if(response?.status===200){
+        return response.data;
+    }
+    return [];  
+    }
+
+export const getLatest=async()=>{ 
+
+    const response = await axios.get(`/product/latest`)
+    if(response?.status===200){
+        return response.data;
+    }
+    return [];  
+    }
+
+export const getBlog=async()=>{ 
+
+const response = await axios.get(`/blog`)
+if(response?.status===200){
+    return response.data;
+}
+return [];  
+}

@@ -99,7 +99,7 @@ function Payment() {
                             <h5>Selected products</h5>
                         </div>
                         <div className="title-btn">
-                            <Link className="Detail" to ="../../detail" style={{textDecoration:'none',color:'black'}}><p>Back to buy</p> </Link>
+                            <Link className="Makeup" to ="../../makeup" style={{textDecoration:'none',color:'black'}}><p>Back to buy</p> </Link>
                         </div>
                         
                     </div><hr />
@@ -108,7 +108,7 @@ function Payment() {
                         Listproduct?.map((item,index)=>
                         <li key={index} className = "list-bill-item">
                             <div className="item-img">
-                                <img src={`${item.Photo[0]}`} alt="" />
+                                <img src={`${item.Photo?.PhotoMain}`} alt="" />
                             </div>
                             <div className="item-text">
                                 <b className="title-item">{item.TenSP}</b>
@@ -116,7 +116,7 @@ function Payment() {
                                 <div className="btn-delete" onClick={()=>DeteleItemCart(index)}><p>Delete</p> </div>
                             </div>
                             <div className="item-price">
-                                <p>$ {item.price}</p>
+                                <p>$ {item.GiaSP}</p>
                             </div>  
                         </li> 
                     )}   

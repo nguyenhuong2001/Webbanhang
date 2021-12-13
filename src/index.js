@@ -7,12 +7,11 @@ import CouterContext from './Context/counter';
 
 ReactDOM.render(
   <React.StrictMode>
+    <BrowserRouter>  
     <CouterContext>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+      <App />   
     </CouterContext>
-
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

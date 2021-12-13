@@ -38,10 +38,10 @@ const List_Img = [
   },
 ];
 function Makeup() {
-const [listMakeup,setListMakeup] =useState([])
+  const [listMakeup,setListMakeup] =useState([])
   useEffect(async () => {
-    const res= await getMakeUp();
-    console.log(res)
+    const res = await getMakeUp();
+    if(res)
     setListMakeup(res)
     window.scrollTo(0, 0);
   }, []);
