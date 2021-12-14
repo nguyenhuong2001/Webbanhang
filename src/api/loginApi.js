@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const signUpApi = async (dataForm) => {
+export const loginApi = async (dataForm) => {
   try {
-    const res = await axios.post("/user/signup", dataForm);
+    const res = await axios.post("/user/login", dataForm);
     if (res) return true;
   } catch (error) {
     return false;

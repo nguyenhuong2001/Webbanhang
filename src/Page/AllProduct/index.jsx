@@ -5,7 +5,7 @@ import Slider from './../../components/Slider/index';
 import BestSeller from './../../components/BestSeller/index';
 import Footer from "./../../components/Footer/index";
 import { useState } from "react";
-import { getMakeUp } from "../../api/ApiResult";
+import { getAllProduct } from "../../api/ApiResult";
 // const hairCare = [
 //   {
 //     link_img:
@@ -39,12 +39,12 @@ const List_Img = [
 ];
 function AllProduct() {
 const [listAllProduct,setListAllProduct] =useState([])
-  // useEffect(async () => {
-  //   const res= await getAllProduct();
-  //   console.log(res)
-  //   setListAllProduct(res)
-  //   window.scrollTo(0, 0);
-  // }, []);
+  useEffect(async () => {
+    const res= await getAllProduct();
+    console.log(res)
+    setListAllProduct(res)
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="AllProduct">

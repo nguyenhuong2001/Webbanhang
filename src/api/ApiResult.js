@@ -11,8 +11,17 @@ if(response?.status===200){
 }
 return [];
 
-
 }
+
+export const getAllProduct=async()=>{ 
+
+    const response = await axios.get(`/product`)
+    if(response?.status===200){
+        return response.data;
+    }
+    return [];  
+    }
+    
 export const getProductId=async(id)=>{ 
 
     const response = await axios.get(`/product/${id}`)

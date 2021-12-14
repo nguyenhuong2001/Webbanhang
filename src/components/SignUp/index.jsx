@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { signUpApi } from '../../api/signupApi';
 import './styles.scss';
+import swal from 'sweetalert'
 function SignUp() {
   const [dataFrom,setDataForm]=useState({
     Email:'',
@@ -16,7 +17,10 @@ function SignUp() {
 const handleOnchange=(e)=>{ setDataForm({...dataFrom,[e.target.name]:e.target.value})}
 const handleSubmit = async (e) => {
   e.preventDefault();
-  await signUpApi(dataFrom);
+  const res =  await signUpApi(dataFrom);
+  if(!res)
+    return swal("Here's a message!", "Some thing wrong")
+  return swal("Here's a message!", "Register success")
 }
     return (
         <div className="Signup" >
@@ -43,32 +47,32 @@ const handleSubmit = async (e) => {
                     
                     <form onSubmit={handleSubmit} className="login_form" id="form-1">
                       <div className="form-group">
-                        <input id="email" name="Username" value={dataFrom.Username} onChange={e=>handleOnchange(e)} type="text" placeholder="Username" className="form-control"/>
+                        <input id="email" name="Username" value={dataFrom.Username} onChange={e=>handleOnchange(e)} type="text" placeholder="Username" className="form-control" required/>
                      
                       </div>
                     
                       <div className="form-group">
-                        <input id="password" name="Password" value={dataFrom.Password} onChange={e=>handleOnchange(e)} type="password" placeholder="Password" className="form-control"/>
+                        <input id="password" name="Password" value={dataFrom.Password} onChange={e=>handleOnchange(e)} type="password" placeholder="Password" className="form-control" required/>
                        
                       </div>
 
                       <div className="form-group">
-                        <input id="FullName" name="FullName" type="text" value={dataFrom.FullName} onChange={e=>handleOnchange(e)} placeholder="Full name" className="form-control"/>
+                        <input id="FullName" name="FullName" type="text" value={dataFrom.FullName} onChange={e=>handleOnchange(e)} placeholder="Full name" className="form-control" required/>
                         <span className="form-message"></span>
                       </div>
 
                       <div className="form-group">
-                        <input id="email" name="Phone"  value={dataFrom.Phone} onChange={e=>handleOnchange(e)} type="text" placeholder="Phone number" className="form-control"/>
+                        <input id="email" name="Phone"  value={dataFrom.Phone} onChange={e=>handleOnchange(e)} type="text" placeholder="Phone number" className="form-control" required/>
                         <span className="form-message"></span>
                       </div>
 
                       <div className="form-group">
-                        <input id="email" name="Address"  value={dataFrom.Address} onChange={e=>handleOnchange(e)} type="text" placeholder="Address" className="form-control"/>
+                        <input id="email" name="Address"  value={dataFrom.Address} onChange={e=>handleOnchange(e)} type="text" placeholder="Address" className="form-control" required/>
                         <span className="form-message"></span>
                       </div>
 
                       <div className="form-group">
-                        <input id="email" name="Email"  value={dataFrom.Email} onChange={e=>handleOnchange(e)} type="text" placeholder="Email" className="form-control"/>
+                        <input id="email" name="Email"  value={dataFrom.Email} onChange={e=>handleOnchange(e)} type="email" placeholder="Email" className="form-control" required/>
                         <span className="form-message"></span>
                       </div>
                       
