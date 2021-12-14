@@ -23,7 +23,7 @@ import { getBestSeller } from "../../api/ApiResult";
     const beautyClubBlog = [
       {
         "id": 1,
-        "srcimg": "https://imagizer.imageshack.com/img924/1549/uF6AZs.jpg",
+        "srcimg": "https://imagizer.imageshack.com/img924/1816/XfWXNS.jpg",
         "name": "FALL-ING FOR YOU — BEAUTY TRENDS WE'RE OBSESSING OVER", 
         "date": "SEPTEMBER 12, 2021"
       },
