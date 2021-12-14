@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=Pragati+Narrow&family=Sacramento&display=swap');
+.BeautyClub {
+  // width: 100%;
+  margin: 0 8%;
+  .items {
+    display: flex;
+    width: 100%;
+    .item {
+      overflow: hidden;
+      background-position: center top;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      width: 31.33%;
+      height: 420px;
+      // margin: 1%;
+      display: flex;
+      align-items: flex-end;
+      
+      .content {
+    
+
+        color: #333;
+       a {
+        color: #333;
+        font-size: 18px;
+        font-weight: 400 !important;
+        cursor: pointer;
+       }
+       span.date {
+        font-size: 14px;
+        font-weight: 100 !important;
+        display: block;
+        margin: 15px 0;
+       }
+       a.continue {
+        text-decoration: underline;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-size: 14px;
+       }
+      }
+    }
+  }
+
+  .view-more {
+    text-align: center;
+    a {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      background-color: #000;
+      color: #fff;
+      border-radius: 4px;
+      padding: 10px 20px;
+      text-align: center;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  
+}
+
+@media screen and (max-width: 768px) {
+  .BeautyClub {
+    .items {
+      display: block;
+      .item {
+        text-align: center;
+        border-radius: 10px;
+        width: 75%;
+        height: 270px;
+        display: block;
+        .content {
+          
+          a {
+            color: #fff;
+            font-size: 14px;
+          }
+          span.date {
+            color: #fff;
+            font-size: 12px;
+            margin: 10px 0;
+           }
+           a.continue {
+            color: #fff;
+            font-size: 14px;
+           }
+        }
+      }
+    }
+    .view-more {
+      a {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 414px) {
+  .BeautyClub {
+    .items {
+      display: block;
+      .item {
+        border-radius: 10px;
+        width: 75%;
+        height: 150px;
+        display: block;
+        .content {
+          
+          a {
+            color: #fff;
+            font-size: 8px;
+          }
+          span.date {
+            color: #fff;
+            font-size: 8px;
+            margin: 10px 0;
+           }
+           a.continue {
+            color: #fff;
+            font-size: 8px;
+           }
+        }
+      }
+    }
+    .view-more {
+      a {
+        font-size: 12px;
+      }
+    }
+  }
+}

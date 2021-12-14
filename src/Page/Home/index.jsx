@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { getUser } from '../../api/ApiResult'
 import Anhdep from '../../components/AnhDep'
+import BeautyClub from '../../components/BeautyClub'
 import BestSeller from '../../components/BestSeller'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
@@ -19,6 +20,26 @@ import { getBestSeller } from "../../api/ApiResult";
     ];
     const Img_Viewport = "https://imagizer.imageshack.com/img922/3648/9js3Jx.jpg"; //img viewport
     
+    const beautyClubBlog = [
+      {
+        "id": 1,
+        "srcimg": "https://imagizer.imageshack.com/img924/1549/uF6AZs.jpg",
+        "name": "FALL-ING FOR YOU — BEAUTY TRENDS WE'RE OBSESSING OVER", 
+        "date": "SEPTEMBER 12, 2021"
+      },
+      {
+        "id": 2,
+        "srcimg": "https://imagizer.imageshack.com/img923/8461/FR3zOB.jpg",
+        "name": "ROUTINE REBEL — BEAUTY TIPS", 
+        "date": "MAY 29, 2021"
+      },
+      {
+        "id": 3,
+        "srcimg": "https://imagizer.imageshack.com/img924/1816/XfWXNS.jpg",
+        "name": "BEAUTY BUYS — MUST-HAVES IN YOUR BAG THIS FALL", 
+        "date": "APRIL 19, 2021"
+      },
+    ];
 
 function Home() {
   const [listBestSeller,setListBestSeller] =useState([])
@@ -43,6 +64,8 @@ function Home() {
                  <h2 className="title_pro">BEST SELLER</h2>
                  <BestSeller Listproduct={listBestSeller}/>
                  <Anhdep/>
+                 <h2 className="title_pro">BEAUTY CLUB BLOG</h2>
+                 <BeautyClub beautyClubBlog={beautyClubBlog}/>
             </div>
             
            <Footer/>
