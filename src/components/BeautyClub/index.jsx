@@ -8,7 +8,12 @@ function BeautyClub(props) {
       <div className="items">
         {beautyClubBlog.map((val, index) => {
           return (
-            <div className="item" style={{backgroundImage: `url(${val.srcimg})`}}>
+            // style={{backgroundImage: `url(${val.srcimg})`}}
+            <div className="item"> 
+              <div className="img">
+                <img src={`${val.srcimg}`} alt="" />
+              </div>
+              
               <div className="content">
                 <a href="">{val.name}</a>
                 <span className="date">{val.date}</span>
