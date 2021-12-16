@@ -24,7 +24,7 @@ import { getBestSeller } from "../../api/ApiResult";
       {
         "id": 1,
         "srcimg": "https://imagizer.imageshack.com/img924/1816/XfWXNS.jpg",
-        "name": "FALL-ING FOR YOU — BEAUTY TRENDS WE'RE OBSESSING OVER", 
+        "name": "FALLING FOR YOU — BEAUTY TRENDS WE'RE OBSESSING OVER", 
         "date": "SEPTEMBER 12, 2021"
       },
       {

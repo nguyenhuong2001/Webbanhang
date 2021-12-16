@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./styles.scss";
 
 function Slider(props) {
@@ -34,7 +35,7 @@ function Slider(props) {
           setCount(count + 1);
         }
         sliders.style.transform = `translateX(-${
-          (count * 100) / Img_sliders.length
+          (count* 100) / Img_sliders.length
         }%)`;
         dots[count].classList.add("active");
       }
@@ -47,7 +48,11 @@ function Slider(props) {
         <div className="sliders" style={{ width: List_Img.length * 100 + "%" }}>
           {List_Img.map((item, index) => (
             <div className="img_slider" key={index}>
-              <img src={item.img} alt="" />
+              <img src={item.img}/>
+              <div className="btnSlider">
+                <Link to="#" >Tiep Theo</Link>
+
+              </div>
             </div>
           ))}
         </div>

@@ -118,7 +118,6 @@
 .item {
     width: 80%;
     margin: 30px auto ;
-    height: 250px;
     display: flex;
     padding: 40px ;
     
@@ -136,6 +135,7 @@
     padding : 0 200px 0 25px  ;
   }
   .item__img img {
+    width: 350px;
     height: 250px;
     padding: 10px;
     box-shadow: 5px 5px 20px rgb(219, 216, 212);
@@ -149,31 +149,36 @@
     border-radius: 3px;
     text-decoration: none;
     text-align: center;
-    color: white;
-    background-color: #f4e1d1;
-    a {
+    background-color: #558dd6;
+    transition: opacity linear 0.1s;
+    opacity: 0.8;
+    & a {
       text-decoration: none;
-      color: black;
+      color: rgb(255, 255, 255);
     }
-    & :hover{
-      color: rgb(248, 139, 184);
+    &:hover{
+      opacity: 1;
+      transition: opacity linear 0.1s;
     }
   }
 
   .btn-next {
     width: 70%;
-    background-color: rgb(236, 142, 192);
+    background-color: #558dd6;
+    opacity: 0.7;
     color: white;
     padding: 14px 20px;
     margin:  50px 200px ;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: opacity linear 0.1s;
     font-size: 20px;
   }
   
   .btn-next:hover {
-    background-color: rgb(238, 124, 185);
+    opacity: 1;
+    transition: opacity linear 0.1s;
   }
 
   //responsive

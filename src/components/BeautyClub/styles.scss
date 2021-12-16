@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla&family=Pragati+Narrow&family=Sacramento&display=swap');
+
 .BeautyClub {
   // width: 100%;
   margin: 0 8%;
@@ -14,50 +14,52 @@
       height: 300px;
       .img {
         img {
-          max-width: 100%;
+          width: 100%;
+          border-radius:10px;
         }
       }
       
       .content {
        margin-top: 20px;
         color: #333;
-       a {
-        color: #333;
-        font-size: 18px;
-        font-weight: 400 !important;
-        cursor: pointer;
-       }
-       span.date {
-        font-size: 14px;
-        font-weight: 100 !important;
-        display: block;
-        margin: 15px 0;
-       }
-       a.continue {
-        text-decoration: underline;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        font-size: 14px;
-       }
+        display: flex;
+        flex-direction: column;
+        justify-content:space-between;
+        & .title{
+
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-weight: 600;
+          min-height: 70px;
+        }
+        & .date{
+          font-size:17px;
+        }& .continue{
+          font-size:14px;
+          color:rgb(129, 59, 12);
+        }
+
+        & a{
+          text-decoration: none;
+          color: rgb(121, 121, 121);
+          &:hover{
+            color: rgb(0, 0, 0);
+            
+          }
+        }
+
       }
     }
   }
 
   .view-more {
     text-align: center;
-    margin-top: 240px;
-    a {
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 16px;
-      background-color: #000;
-      color: #fff;
-      border-radius: 4px;
-      padding: 10px 20px;
-      text-align: center;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+    margin-top: 130px;
+    list-style: none;
+    
   }
   
 }
