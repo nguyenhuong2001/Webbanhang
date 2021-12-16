@@ -89,12 +89,12 @@ function Blogger() {
               <ul className ="video_layout">
                 {mangImage.map (mangImage =>
                     <li className="video-item col">
-                        <Link to = {`https://www.youtube.com/embed/${mangImage.link_img}?autoplay=1`}>
+                        <a href = {`https://www.youtube.com/embed/${mangImage.link_img}?autoplay=1`}>
                           <div className="overlay">
                             <i className="far fa-play-circle"></i>
                           </div>
                           <img id ={`${mangImage.link_img}`} src= {`https://i.ytimg.com/vi/${mangImage.link_img}/hqdefault.jpg`} alt="Top 3 store" border="0"/> 
-                        </Link>
+                        </a>
                     </li>
                 )}
              </ul> 
