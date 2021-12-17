@@ -6,6 +6,7 @@
     height: calc(120vh - var(--height-header)*7 ); 
     overflow-x: hidden;
     position: sticky;
+  
     & .sliders{
         height: 100%;
         display: flex;
@@ -13,6 +14,28 @@
     
         & .img_slider{
             width: 100%;
+            position: relative;
+            & .btnSlider{
+                z-index: 999;
+                width: 400px;
+                height: 200px;
+                position: absolute;
+                top: 50%;
+                left: 30%;
+                & a{
+                    width:200px;
+                    height: 50px;
+                    display: block;
+                    background-color: white;
+                    text-decoration: none;
+                    border-radius:30px;
+                    text-align: center;
+                    line-height:50px;
+                    &:hover{
+                        background-color: rgb(53, 51, 51);
+                    }
+                }
+            }
          
         }
           & .img_slider img{

@@ -176,17 +176,43 @@
 
                 //Này là tên class của fb nha
                 & .my-facebook-button-class{
-                    width:65%;
-                    padding: 12px 20px;
-                    background-color: #4c69ba;
-                    box-shadow: 2px 2px 2px #2954c9;
+                    width: 198px;
+                    height: 40px;
+
+             
+                    background-color: #516db9;
+        
                     color: #fff;
                     cursor: pointer;
                     margin-bottom: 10px;
+                    border-radius:5px;
+                    border: none;outline:none;
+                    box-shadow: 0px 6px 4px 0px rgba(0, 0, 0, 0.2);
+                    &:hover{
+                        background-color:  #3f5cac;
+                    }
                 }
                 //Này là tên class của google nha 
                 & .my-google-button-class{
-                    
+                   
+                    border-radius:5px;
+                    border: none;outline:none;
+                
+                    & svg{
+                      width: 20px;
+                      height: 20px;
+             
+                     margin-left:10px;
+                     display: block;
+                    }
+                    &>span{
+                       
+                        color: rgb(31, 89, 136);
+                        padding: 10px !important;
+                        margin: 0 !important;
+                        
+                    }
+
                 }
 
             }

@@ -126,14 +126,16 @@ function Login() {
                 </button>
               )}
             />
+
             <GoogleLogin
               clientId="472545936062-074brscdde3hk8v2u4jjs2r474302qkg.apps.googleusercontent.com"
-              buttonText="Login With Google"
+              buttonText={"Login with Google"}
               onSuccess={responseGoogle}
               cookiePolicy={"single_host_origin"}
               className="my-google-button-class"
               isSignedIn={false}
             />
+           
           </div>
         </div>
       </div>

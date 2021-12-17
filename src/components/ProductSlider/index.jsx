@@ -20,13 +20,13 @@ function ProductSlider() {
     }
 
     if (temp < 0) {
-      temp = listLatest.length / 2 - 1;
+      temp = 6 / 2 - 1;
     }
-    if (temp > listLatest.length / 2 - 1) {
+    if (temp > 4) {
       temp = 0;
     }
     document.querySelector(".Products").style.transform = `translateX(-${
-      temp * 17
+      temp * 15
     }%)`;
     SetCount(temp);
     SetFlag(true);
@@ -35,7 +35,7 @@ function ProductSlider() {
     if (flag) {
       var time = setInterval(() => {
         handle_Slide(flag);
-      }, 4000);
+      }, 5000);
     }
     return () => clearInterval(time);
   }, [count]);
@@ -62,9 +62,9 @@ function ProductSlider() {
         </div>
         <div
           className="Products"
-          style={{ width: listLatest.length * 25 + "%" }}
+          style={{ width: listLatest.length * 20 + "%" }}
         >
-          {listLatest.map((product, index) => (
+          {listLatest?.slice(0,8).map((product, index) => (
             <Product Product={product} key={index} />
           ))}
         </div>

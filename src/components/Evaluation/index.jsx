@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Couter } from '../../Context/counter';
 import './styles.scss';
 import HoverRating from '../Rating';
-import TextRating from '../TestRating'
 
 const danhgia = [
     {
@@ -13,8 +12,8 @@ const danhgia = [
     }
 ]
 
-function Evaluation() {
-    const {productDetail} =useContext(Couter);
+function Evaluation({productDetail}) {
+ 
     return (
         <div className="Evaluation">
             <div className = "product-bottom">
@@ -35,11 +34,11 @@ function Evaluation() {
                         <p>{productDetail?.ThanhPhan} </p>
                     </div>
     
-                    <div className = "detail-image"> <img src={`${productDetail?.Photo[3]}`} alt="image" /></div>
+                    <div className = "detail-image"> <img src={`${productDetail?.Photo?.PhotoMain}`} alt="image" /></div>
                 </div>
                 <div className = "product-bottom-benefits">
                     <div className = "benefits-left">
-                        <img src={`${productDetail?.Photo[2]}`} alt="image" />
+                        <img src={`${productDetail?.Photo?.PhotoList[0]?.photo}`} alt="image" />
                     </div>
                     <div className = "benefits-right" id="Benefits"> 
                         <div className ="benefits-title"><h1>Benefits</h1></div>
@@ -58,13 +57,10 @@ function Evaluation() {
                     <div className = "feedback-title" ><h1>Feedback</h1></div>
                     <div className = "feedback-content">
                         <div className = "feedback-content-view">
-                            <div className="feedback-rating">
-                                <TextRating/>
-                            </div>
-                            
+                                
                         </div>
                         <div className = "feedback-content-button">
-                            <button>Write a feedback</button>
+                    
                             <div className="button-rating">
                                 <HoverRating/>   
                             </div>

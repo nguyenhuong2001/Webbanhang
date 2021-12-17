@@ -4,12 +4,16 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import CouterContext from './Context/counter';
+import { SnackbarProvider } from 'notistack';
+
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>  
     <CouterContext>
-      <App />   
+    <SnackbarProvider maxSnack={3}>
+      <App />  
+       </SnackbarProvider>
     </CouterContext>
     </BrowserRouter>
   </React.StrictMode>,

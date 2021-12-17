@@ -7,7 +7,7 @@
   width: 100%;
   position: fixed;
   z-index: 999;
-  font-family: "Karla", sans-serif;
+  font-family: monospace;
 
   & .Header_Nav.nav_Mobile {
     position: absolute;
@@ -37,6 +37,7 @@
     & .active {
       position: relative;
       color: rgb(200, 162, 136);
+
       &:after {
         display: none;
       }
@@ -67,6 +68,8 @@
     font-size: 16px;
     & .active {
       position: relative;
+      color: #000;
+
       &:after {
         content: "";
         position: absolute;
@@ -79,12 +82,15 @@
         border-radius: 5px;
       }
     }
+
     & a {
-      color: black;
+      color: #645d5d;
       text-decoration: none;
+      transition: all linear 0.2s;
+
       &:hover {
         color: rgb(200, 162, 136);
-        transition: all 0.3s;
+        transition: all linear 0.1s;
         cursor: pointer;
       }
     }
@@ -104,11 +110,13 @@
     padding: 0px 10%;
     // margin-bottom: 20px;
     justify-content: space-between;
+
     & .Header_logo {
       width: 150px;
       height: 30px;
       margin: auto 0;
     }
+
     & .Header_search {
       display: flex;
       width: 300px;
@@ -170,9 +178,39 @@
           &:hover{
             background-color: #f8ede4;
           }
+
+      & .Search_icon {
+        text-align: center;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgb(200, 162, 136);
+
+        &:hover {
+          color: rgba(200, 162, 136, 0.488);
+          cursor: pointer;
+          transition: all 0.3s;
+        }
+      }
+
+      & input {
+        width: 100%;
+        height: 100%;
+        background-color: #f4e1d1;
+        padding: 5px 30px;
+        border-radius: 30px;
+        outline: none;
+        border: none;
+        line-height: 40px;
+
+        &:focus {
+          border: 2px solid rgb(200, 162, 136);
+          box-shadow: 1px 1px 10px #c1c1c191;
         }
       }
     }
+
     & .Header_icon {
       // width: 25%;
       display: flex;
@@ -190,6 +228,21 @@
       & .lord_icon_login lord-icon {
         width: 50px;
         height: 50px;
+
+      & .lord-icon-like lord-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      & .lord_icon_login lord-icon {
+        width: 50px;
+        height: 50px;
+      }
+      & .lord_icon_login .img_login {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        opacity: 0.8;
       }
       /*
        // & :hover{
@@ -201,10 +254,12 @@
           width: 50px;
           height: 50px;
         }
+
         & .css-jcn4dz-MuiBadge-badge {
           margin-top: 10.5px;
           margin-right: 7px;
         }
+
         &:hover .Header_icon-empty {
           display: block;
           z-index: 9999999;
@@ -212,6 +267,11 @@
         & .Header_icon-notice {
           position: absolute;
         }
+
+        & .Header_icon-notice {
+          position: absolute;
+        }
+
         // Phần giỏ hàng nhỏ ở chỗ icon giỏ hàng lúc hover vào
         & .Header_icon-empty {
           text-transform: none;
@@ -231,6 +291,15 @@
             & .Header_icon-title {
               color: rgb(175, 170, 170);
             }
+
+          & .Header_icon-list {
+            margin: 10px 15px;
+            font-size: 1rem;
+
+            & .Header_icon-title {
+              color: rgb(175, 170, 170);
+            }
+
             & .Header_icon-btn {
               position: absolute;
               bottom: 8px;
@@ -275,6 +344,7 @@
       li {
         text-transform: uppercase;
         cursor: pointer;
+
         &:hover {
           color: rgb(200, 162, 136);
           transition: all 0.3s;
@@ -325,6 +395,7 @@
       & a {
         color: #333;
         text-decoration: none;
+
         &:hover {
           color: rgb(200, 162, 136);
           transition: all 0.3s;
@@ -346,9 +417,11 @@
         width: 100px;
         height: 20px;
       }
+
       .Header_search {
         width: 600px;
       }
+
       .Header_icon {
         gap: 20px;
         .lord-icon-like lord-icon,
@@ -356,6 +429,7 @@
           width: 35px;
           height: 35px;
         }
+
         .Header_icon-cart {
           Lord-icon {
             width: 35px;
@@ -373,11 +447,13 @@
       width: 130px;
       top: 51.5px;
     }
+
     .Header_top {
       .Header_search {
         width: 300px;
         height: 32px;
       }
+
       .Header_icon {
         gap: 10px;
         .lord-icon-like lord-icon,
@@ -385,12 +461,14 @@
           width: 25px;
           height: 25px;
         }
+
         .Header_icon-cart {
           Lord-icon {
             width: 25px;
             height: 25px;
           }
         }
+
         li.mobile {
           label {
             i {

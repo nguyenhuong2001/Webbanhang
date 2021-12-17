@@ -9,9 +9,12 @@ function Viewcart() {
         {
             Listproduct?.slice(0,4).map(item=>
                 <div className="Viewcart-item">
+                    <div className="Viewcart-content">
                     <div className="Viewcart-img"><img src={item.Photo?.PhotoMain} alt="" /></div>
-                    <div className="Viewcart-name">{item.TenSP}</div>
-                    <div className="Viewcart-price">&#36;{item.GiaSP}</div>
+                    <div className="Viewcart-name"><p>{item?.TenSP}</p></div>
+                    </div>
+                   
+                    <div className="Viewcart-price"><p>&#36;{item?.GiaSP}</p></div>
                 </div>
         )}
         </div>

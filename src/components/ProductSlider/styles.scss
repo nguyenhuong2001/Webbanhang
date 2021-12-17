@@ -1,7 +1,7 @@
 .ProductSlider{
     position: relative;
     width: 80%;
-    height:370px;
+    height:360px;
     overflow-x: hidden;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Fi refox */
@@ -31,7 +31,11 @@
       display: flex;
       gap: 30px;
       height: 100%;
-      transition: all ease 1.2s;
+      
+      transition: transform ease 1.2s;
+      & .Product{
+        min-width: 140px;
+      }
     }
     &::-webkit-scrollbar {
         display: none;

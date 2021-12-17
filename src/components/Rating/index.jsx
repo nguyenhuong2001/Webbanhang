@@ -19,6 +19,7 @@ const labels = {
 export default function HoverRating() {
   
   const [value, setValue] = React.useState(2);
+ //console.log("danhgia" :value)
   
   const [hover, setHover] = React.useState(-1);
 

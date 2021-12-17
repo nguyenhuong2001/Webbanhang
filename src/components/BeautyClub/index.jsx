@@ -1,31 +1,42 @@
-import React from 'react'
-import "./styles.scss"
+import React from "react";
+import { Link } from "react-router-dom";
+import "./styles.scss";
 
 function BeautyClub(props) {
-  const {beautyClubBlog} = props;
+  const { beautyClubBlog } = props;
   return (
     <div className="BeautyClub">
       <div className="items">
         {beautyClubBlog.map((val, index) => {
           return (
-            <div className="item" style={{backgroundImage: `url(${val.srcimg})`}}>
+            // style={{backgroundImage: `url(${val.srcimg})`}}
+            <div className="item">
+              <div className="img">
+                <img src={`${val.srcimg}`} alt="" />
+              </div>
+
               <div className="content">
-                <a href="">{val.name}</a>
+                <div className="title"> 
+                       <Link to="#">{val.name}</Link>
+                </div>
+           
                 <span className="date">{val.date}</span>
-                <a className="continue" href="">Continue reading</a>
+                <div>
+                   <Link to="#" className="continue">
+                  Continue reading
+                </Link>
+                </div>
+               
               </div>
             </div>
-          )
-          
+          );
         })}
-      
       </div>
-      
-      <div className="view-more">
-        <a href="">View more</a>  
+
+      <div className="view-more View " >
+        <li><Link className = "Blogger" to="../../Blog">View blog</Link></li>
       </div>
-    
     </div>
-  )
+  );
 }
-export default BeautyClub
+export default BeautyClub;
