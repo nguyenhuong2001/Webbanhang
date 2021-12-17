@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import Header from "./../../components/Header/index";
 import Anhdep from "./../../components/AnhDep/index";
-import Slider from './../../components/Slider/index';
-import BestSeller from './../../components/BestSeller/index';
+import Slider from "./../../components/Slider/index";
+import BestSeller from "./../../components/BestSeller/index";
 import Footer from "./../../components/Footer/index";
 import { useState } from "react";
 import { getAllProduct } from "../../api/ApiResult";
@@ -19,7 +19,7 @@ import { getAllProduct } from "../../api/ApiResult";
 //          'https://imageshack.com/i/pmhgVVmFj',
 //          'https://imageshack.com/i/pop7krFyj',
 //          'https://imageshack.com/i/pohj5JTpj',
-        
+
 //     ] ,
 //     MoTa : 'Jeju Cherry Blossom helps boost skin radiance. Infused with Betaine, a moisturizing ingredient derived from sugar beets that creates a protective layer to prevent hydration loss. Jelly texture absorbs instantly into skin without any sticky residue ',
 //     GiaSP : '$25',
@@ -29,7 +29,9 @@ import { getAllProduct } from "../../api/ApiResult";
 //   }
 // ];
 const List_Img = [
-  {    img: "https://images.pexels.com/photos/457701/pexels-photo-457701.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1050"},
+  {
+    img: "https://images.pexels.com/photos/457701/pexels-photo-457701.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1050",
+  },
   {
     img: "https://images.pexels.com/photos/6393/red-woman-girl-brown.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   },
@@ -38,21 +40,39 @@ const List_Img = [
   },
 ];
 function AllProduct() {
-const [listAllProduct,setListAllProduct] =useState([])
-  useEffect(async () => {
-    const res= await getAllProduct();
-    console.log(res)
-    setListAllProduct(res)
+  const [listAllProduct, setListAllProduct] = useState([]);
+  const [product, setProduct] = useState(() => {
+    if (localStorage.getItem("item")) {
+      const item = JSON.parse(localStorage.getItem("item"));
+      return [item];
+    }
+    return "";
+  });
+  useEffect(() => {
+    fectchData();
     window.scrollTo(0, 0);
+    return () => {
+      localStorage.clear("item");
+    };
   }, []);
-
+  const fectchData = async () => {
+    const res = await getAllProduct();
+    setListAllProduct(res);
+  };
+  const getValue = (e) => {
+    if (e === "") return fectchData();
+    const listProduct = listAllProduct.filter((item) => {
+      return item?.TenSP.toString().toLowerCase().indexOf(e.toLowerCase()) > -1;
+    });
+    setListAllProduct(listProduct);
+  };
   return (
     <div className="AllProduct">
-      <Header />
+      <Header searchHandle={getValue} listAllProduct={listAllProduct} />
       <div className="body_Page">
         {/* <Slider List_Img={List_Img} /> */}
         <h2 className="title_pro">ALL PRODUCT</h2>
-        <BestSeller Listproduct={listAllProduct} />
+        <BestSeller Listproduct={product || listAllProduct} />
         <Anhdep />
       </div>
       <Footer />

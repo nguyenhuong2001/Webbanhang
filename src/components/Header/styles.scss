@@ -1,6 +1,5 @@
 @import "../../variable.css";
 @import url("https://fonts.googleapis.com/css2?family=Karla&family=Pragati+Narrow&family=Sacramento&display=swap");
-
 .Header {
   background-color: var(--background-global);
   // height: var(--height-header);
@@ -31,12 +30,10 @@
       margin: 10px 0;
       padding: 0 20px;
     }
-
     & .Nav_right,
     .Nav_left {
       display: block;
     }
-
     & .active {
       position: relative;
       color: rgb(200, 162, 136);
@@ -46,7 +43,6 @@
       }
     }
   }
-
   & .mobile {
     //btn hamburger
     display: none;
@@ -57,7 +53,6 @@
     // right: 5%;
     // transform: translateY(-50%);
   }
-
   & #nav_mobile {
     display: none;
   }
@@ -71,7 +66,6 @@
     margin-top: 20px;
     letter-spacing: 1.5px;
     font-size: 16px;
-
     & .active {
       position: relative;
       color: #000;
@@ -105,7 +99,6 @@
       display: flex;
       gap: 40px;
     }
-
     & .Nav_left {
       gap: 40px;
       display: flex;
@@ -127,9 +120,64 @@
     & .Header_search {
       display: flex;
       width: 300px;
-      height: 40px;
-      margin: auto 15px;
+      flex-direction: column;
+      align-items: center;
       position: relative;
+      &_icon {
+        width: 100%;
+        margin: auto 15px;
+        position: relative;
+        & .Search_icon {
+          text-align: center;
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: rgb(200, 162, 136);
+          &:hover {
+            color: rgba(200, 162, 136, 0.488);
+            cursor: pointer;
+            transition: all 0.3s;
+          }
+        }
+        input {
+          width: 100%;
+          height: 100%;
+          background-color: #f4e1d1;
+          padding: 10px 30px;
+          border-radius: 30px;
+          outline: none;
+          border: none;
+          line-height: 40px;
+
+          &:focus {
+            border: 2px solid rgb(200, 162, 136);
+            box-shadow: 1px 1px 10px #c1c1c191;
+          }
+        }
+      }
+      .search-item {
+        list-style: none;
+        background-color: white;
+        position: absolute;
+        z-index: 1;
+        height: 100px;
+        overflow-y: scroll;
+        //update
+        top: 45px;
+        cursor: pointer;
+        border-radius: 8px;
+        flex-direction: column;
+        display: flex;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        span{
+          padding: 5px 0;
+          font-size: 14px;
+          &:hover{
+            background-color: #f8ede4;
+          }
 
       & .Search_icon {
         text-align: center;
@@ -173,6 +221,13 @@
       list-style: none;
       font-size: 20px;
       letter-spacing: 1px;
+      & .lord-icon-like lord-icon {
+        width: 50px;
+        height: 50px;
+      }
+      & .lord_icon_login lord-icon {
+        width: 50px;
+        height: 50px;
 
       & .lord-icon-like lord-icon {
         width: 50px;
@@ -195,7 +250,6 @@
         }*/
       & .Header_icon-cart {
         position: relative;
-
         Lord-icon {
           width: 50px;
           height: 50px;
@@ -209,6 +263,9 @@
         &:hover .Header_icon-empty {
           display: block;
           z-index: 9999999;
+        }
+        & .Header_icon-notice {
+          position: absolute;
         }
 
         & .Header_icon-notice {
@@ -228,6 +285,12 @@
           box-shadow: 0 1px 3.125rem 1px rgba(0, 0, 0, 0.2);
           display: none;
           cursor: default;
+          & .Header_icon-list {
+            margin: 10px 15px;
+            font-size: 1rem;
+            & .Header_icon-title {
+              color: rgb(175, 170, 170);
+            }
 
           & .Header_icon-list {
             margin: 10px 15px;
@@ -241,14 +304,12 @@
               position: absolute;
               bottom: 8px;
               right: 20px;
-
               button {
                 padding: 7px 18px;
                 background-color: rgb(182, 54, 54);
                 border: 2px solid rgb(189, 40, 40);
                 border-radius: 2px;
               }
-
               & :hover {
                 background-color: brown;
               }
@@ -266,7 +327,6 @@
             border-color: transparent transparent #fff transparent;
             cursor: pointer;
           }
-
           & .Header_icon-no_cart {
             width: 70%;
             display: block;
@@ -274,7 +334,6 @@
             padding: 24px 0;
             margin-top: 30px;
           }
-
           span {
             display: block;
             text-align: center;
@@ -345,7 +404,6 @@
     }
   }
 }
-
 #nav_mobile:checked ~ .nav_Mobile {
   visibility: visible;
   transition: all ease 0.5s;
@@ -366,7 +424,6 @@
 
       .Header_icon {
         gap: 20px;
-
         .lord-icon-like lord-icon,
         .lord_icon_login lord-icon {
           width: 35px;
@@ -399,7 +456,6 @@
 
       .Header_icon {
         gap: 10px;
-
         .lord-icon-like lord-icon,
         .lord_icon_login lord-icon {
           width: 25px;
