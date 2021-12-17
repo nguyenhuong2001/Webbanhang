@@ -3,14 +3,17 @@ import { Link } from "react-router-dom";
 import "./styles.scss";
 
 function Slider(props) {
-  const {List_Img}=props
+  const {List_Img}=props;
   const [count, setCount] = useState(1);
   useEffect(() => {
     const dot_Active = document.querySelector(".dot.active");
+    const img_slider_Active = document.querySelector(".img_slider.active");
     const sliders = document.querySelector(".sliders");
     const Img_sliders = document.querySelectorAll(".img_slider");
     const dots = document.querySelectorAll(".dot");
+    const img_sliders = document.querySelectorAll(".img_slider");
     var flag = true;
+    //event click in dot
     dots.forEach((dot, index) => {
       dot.addEventListener("click", function () {
         const dot_Active = document.querySelector(".dot.active");
@@ -24,11 +27,18 @@ function Slider(props) {
         }%)`;
       });
     });
+    //set active 
     const interval = setInterval(() => {
       if (flag) {
+        //check dot active
         if (dot_Active !== undefined) {
           dot_Active.classList.remove("active");
         }
+        //check content slider active
+        if (img_slider_Active) {
+          img_slider_Active.classList.remove("active");
+        }
+        //transform img in slider
         if (count === Img_sliders.length - 1) {
           setCount(0);
         } else {
@@ -37,9 +47,12 @@ function Slider(props) {
         sliders.style.transform = `translateX(-${
           (count* 100) / Img_sliders.length
         }%)`;
+        //add class "active" to dot
         dots[count].classList.add("active");
+        //add class "active" to img_slider
+        img_sliders[count].classList.add("active");
       }
-    }, 3500);
+    }, 4000);
     return () => clearInterval(interval);
   }, [count]);
   return (
@@ -47,11 +60,12 @@ function Slider(props) {
       <div className="Slider">
         <div className="sliders" style={{ width: List_Img.length * 100 + "%" }}>
           {List_Img.map((item, index) => (
-            <div className="img_slider" key={index}>
+            <div className={`img_slider ${index === 0 ? "active" : ""}`} key={index} id={index}>
               <img src={item.img}/>
-              <div className="btnSlider">
-                <Link to="#" >Tiep Theo</Link>
-
+              <div className={`contentSlider`}>
+                <p>{item.subtitle}</p>
+                <h3>{item.title}</h3>
+                <Link to="/allproduct" >Shop now</Link>
               </div>
             </div>
           ))}

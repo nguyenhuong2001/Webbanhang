@@ -13,9 +13,24 @@ import { getBestSeller } from "../../api/ApiResult";
 
 
     const List_Img = [
-        { img: "https://imagizer.imageshack.com/img922/2549/B2zMSB.jpg" },
-        { img: "https://imagizer.imageshack.com/img923/9061/9ZFZH7.jpg" },
-        { img: "https://imagizer.imageshack.com/img924/6814/H2oqYZ.jpg" },
+        { 
+          id: "1",
+          img: "https://imagizer.imageshack.com/img922/2549/B2zMSB.jpg",
+          subtitle: "Pure, Natural Ingredients",
+          title: "Relax and unwick" 
+        },
+        { 
+          id: "2",
+          img: "https://imagizer.imageshack.com/img923/9061/9ZFZH7.jpg",
+          subtitle: "subtitle 2",
+          title: "title 2"  
+        },
+        { 
+          id: "3",
+          img: "https://imagizer.imageshack.com/img924/6814/H2oqYZ.jpg",
+          subtitle: "subtitle 3",
+          title: "title 3" 
+        },
         
     ];
     const Img_Viewport = "https://imagizer.imageshack.com/img922/3648/9js3Jx.jpg"; //img viewport
