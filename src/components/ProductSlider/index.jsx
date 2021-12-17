@@ -4,11 +4,11 @@ import Product from "../Product/index";
 import "./styles.scss";
 function ProductSlider() {
   const [listLatest,setListLatest] =useState([])
-  useEffect(async () => {
-    const res = await getLatest();
-    if(res)
-    setListLatest(res.slice(0,10))
-  },[])
+  // useEffect(async () => {
+  //   const res = await getLatest();
+  //   if(res)
+  //   setListLatest(res.slice(0,10))
+  // },[])
   const [count, SetCount] = useState(1);
   const [flag, SetFlag] = useState(true);
   const handle_Slide = (flag) => {

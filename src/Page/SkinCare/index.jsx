@@ -49,7 +49,7 @@ function SkinCare() {
   }, []);
   return (
     <div className="SkinCare">
-      <Header />
+      <Header listAllProduct ={[]} />
       <div className="body_Page">
         <Slider List_Img={List_Img} />
         <h2 className="title_pro">SKIN CARE</h2>

@@ -27,7 +27,7 @@ function HairCare() {
   }, []);
   return (
     <div className="HairCare">
-      <Header />
+      <Header listAllProduct ={[]} />
       <div className="body_Page">
         <Slider List_Img={List_Img} />
         <h2 className="title_pro">HAIR CARE</h2>

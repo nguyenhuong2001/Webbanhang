@@ -49,9 +49,23 @@ function Home() {
     setListBestSeller(res)
     window.scrollTo(0, 0);
   }, []);
+  const fectchData = async() =>{
+    const res= await getBestSeller();
+    setListBestSeller(res)
+  }
+  const getValue = (e) => {
+    if(e === '') return fectchData();
+    const listProduct = listBestSeller.filter((item) =>{
+      return (
+        item?.TenSP.toString().toLowerCase().indexOf(e.toLowerCase()) > -1
+      )
+    })
+    setListBestSeller(listProduct)
+  }
+
     return (
         <div className="Home">
-            <Header/>
+             <Header searchHandle = {getValue} listAllProduct={listBestSeller} />
             <div className="body_Page">
                  <Slider List_Img={List_Img}/>
                  <div className="latest">

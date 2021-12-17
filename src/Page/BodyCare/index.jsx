@@ -40,14 +40,13 @@ const hairCare = [
 function BodyCare() {
   const [listBody,setListBody] =useState([])
   useEffect(async () => {
-    const res= await getBody();
-    console.log(res)
-    setListBody(res)
+    const res = await getBody();
+    if(res) setListBody(res);
     window.scrollTo(0, 0);
   }, []);
   return (
     <div className="BodyCare">
-       <Header />
+       <Header listAllProduct ={[]} />
       <div className="body_Page">
         <Slider List_Img={List_Img} />
         <h2 className="title_pro">BODY CARE</h2>

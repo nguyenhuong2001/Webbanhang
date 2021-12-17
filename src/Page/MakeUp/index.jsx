@@ -48,7 +48,7 @@ function Makeup() {
 
   return (
     <div className="Makeup">
-      <Header />
+      <Header listAllProduct ={[]} />
       <div className="body_Page">
         <Slider List_Img={List_Img} />
         <h2 className="title_pro">MAKE UP </h2>
