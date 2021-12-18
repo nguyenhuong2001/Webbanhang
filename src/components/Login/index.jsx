@@ -7,16 +7,8 @@ import { Couter } from "../../Context/counter";
 import {loginApi} from '../../api/loginApi'
 import swal from 'sweetalert'
 function Login() {
-  //Xử lý sumit form
-  /*
-  const [email,setEmail] = useState('')
-  const [name,setName] = useState('')
-  const handleSubmit = () => {
-    //Call API 
-    console.log({name,email})
-  }
-  */
- const history = useHistory()
+  const { checkUser, setCheckUser } = useContext(Couter);
+  const history = useHistory()
   const [user, setUser] = useState({
     Username: "",
     Password: "",
@@ -24,13 +16,27 @@ function Login() {
   const loginUser = async () =>{
     const res =  await loginApi(user)
     console.log(res); 
+    console.log(user)
     if(!res)
       return swal("Here's a message!", "Some thing wrong")
     swal("Here's a message!", "Login success")
+    //lưu vào localStorage userId
+    localStorage.setItem("UserId", user.Username);
+    setCheckUser(localStorage.getItem("UserId") || false);
     history.push('/')
   }
-  const { checkUser, setCheckUser } = useContext(Couter);
   
+  
+  //login gg
+  const [dataFrom,setDataForm]=useState({
+    Email:'',
+    Password:'',
+    FullName:'',
+    Phone:'',
+    Address:'',
+    Username:'',
+    Picture:''
+  });
   const responseGoogle = (response) => {
     let dataGoogle = {
       HoTen: response?.profileObj.name,
@@ -38,13 +44,26 @@ function Login() {
       Username: response.profileObj.googleId,
       Picture: response.profileObj.imageUrl,
     };
-    localStorage.setItem("UserId", 11);
+    setDataForm({
+      Email:response.profileObj.email,
+      Password:'',
+      FullName:response?.profileObj.name,
+      Phone:'',
+      Address:'',
+      username:response.profileObj.googleId,
+      Picture: response.profileObj.imageUrl,
+    })
+    localStorage.setItem("UserId", response.profileObj.googleId);
+    localStorage.setItem("Fullname", response.profileObj.name)
+    localStorage.setItem("Picture", response.profileObj.imageUrl)
     setCheckUser(localStorage.getItem("UserId") || false);
     console.log(dataGoogle);
     if (dataGoogle) history.push("");
   };
 
+  
   const responseFacebook = (response) => {
+    
     let dataFacebook = {
       Username: response.userID,
       HoTen: response.name,

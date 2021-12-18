@@ -1,12 +1,10 @@
-import React, { useContext, useEffect } from "react";
-import "./styles.scss";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Evaluation from "../Evaluation";
-import { Couter } from "../../Context/counter";
 import { getProductId } from "../../api/ApiResult";
-import { useState } from "react";
+import { Couter } from "../../Context/counter";
+import Evaluation from "../Evaluation";
 import TextRating from "../TestRating";
-import HoverRating from "../Rating";
+import "./styles.scss";
 
 function Detail() {
   const photo = {
@@ -28,10 +26,38 @@ function Detail() {
   const { id } = useParams();
   useEffect(async () => {
     const product = await getProductId(id); //day la data tra ve
-
     setProductDetail({ ...product, Photo: JSON.parse(product.Photo) }); // cai dat du kieu vao productID
-    console.log(productDetail);
   }, []);
+
+  const buy = () => {
+    const Product = {
+      ...productDetail,
+      SL: document.getElementById("spnumber").value*1,
+    };
+    if(localStorage.getItem("ListProduct")){
+      var product = JSON.parse(localStorage.getItem("ListProduct"));
+      var flag = false ;
+      product = product.map(function (item) {
+        if (item.SpID === Product.SpID) {
+          item = { ...item, SL: item.SL * 1 + Product.SL };
+          flag = true;
+          return item;
+        }
+        return item;
+      });
+      if (!flag) {
+        localStorage.setItem(
+          "ListProduct",
+          JSON.stringify([...product, Product])
+        );
+        setCountPro(JSON.parse(localStorage.getItem("ListProduct")).length);
+      }
+    } else {
+      localStorage.setItem("ListProduct", JSON.stringify([Product]));
+      setCountPro(JSON.parse(localStorage.getItem("ListProduct")).length);
+    }
+
+  }
 
   const addToCart = () => {
     const Product = {
@@ -155,7 +181,7 @@ function Detail() {
                 to="../../Cart"
                 style={{ textDecoration: "none", color: "#ffff" }}
               >
-                <button>
+                <button onClick={buy}>
                   <i className="fad fa-money-bill-alt"></i>
                   <span>BUY</span>
                 </button>

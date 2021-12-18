@@ -11,7 +11,7 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>  
     <CouterContext>
-    <SnackbarProvider maxSnack={3}>
+    <SnackbarProvider maxSnack={3} anchorOrigin={{vertical:'bottom',horizontal:'right'}} >
       <App />  
        </SnackbarProvider>
     </CouterContext>

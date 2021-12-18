@@ -17,7 +17,7 @@ const labels = {
 };
 
 export default function TextRating() {
-  const value = 4.5;
+  const value = 4.5;// thế chố này nè
 
   return (
     <Box

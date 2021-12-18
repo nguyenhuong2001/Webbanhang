@@ -3,7 +3,6 @@ import "./styles.scss"
 
 function Viewcart() {
     const Listproduct = JSON.parse(localStorage.getItem('ListProduct'))? JSON.parse(localStorage.getItem('ListProduct')) :[];
-    console.log(Listproduct)
     return (
         <div className="Viewcart">
         {

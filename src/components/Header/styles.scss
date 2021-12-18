@@ -184,10 +184,17 @@
         height: 50px;
       }
       & .lord_icon_login .img_login {
+        margin-top:10px;
+        margin-left: 20px;
         width: 30px;
         height: 30px;
         border-radius: 50%;
         opacity: 0.8;
+      }
+      & .username_login{
+        text-transform: capitalize;
+        
+        font-size: 0.8rem;
       }
       /*
        // & :hover{

@@ -47,7 +47,7 @@ const handleSubmit = async (e) => {
                     
                     <form onSubmit={handleSubmit} className="login_form" id="form-1">
                       <div className="form-group">
-                        <input id="email" name="Username" value={dataFrom.Username} onChange={e=>handleOnchange(e)} type="text" placeholder="Username" className="form-control" required/>
+                        <input id="username" name="Username" value={dataFrom.Username} onChange={e=>handleOnchange(e)} type="text" placeholder="Username" className="form-control" required/>
                      
                       </div>
                     
@@ -62,12 +62,12 @@ const handleSubmit = async (e) => {
                       </div>
 
                       <div className="form-group">
-                        <input id="email" name="Phone"  value={dataFrom.Phone} onChange={e=>handleOnchange(e)} type="text" placeholder="Phone number" className="form-control" required/>
+                        <input id="phone" name="Phone"  value={dataFrom.Phone} onChange={e=>handleOnchange(e)} type="text" placeholder="Phone number" className="form-control" required/>
                         <span className="form-message"></span>
                       </div>
 
                       <div className="form-group">
-                        <input id="email" name="Address"  value={dataFrom.Address} onChange={e=>handleOnchange(e)} type="text" placeholder="Address" className="form-control" required/>
+                        <input id="address" name="Address"  value={dataFrom.Address} onChange={e=>handleOnchange(e)} type="text" placeholder="Address" className="form-control" required/>
                         <span className="form-message"></span>
                       </div>
 

@@ -4,12 +4,15 @@ import { Link, useHistory } from "react-router-dom";
 import { Couter } from "../../Context/counter";
 import "./styles.scss";
 import { useSnackbar } from "notistack";
+import { paymentApi } from "../../api/paymentApi";
+import emailjs from 'emailjs-com'
 function Payment() {
   const [Listproduct, setListproduct] = useState(
     JSON.parse(localStorage.getItem("ListProduct"))
       ? JSON.parse(localStorage.getItem("ListProduct"))
       : []
   );
+
   const { countPro, setCountPro } = useContext(Couter);
   const history = useHistory();
   const [Total, setTotal] = useState(0);
@@ -19,12 +22,14 @@ function Payment() {
     setCountPro(0);
     history.push("/");
   };
+  //nut delete
   function DeteleItemCart(index) {
     Listproduct.splice(index, 1);
     setListproduct(Listproduct);
     setCountPro(countPro - 1 < 0 ? 0 : countPro - 1);
     localStorage.setItem("ListProduct", JSON.stringify(Listproduct));
   }
+  // tong tien
   useEffect(() => {
     if (countPro > 0) {
       setTotal(
@@ -38,10 +43,69 @@ function Payment() {
       history.push("/");
     }
   }, [Listproduct, countPro]);
-  const onsubmit = (e) => {
-    e.preventDefault();
-    enqueueSnackbar("thanh cong", { variant: "success" });
+  //Thanh toan
+
+  const [dataFrom, setDataForm] = useState({
+    Username: [], // lấy từ localstorage
+    FullName: "",
+    PhoneNumber: "",
+    Address: "",
+    Note: "",
+    Method: "cash", 
+    Listproduct:[], // lấy từ localstorage
+    TongTien: "",
+  });
+  const handleOnchange = (e) => {
+    setDataForm({ ...dataFrom, [e.target.name]: e.target.value });
   };
+  const handleOnchangeCheckBox = (e) => {
+    if (e.target.checked)
+    {
+      console.log(e.target.value)
+      setDataForm({ ...dataFrom, Method: e.target.value });
+    }
+    
+      
+  };
+
+  const onsubmit = async (e) => { 
+    e.preventDefault();
+    if(localStorage.getItem('UserId'))
+    { const UserId=localStorage.getItem('UserId');
+
+        const res = await paymentApi({...dataFrom,TongTien:Total,Username:UserId,Listproduct:Listproduct});
+        if(!res)
+        {
+        const emailForm={
+          customeremail:'19521594@gm.uit.edu.vn',
+          name:dataFrom.FullName
+        }
+  
+        emailjs.send('service_qftu14q', 'template_rsx7zbg', emailForm, 'user_qKCzkgmXadcBf9juMfZM2')
+        .then(res=>{
+          setTimeout(()=>{    
+            localStorage.removeItem("ListProduct");
+        setCountPro(0);
+        history.push("/");},1300)
+        enqueueSnackbar("success", { variant: "success" });
+        }
+        )
+        .catch(err=>{
+          enqueueSnackbar("faild", { variant: "error" });
+        })
+      }
+      else{
+        enqueueSnackbar("faild", { variant: "error" });
+      }
+    
+    }
+    else {
+      history.push("/login");
+    }
+   
+ 
+  };
+
   return (
     <div className="Payment">
       <div className="Payment-title">
@@ -60,15 +124,17 @@ function Payment() {
                 <tr>
                   <td>
                     <label htmlFor="customer_phone" id="customer_phone">
-                      Phone<span>*</span>
+                      Full name<span>*</span>
                     </label>
                     <br />
                     <input
                       required
                       type="text"
-                      id="customer_phone"
-                      name="customer_phone"
-                      placeholder="Your phone.."
+                      id="FullName"
+                      name="FullName"
+                      placeholder="Your name.."
+                      value={dataFrom.FullName}
+                      onChange={(e) => handleOnchange(e)}
                     />
                   </td>
                   <td>
@@ -79,39 +145,44 @@ function Payment() {
                     <input
                       required
                       type="text"
-                      id="customer_phone"
-                      name="customer_phone"
+                      id="PhoneNumber"
+                      name="PhoneNumber"
                       placeholder="Your phone.."
+                      value={dataFrom.PhoneNumber}
+                      onChange={(e) => handleOnchange(e)}
                     />
                   </td>
                 </tr>
                 <tr>
                   <td colSpan={2}>
                     <label htmlFor="customer_phone" id="customer_phone">
-                      Phone<span>*</span>
+                      Address<span>*</span>
                     </label>
                     <br />
                     <input
                       required
                       type="text"
-                      id="customer_phone"
-                      name="customer_phone"
-                      placeholder="Your phone.."
+                      id="Address"
+                      name="Address"
+                      placeholder="Your address.."
+                      value={dataFrom.Address}
+                      onChange={(e) => handleOnchange(e)}
                     />
                   </td>
                 </tr>
                 <tr>
                   <td colSpan={2}>
                     <label htmlFor="customer_phone" id="customer_phone">
-                      Phone<span>*</span>
+                      Note
                     </label>
                     <br />
                     <input
-                      required
                       type="text"
-                      id="customer_phone"
-                      name="customer_phone"
-                      placeholder="Your phone.."
+                      id="Note"
+                      name="Note"
+                      placeholder="Your note.."
+                      value={dataFrom.Note}
+                      onChange={(e) => handleOnchange(e)}
                     />
                   </td>
                 </tr>
@@ -120,27 +191,40 @@ function Payment() {
             <div className="left-pay">
               <h3>Payment Method</h3>
               <div className="checkpay">
-                <input required type="radio" name="pay" id="cash" />
+                <input
+                  required
+                  type="radio"
+                  name="Pay" onChange={e=>handleOnchangeCheckBox(e)}
+                  value="cash"
+                  id="cash"
+                />
                 <label htmlFor="cash">
                   <img
                     src="https://minio.thecoffeehouse.com/image/tchmobileapp/1000_photo_2021-04-06_11-17-08.jpg"
                     alt=""
                   />
+
+                  <span> Cash</span>
                 </label>
-                <span> Cash</span>
               </div>
               <div className="checkpay">
-                <input required type="radio" name="pay" id="momo" />
+                <input required type="radio"   id="momo" name="Pay"value="momo" onChange={e=>handleOnchangeCheckBox(e)}/>
                 <label htmlFor="momo">
                   <img
                     src="https://minio.thecoffeehouse.com/image/tchmobileapp/386_ic_momo@3x.png"
                     alt=""
                   />
+                  <span> MoMo</span>{" "}
                 </label>
-                <span> MoMo</span>
               </div>
               <div className="checkpay">
-                <input required type="radio" name="pay" id="zalopay" />
+                <input
+                  required
+                  type="radio"
+                  name="Pay" onChange={e=>handleOnchangeCheckBox(e)}
+                  id="zalopay"
+                  value="zalopay"
+                />
                 <label htmlFor="zalopay">
                   <img
                     src="https://minio.thecoffeehouse.com/image/tchmobileapp/388_ic_zalo@3x.png"
@@ -150,14 +234,14 @@ function Payment() {
                 <span> ZaloPay</span>
               </div>
               <div className="checkpay">
-                <input required type="radio" name="pay" id="shopeepay" />
+                <input required type="radio" value="shopeepay" name="Pay" onChange={e=>handleOnchangeCheckBox(e)} id="shopeepay" />
                 <label htmlFor="shopeepay">
                   <img
                     src="https://minio.thecoffeehouse.com/image/tchmobileapp/1120_1119_ShopeePay-Horizontal2_O.png"
                     alt=""
                   />
+                  <span> ShopeePay</span>{" "}
                 </label>
-                <span> ShopeePay</span>
               </div>
             </div>
             <div className="left-argee">
