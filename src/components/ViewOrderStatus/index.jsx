@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { getOrder } from '../../api/paymentApi';
 import './styles.scss';
 
 const listOrder = [
@@ -70,6 +70,32 @@ const listOrder = [
 
 ]
 function ViewOrderStatus() {
+//   const [dataFrom,setDataForm]=useState({
+//     FullName:'',
+//     Phone:'',
+//     Address:'',
+//     Username:'',
+//     Note:'',
+//     Mothod:'',
+//   });
+//   const handleOnchange=(e)=>{ setDataForm({...dataFrom,[e.target.name]:e.target.value})}
+const [listOrder,setListOrder] =useState([])
+useEffect(async () => {
+  const Order = await getOrder();
+  
+  console.log(Order)
+  //setListOrder({ ...listOrder, Photo: JSON.parse(listOrder.Photo) });
+  setListOrder(Order);
+  console.log(listOrder)
+  // window.scrollTo(0, 0);
+}, []);
+
+// useEffect(async () => {
+//   const res = await getOrder(); //day la data tra ve
+
+//   setListOrder({ ...res, Photo: JSON.parse(res.Photo) }); // cai dat du kieu vao productID
+//   console.log(listOrder);
+// }, []);
 
   return (
     <div className="ViewOrderStatus" >
@@ -79,29 +105,28 @@ function ViewOrderStatus() {
           <div className={`orderView orderView${index}`}>
             <div className="content">
               <div className="imgProduct">
-                <img src={item.img} alt="" />
+               <img src={JSON.parse(item.Photo).PhotoMain} alt="" />
               </div>
               <div className="infoProduct">
                 <div className="name">
-                  <span>{item.nameProduct}</span>
+                  <span>{item.TenSP}</span>
                 </div>
                 <div className="quantity">
-                  <span>x{item.quantity}</span>
+                  <span>x{item.SL}</span>
                 </div>
                 <div className="status">
-                  <span className={`${item.status}`}>{item.status}</span>
+                  <span className={`${item.Trangthai}`}>{item.Trangthai}</span>
                 </div>
               </div>
 
             </div>
             <div className="price">
-              <span>{item.price}</span>
+              <span>${item.GiaSP}</span>
             </div>
           </div>
         )
       })}
-      
-        
+             
     </div>
   )
 

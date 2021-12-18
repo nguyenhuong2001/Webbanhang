@@ -1,14 +1,17 @@
 import Badge from "@mui/material/Badge";
 import React, { useContext, useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { Couter } from "../../Context/counter";
 import Viewcart from "../Viewcart";
 import "./styles.scss";
 
-function Header() {
+function Header(props) {
+  const history = useHistory()
+  const { searchHandle, listAllProduct} = props;
+  const [data, setData] = useState([]);
   const [check, setCheck] = useState();
-  const [imgUser, setimgUser] = useState();
   const { countPro, checkUser, setCheckUser } = useContext(Couter);
+  const [imgUser, setimgUser] = useState();
   useEffect(() => {
     setCheck(countPro);
     if (false) {
@@ -22,6 +25,18 @@ function Header() {
     localStorage.removeItem("UseId");
     setCheckUser(false);
   };
+  const search = (e) => {
+    if(e === ''){
+      searchHandle('');
+      return setData([])
+    } 
+    if (searchHandle) searchHandle(e);
+    setData(listAllProduct);
+  };
+  const getData = (item) => {
+    localStorage.setItem('item',JSON.stringify(item))
+    history.push('/allproduct')
+  }
   return (
     <div className="Header">
       <div className="Header_top">
@@ -31,8 +46,19 @@ function Header() {
           className="Header_logo"
         />
         <div className="Header_search">
-          <input type="text" placeholder="Search" />
-          <i className="fas fa-search Search_icon"></i>
+          <div className="Header_search_icon">
+            <input
+              type="text"
+              placeholder="Search"
+              onChange={(e) => search(e.target.value)}
+            />
+            <i className="fas fa-search Search_icon"></i>
+          </div>
+          <div className="search-item">
+            {data.map((item) => {
+              return <span onClick={() =>getData(item)} key={item?.id}>{item?.TenSP}  </span>;
+            })}
+          </div>
         </div>
         <div className="Header_icon">
           <li className="Header_icon-cart">

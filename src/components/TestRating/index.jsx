@@ -1,7 +1,8 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
+import { getRating } from '../../api/paymentApi';
+import React, { useState, useEffect } from 'react';
 
 const labels = {
   0.5: 'Useless',
@@ -16,9 +17,16 @@ const labels = {
   5: 'Excellent+',
 };
 
-export default function TextRating() {
-  const value = 4.5;
-
+export default function TextRating(){
+  const value = 1;
+  const [listRating,setListRating] =useState([])
+  useEffect(async () => {
+    const Rate = await getRating();   
+    console.log(Rate[0].rt)
+    setListRating(Rate[0].rt);
+    console.log(listRating);
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Box
       sx={{
@@ -29,7 +37,7 @@ export default function TextRating() {
     >
       <Rating
         name="text-feedback"
-        value={value}
+        value = {listRating}
         readOnly
         precision={0.5}
         emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
