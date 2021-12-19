@@ -1,9 +1,10 @@
+import StarIcon from '@mui/icons-material/Star';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
-import StarIcon from '@mui/icons-material/Star';
-import { getRating } from '../../api/paymentApi';
-import React, { useState, useEffect } from 'react';
-
+import React, { useEffect, useState } from 'react';
+import { useContext } from 'react';
+import {Couter} from '../../Context/counter'
+import {getRating} from '../../api/paymentApi'
 const labels = {
   0.5: 'Useless',
   1: 'Useless+',
@@ -18,15 +19,27 @@ const labels = {
 };
 
 
-export default function TextRating(){
-  const value = 1;
+export default function TextRating({id}){
+  const value = 0;
+  
   const [listRating,setListRating] =useState([])
-  useEffect(async () => {
-    const Rate = await getRating();   
-    console.log(Rate[0].rt)
-    setListRating(Rate[0].rt);
-    console.log(listRating);
+
+      //react-hooks/exhaustive-deps
+  useEffect( () => {
+    async function Fetch(){
+
+      const Rate = await getRating(id); 
+    if(Rate){
+       console.log(Rate[0]?.rt)
+       setListRating(Rate[0]?.rt);
+    }
+     
+
+  }
+  Fetch();
+    
     window.scrollTo(0, 0);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -39,7 +52,7 @@ export default function TextRating(){
     >
       <Rating
         name="text-feedback"
-        value = {listRating}
+        value = {listRating||0}
         readOnly
         precision={0.5}
         emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}

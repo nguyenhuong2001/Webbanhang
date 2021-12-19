@@ -1,16 +1,25 @@
 import axios from "axios";
 
+export const checkRating = async (data) => {
+  console.log(data)
+  const response = await axios.post(`/order/checkRating`,data);
+    return response?.data?.success;
+};
+
 export const getUser = async () => {
   const response = await axios.get(`/user`);
-  console.log(response);
-  console.log(response?.data);
-  console.log(response?.status);
   if (response?.status === 200) {
     return response.data;
   }
   return [];
 };
-
+export const getUserId = async (id) => {
+  const response = await axios.get(`/user/${id}`);
+  if (response?.status === 200) {
+    return response.data;
+  }
+  return [];
+};
 export const getAllProduct = async () => {
   const response = await axios.get(`/product`);
   if (response?.status === 200) {
@@ -84,4 +93,17 @@ export const getBlog = async () => {
     return response.data;
   }
   return [];
+};
+export const submitRating = async (id,User,Rate) => {
+  if(User)
+  {  
+      const response = await axios.post(`/order/submitRate`,{id,User,Rate});
+  if (response?.status === 200) {
+    return response.data;
+  }
+  return [];
+  }
+  else
+  return [];
+
 };

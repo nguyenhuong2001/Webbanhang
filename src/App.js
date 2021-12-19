@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import MessengerCustomerChat from "react-messenger-customer-chat";
 import { Route, Switch } from "react-router";
 //import signupApi from "./api/signupApi";
@@ -6,6 +6,7 @@ import "./App.css";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import NotFound from "./Page/404/index";
+import AllProduct from "./Page/AllProduct/index";
 import Blog from "./Page/Blog";
 import BodyCare from "./Page/BodyCare";
 import Cart from "./Page/Cart/index";
@@ -16,28 +17,13 @@ import HairCare from "./Page/HairCare/index";
 // import "aos/dist/aos.css";
 import Home from "./Page/Home/index";
 import Makeup from "./Page/MakeUp/index";
-import SkinCare from "./Page/SkinCare/index";
-import AllProduct from "./Page/AllProduct/index";
 import OrderStatus from "./Page/OrderStatus/index";
+import SkinCare from "./Page/SkinCare/index";
 //import Detail from './components/Detail'
-
 function App() {
-  // useEffect(() => {
-  //   AOS.init();
-  //   AOS.refresh();
-  // }, []);
 
-  // useEffect(() => {
-  //   const fetchSignup = async () => {
-  //     try {
-  //       const response = await signupApi.post();
-  //       console.log(response);
-  //     } catch (error) {
-  //       console.log("Failed to fetch sign up", error);
-  //     }
-  //   };
-  //   fetchSignup();
-  // }, []);
+
+ 
 
   return (
     <div className="App">

@@ -1,78 +1,39 @@
-import React, { useEffect } from "react";
-import Header from "./../../components/Header/index";
+import React, { useEffect, useState } from "react";
+import { useContext } from "react";
+import { getAllProduct } from "../../api/ApiResult";
+import { Couter } from "../../Context/counter";
 import Anhdep from "./../../components/AnhDep/index";
-import Slider from "./../../components/Slider/index";
 import BestSeller from "./../../components/BestSeller/index";
 import Footer from "./../../components/Footer/index";
-import { useState } from "react";
-import { getAllProduct } from "../../api/ApiResult";
-// const hairCare = [
-//   {
-//     link_img:
-//       "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1566854276-71kbb2hyo3l-sl1500-1566854261.jpg?crop=0.886xw:1xh;center,top&resize=768:*",
-//     title: "Keratin Smooth Color Shampoo and Conditioner",
-//     price: 99,
-//     SpID : 'sp1',
-//     TenSP : 'Dewy  Glow  Jelly  Cream',
-//     Photo : [
-//          'https://imageshack.com/i/pobSYDAvp',
-//          'https://imageshack.com/i/pmhgVVmFj',
-//          'https://imageshack.com/i/pop7krFyj',
-//          'https://imageshack.com/i/pohj5JTpj',
+import Header from "./../../components/Header/index";
 
-//     ] ,
-//     MoTa : 'Jeju Cherry Blossom helps boost skin radiance. Infused with Betaine, a moisturizing ingredient derived from sugar beets that creates a protective layer to prevent hydration loss. Jelly texture absorbs instantly into skin without any sticky residue ',
-//     GiaSP : '$25',
-//     SL : 11 ,
-//     Brand : 'innisfree',
-//     ThanhPhan : 'Animal-Originated Ingredients. mineral oil, polyacrylamides, imidazolidinyl urea, triethanolamine, silicone oil, artificial fragrances, synthetic Colorants.'
-//   }
-// ];
-const List_Img = [
-  {
-    img: "https://images.pexels.com/photos/457701/pexels-photo-457701.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1050",
-  },
-  {
-    img: "https://images.pexels.com/photos/6393/red-woman-girl-brown.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-  },
-  {
-    img: "https://images.pexels.com/photos/247287/pexels-photo-247287.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=1040",
-  },
-];
 function AllProduct() {
   const [listAllProduct, setListAllProduct] = useState([]);
-  const [product, setProduct] = useState(() => {
-    if (localStorage.getItem("item")) {
-      const item = JSON.parse(localStorage.getItem("item"));
-      return [item];
-    }
-    return "";
-  });
+  const {dataSearch}=useContext(Couter);
   useEffect(() => {
+    const fectchData = async () => {
+      const res = await getAllProduct();
+      setListAllProduct(res);
+    };
     fectchData();
     window.scrollTo(0, 0);
     return () => {
       localStorage.clear("item");
     };
   }, []);
-  const fectchData = async () => {
-    const res = await getAllProduct();
-    setListAllProduct(res);
-  };
-  const getValue = (e) => {
-    if (e === "") return fectchData();
-    const listProduct = listAllProduct.filter((item) => {
-      return item?.TenSP.toString().toLowerCase().indexOf(e.toLowerCase()) > -1;
-    });
-    setListAllProduct(listProduct);
-  };
+  useEffect( () => {
+    
+    if(dataSearch)
+    setListAllProduct(dataSearch)
+  },[dataSearch])
+
   return (
     <div className="AllProduct">
-      <Header searchHandle={getValue} listAllProduct={listAllProduct} />
+      <Header  />
       <div className="body_Page">
         {/* <Slider List_Img={List_Img} /> */}
         <h2 className="title_pro">ALL PRODUCT</h2>
-        <BestSeller Listproduct={product || listAllProduct} />
+        <BestSeller Listproduct={listAllProduct} />
         <Anhdep />
       </div>
       <Footer />

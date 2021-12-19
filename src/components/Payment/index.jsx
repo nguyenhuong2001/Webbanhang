@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
@@ -6,6 +8,7 @@ import "./styles.scss";
 import { useSnackbar } from "notistack";
 import { paymentApi } from "../../api/paymentApi";
 import emailjs from 'emailjs-com'
+import { getUserId } from "../../api/ApiResult";
 function Payment() {
   const [Listproduct, setListproduct] = useState(
     JSON.parse(localStorage.getItem("ListProduct"))
@@ -42,7 +45,12 @@ function Payment() {
     } else {
       history.push("/");
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Listproduct, countPro]);
+  // lấy ngày hiện tại
+  const current = new Date();
+  const date = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()+3}`;
+  console.log(date);
   //Thanh toan
 
   const [dataFrom, setDataForm] = useState({
@@ -54,6 +62,7 @@ function Payment() {
     Method: "cash", 
     Listproduct:[], // lấy từ localstorage
     TongTien: "",
+    NgayNH: ""
   });
   const handleOnchange = (e) => {
     setDataForm({ ...dataFrom, [e.target.name]: e.target.value });
@@ -64,35 +73,37 @@ function Payment() {
       console.log(e.target.value)
       setDataForm({ ...dataFrom, Method: e.target.value });
     }
-    
       
   };
-
   const onsubmit = async (e) => { 
     e.preventDefault();
     if(localStorage.getItem('UserId'))
     { const UserId=localStorage.getItem('UserId');
 
-        const res = await paymentApi({...dataFrom,TongTien:Total,Username:UserId,Listproduct:Listproduct});
-        if(!res)
-        {
+        const res = await paymentApi({...dataFrom,TongTien:Total,Username:UserId,Listproduct:Listproduct, NgayNH:date});
+        if(res)
+        { const User= await getUserId(UserId)
+          console.log(User)
+          if(User){
         const emailForm={
-          customeremail:'19521594@gm.uit.edu.vn',
+          customeremail:User[0]?.Email,
           name:dataFrom.FullName
         }
-  
+           enqueueSnackbar("success", { variant: "success" });
         emailjs.send('service_qftu14q', 'template_rsx7zbg', emailForm, 'user_qKCzkgmXadcBf9juMfZM2')
         .then(res=>{
+      
           setTimeout(()=>{    
             localStorage.removeItem("ListProduct");
-        setCountPro(0);
-        history.push("/");},1300)
-        enqueueSnackbar("success", { variant: "success" });
+            setCountPro(0);
+            history.push("/");},1100)
+          
         }
         )
         .catch(err=>{
           enqueueSnackbar("faild", { variant: "error" });
         })
+         }
       }
       else{
         enqueueSnackbar("faild", { variant: "error" });
@@ -293,7 +304,7 @@ function Payment() {
                 <b> Total money</b>
                 <p>${Total}</p>
               </div>
-              <button type="submit" class="btn btn-success">
+              <button type="submit" className="btn btn-success">
                 Pay
               </button>
             </div>

@@ -4,10 +4,10 @@ import "./styles.scss";
 import GoogleLogin from "react-google-login";
 import FacebookLogin from "react-facebook-login";
 import { Couter } from "../../Context/counter";
-import {loginApi} from '../../api/loginApi'
+import {loginApi,loginGoogle} from '../../api/loginApi'
 import swal from 'sweetalert'
 function Login() {
-  const { checkUser, setCheckUser } = useContext(Couter);
+  const { setCheckUser } = useContext(Couter);
   const history = useHistory()
   const [user, setUser] = useState({
     Username: "",
@@ -21,6 +21,7 @@ function Login() {
       return swal("Here's a message!", "Some thing wrong")
     swal("Here's a message!", "Login success")
     //lưu vào localStorage userId
+    //localStorage.setItem("Email",user.Username)
     localStorage.setItem("UserId", user.Username);
     setCheckUser(localStorage.getItem("UserId") || false);
     history.push('/')
@@ -28,40 +29,45 @@ function Login() {
   
   
   //login gg
-  const [dataFrom,setDataForm]=useState({
-    Email:'',
-    Password:'',
-    FullName:'',
-    Phone:'',
-    Address:'',
-    Username:'',
-    Picture:''
-  });
-  const responseGoogle = (response) => {
+  const responseGoogle = async(response) => {
+    console.log(response)
     let dataGoogle = {
       HoTen: response?.profileObj.name,
       Email: response.profileObj.email,
       Username: response.profileObj.googleId,
       Picture: response.profileObj.imageUrl,
     };
-    setDataForm({
+    if(dataGoogle?.Username)
+    {
+       const  dataFromGG={
+      Type:"Google",
       Email:response.profileObj.email,
-      Password:'',
       FullName:response?.profileObj.name,
-      Phone:'',
-      Address:'',
-      username:response.profileObj.googleId,
-      Picture: response.profileObj.imageUrl,
-    })
+      Username:response.profileObj?.googleId,
+      Picture: response.profileObj?.imageUrl,
+        }
+     const res = await loginGoogle(dataFromGG);
+     if(res)
+     {
+       console.log("yes");
+     }
+
+       
+
+    }
+
+    
+
     localStorage.setItem("UserId", response.profileObj.googleId);
     localStorage.setItem("Fullname", response.profileObj.name)
     localStorage.setItem("Picture", response.profileObj.imageUrl)
-    setCheckUser(localStorage.getItem("UserId") || false);
+    localStorage.setItem("Email", response.profileObj.email)
+    setCheckUser(localStorage.getItem("UserId") || false); // đăng xuất
     console.log(dataGoogle);
     if (dataGoogle) history.push("");
   };
 
-  
+// facebook
   const responseFacebook = (response) => {
     
     let dataFacebook = {

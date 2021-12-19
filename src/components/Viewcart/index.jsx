@@ -6,8 +6,8 @@ function Viewcart() {
     return (
         <div className="Viewcart">
         {
-            Listproduct?.slice(0,4).map(item=>
-                <div className="Viewcart-item">
+            Listproduct?.slice(0,4).map((item,index)=>
+                <div key={index} className="Viewcart-item">
                     <div className="Viewcart-content">
                     <div className="Viewcart-img"><img src={item.Photo?.PhotoMain} alt="" /></div>
                     <div className="Viewcart-name"><p>{item?.TenSP}</p></div>

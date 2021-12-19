@@ -7,27 +7,19 @@ import TextRating from "../TestRating";
 import "./styles.scss";
 
 function Detail() {
-  const photo = {
-    PhotoMain:
-      "https://tse4.mm.bing.net/th?id=OIP.ZCAZ529iPAyXEn1BJkpWqQHaJQ&pid=Api&P=0&w=300&h=300",
-    PhotoList: [
-      {
-        photo:
-          "https://tse4.mm.bing.net/th?id=OIP.ZCAZ529iPAyXEn1BJkpWqQHaJQ&pid=Api&P=0&w=300&h=300",
-      },
-      {
-        photo:
-          "https://tse4.mm.bing.net/th?id=OIP.ZCAZ529iPAyXEn1BJkpWqQHaJQ&pid=Api&P=0&w=300&h=300",
-      },
-    ],
-  };
+
   const [productDetail, setProductDetail] = useState();
   const { setCountPro } = useContext(Couter);
   const { id } = useParams();
-  useEffect(async () => {
-    const product = await getProductId(id); //day la data tra ve
-    setProductDetail({ ...product, Photo: JSON.parse(product.Photo) }); // cai dat du kieu vao productID
-  }, []);
+      //react-hooks/exhaustive-deps
+  useEffect( () => {
+    async function Fetch(){
+      const product = await getProductId(id); //day la data tra ve
+      setProductDetail({ ...product, Photo: JSON.parse(product.Photo) }); // cai dat du kieu vao productID
+  }
+  Fetch();
+ 
+  }, [id]);
 
   const buy = () => {
     const Product = {
@@ -143,7 +135,7 @@ function Detail() {
               <h3>{productDetail?.TenSP}</h3>
             </div>
             <div className="product-evaluation">
-              <TextRating />
+              <TextRating id={id}/>
             </div>
             <div className="product-des">
               <p>{productDetail?.MoTa}</p>
@@ -215,7 +207,7 @@ function Detail() {
       </div>
 
       <div className="Evaluation">
-        <Evaluation productDetail={productDetail} />
+        <Evaluation Id={id} productDetail={productDetail} />
       </div>
     </div>
   );

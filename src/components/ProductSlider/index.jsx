@@ -1,13 +1,20 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { getLatest } from "../../api/ApiResult";
 import Product from "../Product/index";
 import "./styles.scss";
 function ProductSlider() {
   const [listLatest,setListLatest] =useState([])
-  useEffect(async () => {
-    const res = await getLatest();
-    if(res)
-    setListLatest(res.slice(0,10))
+      //react-hooks/exhaustive-deps
+  useEffect( () => {
+    async function Fetch(){
+      const res = await getLatest();
+      if(res)
+      setListLatest(res.slice(0,10))
+  }
+  Fetch();
+ 
   },[])
   const [count, SetCount] = useState(1);
   const [flag, SetFlag] = useState(true);

@@ -98,7 +98,10 @@
       display: flex;
     }
   }
-
+  & .search-text:hover{
+    color: rgb(255, 1, 1);
+  
+  }
   & .Header_top {
     display: flex;
     padding: 0px 10%;

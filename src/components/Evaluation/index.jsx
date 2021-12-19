@@ -1,18 +1,12 @@
-import React, { useContext } from 'react';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/img-redundant-alt */
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Couter } from '../../Context/counter';
-import './styles.scss';
 import HoverRating from '../Rating';
+import './styles.scss';
 
-const danhgia = [
-    {
-        MaDG : 'dg1',
-        evaluation : '5 star',
-        BinhLuan : 'chưa có bình luận',
-    }
-]
 
-function Evaluation({productDetail}) {
+function Evaluation({Id,productDetail}) {
  
     return (
         <div className="Evaluation">
@@ -62,7 +56,7 @@ function Evaluation({productDetail}) {
                         <div className = "feedback-content-button">
                     
                             <div className="button-rating">
-                                <HoverRating/>   
+                                <HoverRating Id={Id}/>   
                             </div>
                         </div>
                     </div>

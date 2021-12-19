@@ -6,28 +6,7 @@ import Anhdep from "./../../components/AnhDep/index";
 import Footer from "./../../components/Footer/index";
 import { useState } from "react";
 import { getSkin } from "../../api/ApiResult";
-const skinCare = [
-  {
-    link_img:
-      "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1566854276-71kbb2hyo3l-sl1500-1566854261.jpg?crop=0.886xw:1xh;center,top&resize=768:*",
-    title: "Keratin Smooth Color Shampoo and Conditioner",
-    price: 99,
-    SpID : 'sp1',
-    TenSP : 'Dewy  Glow  Jelly  Cream',
-    Photo : [
-         'https://imageshack.com/i/pobSYDAvp',
-         'https://imageshack.com/i/pmhgVVmFj',
-         'https://imageshack.com/i/pop7krFyj',
-         'https://imageshack.com/i/pohj5JTpj',
-        
-    ] ,
-    MoTa : 'Jeju Cherry Blossom helps boost skin radiance. Infused with Betaine, a moisturizing ingredient derived from sugar beets that creates a protective layer to prevent hydration loss. Jelly texture absorbs instantly into skin without any sticky residue ',
-    GiaSP : '$25',
-    SL : 11 ,
-    Brand : 'innisfree',
-    ThanhPhan : 'Animal-Originated Ingredients. mineral oil, polyacrylamides, imidazolidinyl urea, triethanolamine, silicone oil, artificial fragrances, synthetic Colorants.'
-  }
-];
+
 const List_Img = [
   {
     img: "https://media.allure.com/photos/60512685fdf3d7fd0e2ef100/2:1/w_3500,h_1750,c_limit/asian-owned%20skin%20care%20lede.jpg",
@@ -41,10 +20,13 @@ const List_Img = [
 ];
 function SkinCare() {
   const [listSkin,setListSkin] =useState([])
-  useEffect(async () => {
-    const res= await getSkin();
-    console.log(res)
-    setListSkin(res)
+  useEffect( () => {
+    async function Fetch(){
+      const res= await getSkin();
+      setListSkin(res)
+  }
+  Fetch();
+ 
     window.scrollTo(0, 0);
   }, []);
   return (

@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-duplicate-props */
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import { useState } from "react";
@@ -12,63 +14,16 @@ const mangImage = [
     { link_img: "Geeqrolx0bA" },
   ];
 
-const dataPost= [
-    {
-        id:'blog1' ,
-        tilte:'Top 12 Kem Dưỡng Ẩm Cho Da Dầu Mụn Tốt',
-        author:'Gem Nguyễn',
-        link: 'https://imageshack.com/i/poQO0Pjap',
-        content: 'Mặc dù đã chăm sóc da theo nhiều cách khác nhau, tuy nhiên nổi “MỤN” là một vấn đề khó tránh khỏi. Có người nổi mụn do thay đổi cơ địa đột ngột, cũng có người sinh ra đã phải sống chung với mụn...',
-        link_post: 'https://blogchamsoc.com/kem-duong-am-cho-da-dau-mun'
-    },
-    {
-        id:'blog2' ,
-        tilte:'Top 12 Kem Dưỡng Ẩm Cho Da Nhạy Cảm Tốt Nhất Việt Nam',
-        author:'Gem Nguyễn',
-        link: 'https://imageshack.com/i/podwscY3p',
-        content: 'Hiện nay trên thị trường đã có rất nhiều dòng kem dưỡng ẩm da cho da nhạy cảm nhưng mình thấy đa phần là các loại giá rất cao, công dụng lại không tốt lắm, chỉ có 1 số ít các sản phẩm thì thật sự phù hợp cho da mà thôi...',
-        link_post: 'https://blogchamsoc.com/kem-duong-am-cho-da-nhay-cam'
-    },
-    {
-        id:'blog3' ,
-        tilte:'Top 8 Serum Trắng Da Tốt Nhất Giúp Da Trắng Hồng',
-        author:'Gem Nguyễn',
-        link: 'https://imageshack.com/i/pmalINIJj',
-        content: 'Trong quy trình skincare routine thì serum là “vũ khí”  không thể thiếu để cải thiện làn da trắng sáng, hồng hào mỗi ngày. Sử dụng serum trắng da hàng ngày, sẽ giúp da trắng sáng, mịn màng, cải thiện nếp nhăn, chống lão hoá...',
-        link_post: 'https://blogchamsoc.com/serum-trang-da'
-    },
-    {
-        id:'blog4' ,
-        tilte:'Top 10 Serum Trị Mụn Tốt Nhất Cho Da Hiện Nay',
-        author:'Gem Nguyễn',
-        link: 'https://imageshack.com/i/pomakEODp',
-        content: 'Nếu bạn đang bị mụn, và loay hoay tìm kiếm các serum trị mụn tốt cho da thì dưới đây là bài viết review top 10 serum trị mụn hiệu quả mà mình đã tổng hợp lại dành cho các bạn!...',
-        link_post: 'https://blogchamsoc.com/serum-tri-mun'
-    },
-    {
-        id:'blog5' ,
-        tilte:'Top 10 Kem Trị Mụn Hiệu Quả Giúp Da Sạch Mụn',
-        author:'Gem Nguyễn',
-        link: 'https://imageshack.com/i/pnilyZJ5p',
-        content: 'Hiện nay trên thị trường có rất nhiều loại kem trị mụn với nhiều thành phần, công dụng, hoạt chất khác nhau và rất khó để tìm ra được kem trị mụn phù hợp, hiệu quả với làn da...',
-        link_post: 'https://blogchamsoc.com/kem-tri-mun-hieu-qua'
-    },
-    {
-        id:'blog6' ,
-        tilte:'Top 5 Kem Trị Mụn Bọc Tốt Cho Da',
-        author:'Gem Nguyễn',
-        link: 'https://imageshack.com/i/pnPSOcsqp',
-        content: 'Khi bị mụn bọc da bạn sẽ có cảm giác sưng nhức và rất khó chịu, nhiều bạn đã vì nôn nóng quá mức mà tìm tới các spa để trị mụn và nặn mụn bọc ra tuy nhiên điều này cực kỳ nguy hiểm...',
-        link_post: 'https://blogchamsoc.com/kem-tri-mun-boc'
-    }
-];
-
 function Blogger() { 
   const [listBlog,setListBlog] =useState([])
-  useEffect(async () => {
-    const res= await getBlog();
-    console.log(res)
-    setListBlog(res)
+      //react-hooks/exhaustive-deps
+  useEffect( () => {
+    async function Fetch(){
+      const res= await getBlog();
+      setListBlog(res)
+  }
+  Fetch();
+
     window.scrollTo(0, 0);
   }, []); 
     return (
@@ -93,7 +48,7 @@ function Blogger() {
                           <div className="overlay">
                             <i className="far fa-play-circle"></i>
                           </div>
-                          <img id ={`${mangImage.link_img}`} src= {`https://i.ytimg.com/vi/${mangImage.link_img}/hqdefault.jpg`} alt="Top 3 store" border="0"/> 
+                          <img alt='' id ={`${mangImage.link_img}`} src= {`https://i.ytimg.com/vi/${mangImage.link_img}/hqdefault.jpg`} alt="Top 3 store" border="0"/> 
                         </a>
                     </li>
                 )}
@@ -115,7 +70,7 @@ function Blogger() {
               <div className="item">
                 <div className="item__img">
                   <Link to="#" target="_self"> 
-                    <img src={`${dataPost.photo}`} border="0"/> 
+                    <img alt="" src={`${dataPost.photo}`} border="0"/> 
                   </Link>
                 </div>
                 <div className="item__description">

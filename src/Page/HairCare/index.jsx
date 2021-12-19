@@ -19,10 +19,14 @@ const List_Img = [
 ];
 function HairCare() {
   const [listHair,setListHair] =useState([])
-  useEffect(async () => {
-    const res= await getHair();
+  useEffect( () => {
+    async function Fetch(){
+      const res= await getHair();
     if(res)
     setListHair(res)
+  }
+  Fetch();
+    
     window.scrollTo(0, 0);
   }, []);
   return (

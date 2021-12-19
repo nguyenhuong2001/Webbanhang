@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { getUser } from '../../api/ApiResult'
+import React, { useEffect, useState } from 'react'
+import { getBestSeller } from "../../api/ApiResult"
 import Anhdep from '../../components/AnhDep'
 import BeautyClub from '../../components/BeautyClub'
 import BestSeller from '../../components/BestSeller'
@@ -8,8 +8,6 @@ import Header from '../../components/Header'
 import ProductSlider from '../../components/ProductSlider'
 import Slider from '../../components/Slider'
 import Viewport from '../../components/Viewport'
-import { useState } from "react";
-import { getBestSeller } from "../../api/ApiResult";
 
 
     const List_Img = [
@@ -58,10 +56,14 @@ import { getBestSeller } from "../../api/ApiResult";
 
 function Home() {
   const [listBestSeller,setListBestSeller] =useState([])
-  useEffect(async () => {
-    const res = await getBestSeller();
-    if(res)
-    setListBestSeller(res)
+  useEffect( () => {
+    async function Fetch(){
+      const res = await getBestSeller();
+      if(res)
+      setListBestSeller(res)
+  }
+  Fetch();
+ 
     window.scrollTo(0, 0);
   }, []);
     return (

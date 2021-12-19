@@ -61,7 +61,7 @@ function Slider(props) {
         <div className="sliders" style={{ width: List_Img.length * 100 + "%" }}>
           {List_Img.map((item, index) => (
             <div className={`img_slider ${index === 0 ? "active" : ""}`} key={index} id={index}>
-              <img src={item.img}/>
+              <img src={item.img} alt=""/>
               <div className={`contentSlider`}>
                 <p>{item.subtitle}</p>
                 <h3>{item.title}</h3>
