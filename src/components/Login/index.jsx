@@ -59,7 +59,6 @@ function Login() {
     
 
     localStorage.setItem("UserId", response.profileObj.googleId);
-    localStorage.setItem("Fullname", response.profileObj.name)
     localStorage.setItem("Picture", response.profileObj.imageUrl)
     localStorage.setItem("Email", response.profileObj.email)
     setCheckUser(localStorage.getItem("UserId") || false); // đăng xuất
