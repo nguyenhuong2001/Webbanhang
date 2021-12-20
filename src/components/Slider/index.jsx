@@ -52,7 +52,7 @@ function Slider(props) {
         //add class "active" to img_slider
         img_sliders[count].classList.add("active");
       }
-    }, 4000);
+    }, 7000);
     return () => clearInterval(interval);
   }, [count]);
   return (

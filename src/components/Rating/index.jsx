@@ -22,6 +22,7 @@ const labels = {
 
 export default function HoverRating({Id}) {
   const { enqueueSnackbar } = useSnackbar();
+  // eslint-disable-next-line no-unused-vars
   const [value, setValue] = React.useState(2);
   const {checkUser}= React.useContext(Couter);
  //console.log("danhgia" :value)
@@ -79,6 +80,7 @@ Fetch();
     >
       <Rating
         name="hover-feedback"
+        size="large"
         value={value}
         precision={0.5}
         onChange={(event, newValue) => {

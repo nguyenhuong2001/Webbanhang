@@ -83,6 +83,17 @@ function Detail() {
       setCountPro(JSON.parse(localStorage.getItem("ListProduct")).length);
     }
   };
+  
+ const handleImg = ()=> {
+  const bigImg = document.querySelector('.image-main img')
+  const smallImg = document.querySelectorAll('.image-sub img')
+  smallImg.forEach (function (imgItem,X){
+    console.log(imgItem.src)
+    var temp = bigImg.src
+    bigImg.src = imgItem.src
+    imgItem.src = temp
+   })
+ }
   return (
     <div className="Detail">
       <div className="product">
@@ -111,18 +122,18 @@ function Detail() {
           <span> &rarr; </span>
           <p style={{ color: "#8e8686" }}>{productDetail?.TenSP}</p>
         </div>
-
         <div className="product-content">
           <div className="product-content-left">
-            <div className="image-main">
+
+            <div className="image-main" >
               <img src={`${productDetail?.Photo?.PhotoMain}`} alt="" />
             </div>
-            <div className="image-sub">
-              &lt;
+            <div className="image-sub" >
               {productDetail?.Photo?.PhotoList?.map((item) => (
-                <img src={`${item.photo}`} alt="" />
+                 <img src={`${item.photo}`} alt="" onClick={handleImg} />
+                
               ))}
-              &gt;
+             
             </div>
           </div>
           <div className="product-content-right">

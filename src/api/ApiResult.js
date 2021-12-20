@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const checkRating = async (data) => {
-  console.log(data)
+  //console.log(data)
   const response = await axios.post(`/order/checkRating`,data);
     return response?.data?.success;
 };

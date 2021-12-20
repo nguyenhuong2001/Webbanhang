@@ -17,24 +17,25 @@
                 flex-direction: column;
                 justify-content: space-between;
                 & .image-main img {
-                   width: 50%;
+                   width: 85%;
                    display: block;
                    margin: 0 auto;
                    object-fit:cover;
-                   border-radius: 20px;
+                   border-radius: 10px;
                 }
                 & .image-sub {
                    padding:20px 0;
                     display: flex;
                     justify-content: center;
-                    img{
-                        width: 200px;
-                        height: 250px;
+                    & img{
+                        width: 130px;
+                        height: 130px;
                         object-fit: cover;
                         margin: 0px 5px;
                         border: 2px solid rgba(160, 147, 147, 0.836);
                         border-radius:10px;
                     }
+                    
                 } 
             }
             & .product-content-right{

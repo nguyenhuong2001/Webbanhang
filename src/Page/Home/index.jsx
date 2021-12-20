@@ -20,14 +20,14 @@ import Viewport from '../../components/Viewport'
         { 
           id: "2",
           img: "https://imagizer.imageshack.com/img923/9061/9ZFZH7.jpg",
-          subtitle: "subtitle 2",
-          title: "title 2"  
+          subtitle: "Free shipping on youth to the people",
+          title: "Discover new arrivals"  
         },
         { 
           id: "3",
           img: "https://imagizer.imageshack.com/img924/6814/H2oqYZ.jpg",
-          subtitle: "subtitle 3",
-          title: "title 3" 
+          subtitle: "Sale up to 50%",
+          title: "Black Friday" 
         },
         
     ];

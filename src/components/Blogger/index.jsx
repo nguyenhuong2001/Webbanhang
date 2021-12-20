@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, {useEffect} from 'react'
@@ -86,7 +87,7 @@ function Blogger() {
                     </p>
                   </div>
                   <div className="des_btn">
-                    <Link to ={`${dataPost.link_post}`} target="_blank" > Đọc tiếp </Link>  
+                    <a href ={`${dataPost.link_post}`} target="_blank" > Continue </a>  
                   </div>
                 </div>
               </div>

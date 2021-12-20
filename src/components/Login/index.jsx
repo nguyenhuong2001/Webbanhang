@@ -15,8 +15,8 @@ function Login() {
   });
   const loginUser = async () =>{
     const res =  await loginApi(user)
-    console.log(res); 
-    console.log(user)
+    //console.log(res); 
+    //console.log(user)
     if(!res)
       return swal("Here's a message!", "Some thing wrong")
     swal("Here's a message!", "Login success")
@@ -26,7 +26,6 @@ function Login() {
     setCheckUser(localStorage.getItem("UserId") || false);
     history.push('/')
   }
-  
   
   //login gg
   const responseGoogle = async(response) => {
@@ -51,12 +50,7 @@ function Login() {
      {
        console.log("yes");
      }
-
-       
-
     }
-
-    
 
     localStorage.setItem("UserId", response.profileObj.googleId);
     localStorage.setItem("Picture", response.profileObj.imageUrl)
@@ -69,13 +63,13 @@ function Login() {
 // facebook
   const responseFacebook = (response) => {
     
-    let dataFacebook = {
-      Username: response.userID,
-      HoTen: response.name,
-      Email: response.email,
-      Picture: response.picture.data,
-    };
-    console.log(dataFacebook);
+    // let dataFacebook = {
+    //   Username: response.userID,
+    //   HoTen: response.name,
+    //   Email: response.email,
+    //   Picture: response.picture.data,
+    // };
+    //console.log(dataFacebook);
   };
   return (
     <div className="Login">

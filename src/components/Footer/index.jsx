@@ -73,7 +73,7 @@ function Footer() {
                                    >
                                 </lord-icon>
                                 </span>
-                                <a Name="gmEnvy" href="#">envy@gmail.com</a>
+                                <a name="gmEnvy" href="#">envy@gmail.com</a>
                             </li>
                         </ul>
                     </div>
